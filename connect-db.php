@@ -1,15 +1,22 @@
 <?php
 
+$host = 'localhost';
+$dbname = 'ContractorConnector';
+$username = 'root';
+$password = '';
+$dsn = "mysql:host=$host;dbname=$dbname";
 
-//  $username = 'jad7qt_b';
-//  $password = 'UpsornWinter2023';
-//  $host = 'mysql01.cs.virginia.edu';
-//  $dbname = 'jad7qt_b';
-//  $dsn = "mysql:host=$host;dbname=$dbname";
+// Class Hosted Database
+/*
+ $username = 'jad7qt_b';
+ $password = 'UpsornWinter2023';
+ $host = 'mysql01.cs.virginia.edu';
+ $dbname = 'jad7qt_b';
+ $dsn = "mysql:host=$host;dbname=$dbname";
+*/
 
-
-// FOR GCP DATABASE
-
+// GCP Database
+/* 
 if(isset($_SESSION['Type'])){
     if($_SESSION['Type'] == 'Administrator'){
         $username = 'root';
@@ -22,12 +29,12 @@ if(isset($_SESSION['Type'])){
 if (!isset($username)){
     $username = 'customer';
     $password = 'UpsornWinter2023_c';
-}     
-$host = 'contractorconnecter:us-east4:contractordb';       // e.g., 'cs4750:us-east4:db-demo'; 
-$dbname = 'cc';           // e.g., 'guestbook';
+}
+$host = 'contractorconnecter:us-east4:contractordb';
+$dbname = 'cc';
 $dsn = "mysql:unix_socket=/cloudsql/$host;dbname=$dbname";
+*/
 
-//       e.g., "mysql:unix_socket=/cloudsql/cs4750:us-east4:db-demo;dbname=guestbook";
 
 // FOR LOCAL XAMPP w GCP Database
 // if(isset($_SESSION['Type'])){
@@ -43,8 +50,8 @@ $dsn = "mysql:unix_socket=/cloudsql/$host;dbname=$dbname";
 //     $username = 'customer';
 //     $password = 'UpsornWinter2023_c';
 // }
-// $host = 'contractorconnecter:us-east4:contractordb';       // e.g., 'cs4750:us-east4:db-demo'; 
-// $dbname = 'cc';;           // e.g., 'guestbook';
+// $host = 'contractorconnecter:us-east4:contractordb';
+// $dbname = 'cc';
 // $dsn = "mysql:host=34.85.250.218;dbname=$dbname";   // connect PHP (XAMPP) to DB (GCP)
 
 // To connect from a local PHP to GCP SQL instance, need to add authormized network
@@ -55,7 +62,6 @@ $dsn = "mysql:unix_socket=/cloudsql/$host;dbname=$dbname";
 
 try
 {
-    // $db = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $db = new PDO($dsn, $username, $password);
 }
 catch(PDOException $e)
