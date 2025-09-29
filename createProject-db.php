@@ -12,20 +12,20 @@ function selectAllTechs()
     return $techs;
 }
 
-function newProject($custid, $techid, $jobtype, $description, $startdate, $enddate)
+function newProject($cust_id, $tech_id, $jobtype, $description, $startdate, $enddate)
 {
     global $db;
-    if($techid == "no"){ // NO TECH SELECTED 
+    if($tech_id == "no"){ // NO TECH SELECTED 
         $query2 = "INSERT INTO Project(CustomerID, JobType, Description, StartDate, EndDate, Completed)
-        VALUES(:custid, :jobtype, :description, :startdate, :enddate, 0)";
+        VALUES(:cust_id, :jobtype, :description, :startdate, :enddate, 0)";
     }else{
     $query2 = "INSERT INTO Project(CustomerID, TechnicianID, JobType, Description, StartDate, EndDate, Completed)
-     VALUES(:custid, :techid, :jobtype, :description, :startdate, :enddate, 0)";
+     VALUES(:cust_id, :tech_id, :jobtype, :description, :startdate, :enddate, 0)";
     }
     $statement2 = $db->prepare($query2);
-    $statement2->bindValue(':custid', $custid);
-    if($techid != "no"){
-        $statement2->bindValue(':techid', $techid);
+    $statement2->bindValue(':cust_id', $cust_id);
+    if($tech_id != "no"){
+        $statement2->bindValue(':tech_id', $tech_id);
     }
     $statement2->bindValue(':jobtype', $jobtype);
     $statement2->bindValue(':description', $description);
@@ -34,15 +34,15 @@ function newProject($custid, $techid, $jobtype, $description, $startdate, $endda
     $statement2->execute();
     $statement2->closeCursor();
 
-    if($techid == "no"){ // NO TECH SELECTED 
-        $query4 = "SELECT * FROM Project WHERE CustomerID = :custid AND JobType = :jobtype AND Description = :description";
+    if($tech_id == "no"){ // NO TECH SELECTED 
+        $query4 = "SELECT * FROM Project WHERE CustomerID = :cust_id AND JobType = :jobtype AND Description = :description";
     }else{
-        $query4 = "SELECT * FROM Project WHERE CustomerID = :custid AND TechnicianID = :techid AND JobType = :jobtype AND Description = :description";
+        $query4 = "SELECT * FROM Project WHERE CustomerID = :cust_id AND TechnicianID = :tech_id AND JobType = :jobtype AND Description = :description";
     }
     $statement4 = $db->prepare($query4);
-    $statement4->bindValue(':custid', $custid);
-    if($techid != "no"){
-        $statement4->bindValue(':techid', $techid);
+    $statement4->bindValue(':cust_id', $cust_id);
+    if($tech_id != "no"){
+        $statement4->bindValue(':tech_id', $tech_id);
     }
     $statement4->bindValue(':jobtype', $jobtype);
     $statement4->bindValue(':description', $description);
