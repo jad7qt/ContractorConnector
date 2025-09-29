@@ -1,17 +1,19 @@
 <?php
 function addUser($username, $password, $type, $fname, $lname)
 {
+    # Generate Hashed password
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
     global $db;
     $query = "INSERT INTO User(Username, Password, Type, FirstName, LastName) VALUES(:username, :password, :type, :fname, :lname)";
     $statement = $db->prepare($query);
     $statement->bindValue(':username', $username);
-    $statement->bindValue(':password', $password);
+    $statement->bindValue(':password', $hashedPassword);
     $statement->bindValue(':type', $type);
     $statement->bindValue(':fname', $fname);
     $statement->bindValue(':lname', $lname);
     $statement->execute();
     $statement->closeCursor();
-
 }
 
 function usernameTaken($username)

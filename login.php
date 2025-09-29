@@ -6,12 +6,12 @@ require("connect-db.php");
     if (isset($_POST['uname']) && isset($_POST['password']) && !empty($_POST['actionBtn']) && ($_POST['actionBtn'] == "Login") ) {
 
         function validate($data){
-
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
         }
+
         $uname = validate($_POST['uname']);
         $pass = validate($_POST['password']);
 
@@ -30,22 +30,21 @@ require("connect-db.php");
         }else{
 
             global $db;
-            $query1 = "SELECT * FROM User WHERE Username=:username AND Password=:pass";
+            $query1 = "SELECT * FROM User WHERE Username=:username";
             $statement = $db->prepare($query1);
             $statement->bindValue(':username', $uname);
-            $statement->bindValue(':pass', $pass);
             $statement->execute();
-            $result = $statement->fetchAll();
+            $result = $statement->fetch();
             $statement->closeCursor();
 
-            if ($result[0]['Username'] === $uname && $result[0]['Password'] === $pass) {
+            if ($result && password_verify($pass, $result['Password'])) {
 
                 echo "Logged in!";
-                $_SESSION['Username'] = $result[0]['Username'];
-                $_SESSION['FirstName'] = $result[0]['FirstName'];
-                $_SESSION['LastName'] = $result[0]['LastName'];
-                $_SESSION['UserID'] = $result[0]['UserID'];
-                $_SESSION['Type'] = $result[0]['Type'];
+                $_SESSION['Username'] = $result['Username'];
+                $_SESSION['FirstName'] = $result['FirstName'];
+                $_SESSION['LastName'] = $result['LastName'];
+                $_SESSION['UserID'] = $result['UserID'];
+                $_SESSION['Type'] = $result['Type'];
 
                 header("Location: homepage.php");
 
