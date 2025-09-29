@@ -15,50 +15,35 @@ function selectAllTechs()
 function newProject($cust_id, $tech_id, $jobtype, $description, $startdate, $enddate)
 {
     global $db;
-    if($tech_id == "no"){ // NO TECH SELECTED 
-        $query2 = "INSERT INTO Project(CustomerID, JobType, Description, StartDate, EndDate, Completed)
+    if($tech_id == "NONE"){ // NO TECH SELECTED 
+        $query1 = "INSERT INTO Project(CustomerID, JobType, Description, StartDate, EndDate, Completed)
         VALUES(:cust_id, :jobtype, :description, :startdate, :enddate, 0)";
     }else{
-    $query2 = "INSERT INTO Project(CustomerID, TechnicianID, JobType, Description, StartDate, EndDate, Completed)
-     VALUES(:cust_id, :tech_id, :jobtype, :description, :startdate, :enddate, 0)";
+        $query1 = "INSERT INTO Project(CustomerID, TechnicianID, JobType, Description, StartDate, EndDate, Completed)
+        VALUES(:cust_id, :tech_id, :jobtype, :description, :startdate, :enddate, 0)";
     }
+    $statement1 = $db->prepare($query1);
+    $statement1->bindValue(':cust_id', $cust_id);
+    if($tech_id != "NONE"){
+        $statement1->bindValue(':tech_id', $tech_id);
+    }
+    $statement1->bindValue(':jobtype', $jobtype);
+    $statement1->bindValue(':description', $description);
+    $statement1->bindValue(':startdate', $startdate);
+    $statement1->bindValue(':enddate', $enddate);
+    $statement1->execute();
+    $proj_id = $db->lastInsertId(); // Get project ID of newly created project
+    $statement1->closeCursor();
+
+
+    $query2 = "INSERT INTO Invoice(ProjectID) VALUES(:proj_id)";
     $statement2 = $db->prepare($query2);
-    $statement2->bindValue(':cust_id', $cust_id);
-    if($tech_id != "no"){
-        $statement2->bindValue(':tech_id', $tech_id);
-    }
-    $statement2->bindValue(':jobtype', $jobtype);
-    $statement2->bindValue(':description', $description);
-    $statement2->bindValue(':startdate', $startdate);
-    $statement2->bindValue(':enddate', $enddate);
+    $statement2->bindValue(':proj_id', $proj_id);
     $statement2->execute();
     $statement2->closeCursor();
 
-    if($tech_id == "no"){ // NO TECH SELECTED 
-        $query4 = "SELECT * FROM Project WHERE CustomerID = :cust_id AND JobType = :jobtype AND Description = :description";
-    }else{
-        $query4 = "SELECT * FROM Project WHERE CustomerID = :cust_id AND TechnicianID = :tech_id AND JobType = :jobtype AND Description = :description";
-    }
-    $statement4 = $db->prepare($query4);
-    $statement4->bindValue(':cust_id', $cust_id);
-    if($tech_id != "no"){
-        $statement4->bindValue(':tech_id', $tech_id);
-    }
-    $statement4->bindValue(':jobtype', $jobtype);
-    $statement4->bindValue(':description', $description);
-    $statement4->execute();
-    $projectResult = $statement4->fetchALL();
-    $statement4->closeCursor();
-    $projid = $projectResult[0]['ProjectID'];
-
-    $query3 = "INSERT INTO Invoice(ProjectID) VALUES(:projid)";
-    $statement3 = $db->prepare($query3);
-    $statement3->bindValue(':projid', $projid);
-    $statement3->execute();
-    $statement3->closeCursor();
-
     // ADD DOWN PAYMENT OF 20
-    addPaymentAdmin($projid, "credit", 20);
+    addPaymentAdmin($proj_id, "credit", 20);
 }
 
 function postComment($projid, $userid, $comment)
