@@ -11,7 +11,7 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {
   $prevProjects = array();
   $unassigned = array();
   $userID = $_SESSION['UserID'];
-  $amountOwed = 0;
+  $amount_owed = 0;
 
   if ($_SESSION['Type'] == 'Administrator') {
     $projects = getAdminProjs();
@@ -29,8 +29,7 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {
     $projects = getCustProjs($userID, 0);
     $prevProjects = getCustProjs($userID, 1);
     $table2 = $prevProjects;
-    $amountOwed = getAmountOwed($userID);
-    $amountOwed = $amountOwed['Total_Remaining_Payment'];
+    $amount_owed = getAmountOwed($userID);
   }
   ?>
 
@@ -74,7 +73,7 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {
     <div class="results-container">
   <h3>Total Outstanding Balance</h3>
   <div class="amount-owed">
-    <?php echo '$' . (empty($amountOwed) ? "0" : $amountOwed); ?>
+    <?php echo '$' . number_format((float) $amount_owed, 2); ?>
   </div>
 </div>
 <?php endif; ?>

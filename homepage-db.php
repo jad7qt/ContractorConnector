@@ -107,9 +107,13 @@ function getAmountOwed($userID){
     $statement1 = $db->prepare($query1);
     $statement1->bindValue(':custID', $userID);
     $statement1->execute();    
-    $Projects = $statement1->fetch();
+    $owed_data = $statement1->fetch();
     $statement1->closeCursor();
-    return $Projects;
+
+    $amount_owed = ($owed_data && isset($owed_data['Total_Remaining_Payment']))
+      ? $owed_data['Total_Remaining_Payment']
+      : 0;
+    return $amount_owed;
 }
 
 ?>
