@@ -78,7 +78,7 @@ elseif ($_SESSION['Type'] == 'Customer') {
                         foreach ($Projects as $item): ?>
                             <tr>
                             <td>
-  <?php echo '<a id="detailsRed" href="projectDetails.php?id='.$item['ProjectID'].'"><img src="images/info.png" alt="Info" style="max-width: 30px; max-height: 30px;"></a>'; ?>
+  <?php echo '<a id="detailsRed" href="projectDetails.php?id='.$item['ProjectID'].'"><img src="public/images/info.png" alt="Info" style="max-width: 30px; max-height: 30px;"></a>'; ?>
 </td>
                                 <?php if($_SESSION['Type'] != 'Customer'): ?>
                                     <td><?php echo $item['Customer_Name']; ?></td>
@@ -94,9 +94,9 @@ elseif ($_SESSION['Type'] == 'Customer') {
                                 <td>
                                     <?php 
                                         if ($item['Completed'] == "1") {
-                                            echo '<img src="images/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
+                                            echo '<img src="public/images/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
                                         } else {
-                                            echo '<img src="images/ongoing.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
+                                            echo '<img src="public/images/ongoing.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
                                         }
                                     ?>
                                 </td>

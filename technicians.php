@@ -36,7 +36,7 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {
 	  <div>
       <input type="text" id="occupation-type" name="occupation-type" placeholder="Enter Name">
       <button type="submit">
-  <img src="images/search.png" alt="Search" style="max-width: 20px; max-height: 20px; filter: invert(1);">
+  <img src="public/images/search.png" alt="Search" style="max-width: 20px; max-height: 20px; filter: invert(1);">
 </button>
 
 <!--     ADD Technician if they arent in the system    --><?php if($_SESSION['Type'] == 'Administrator'){ ?>
@@ -71,7 +71,7 @@ Add Technician</button>
 							<td><?php echo $item['OccupationType']; ?></td>
 							<td>
   <?php if ($item['Rating']): ?>
-    <img src="images/star.png" alt="Star" style="width: 20px; height: 20px;">
+    <img src="public/images/star.png" alt="Star" style="width: 20px; height: 20px;">
     <?php echo $item['Rating']; ?>
   <?php endif; ?>
 </td>					<?php endforeach; ?>

@@ -76,7 +76,7 @@ if (!isset($_SESSION['Username'])){
 <header style="position: fixed; left: 0; top: 0; width: 100%;">
   <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
     <div style="display: flex; align-items: center;">
-      <img src="images/logo_blank.png" alt="ContractorConnections Logo" style="max-width: 50px; max-height: 50px; margin-right: 10px;">
+      <img src="public/images/logo_blank.png" alt="ContractorConnections Logo" style="max-width: 50px; max-height: 50px; margin-right: 10px;">
       <h1 style="margin: 0;">ContractorConnector</h1>
     </div>
     <nav>
@@ -104,11 +104,11 @@ if (!isset($_SESSION['Username'])){
             <label>Password</label>
             <input type="password" name="password" placeholder="Password"><br>
             <button class="btnlogin" type="submit" name="actionBtn" value="Login">
-  Login <img src="images/login.png" alt="Login" style="max-width: 20px; max-height: 20px; filter: invert(1); display: inline-block; vertical-align: middle;">
+  Login <img src="public/images/login.png" alt="Login" style="max-width: 20px; max-height: 20px; filter: invert(1); display: inline-block; vertical-align: middle;">
 </button>
 
             <button id="signUpBtn" type="button" onclick="window.location.href='addCustomer.php';" name="actionBtn" value="SignUp">
-  SignUp <img src="images/signup.png" alt="SignUp" style="max-width: 20px; max-height: 20px; filter: invert(1); display: inline-block; vertical-align: middle;">
+  SignUp <img src="public/images/signup.png" alt="SignUp" style="max-width: 20px; max-height: 20px; filter: invert(1); display: inline-block; vertical-align: middle;">
 </button>
 
 

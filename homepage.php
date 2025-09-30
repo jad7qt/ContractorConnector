@@ -63,7 +63,7 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {
       <div>
       <input type="text" id="occupation-type" name="occupation-type" placeholder="Enter Occupation">
       <button type="submit">
-  <img src="images/search.png" alt="Search" style="max-width: 20px; max-height: 20px; filter: invert(1);">
+  <img src="public/images/search.png" alt="Search" style="max-width: 20px; max-height: 20px; filter: invert(1);">
 </button>
       </div>
     </form>
@@ -115,7 +115,7 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {
                         foreach ($projects as $item): ?>
                             <tr>
                             <td>
-  <?php echo '<a href="projectDetails.php?id='.$item['ProjectID'].'"><img id="infoImg" src="images/info.png" alt="Project Info" style="max-width: 30px; max-height: 30px;"></a>'; ?>
+  <?php echo '<a href="projectDetails.php?id='.$item['ProjectID'].'"><img id="infoImg" src="public/images/info.png" alt="Project Info" style="max-width: 30px; max-height: 30px;"></a>'; ?>
 </td>
                                 <?php if($_SESSION['Type'] != 'Customer'): ?>
                                     <td><?php echo $item['Customer_Name']; ?></td>
@@ -131,9 +131,9 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {
                                 <td>
                                     <?php 
                                         if ($item['Completed'] == "1") {
-                                            echo '<img src="images/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
+                                            echo '<img src="public/images/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
                                         } else {
-                                            echo '<img src="images/ongoing.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
+                                            echo '<img src="public/images/ongoing.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
                                         }
                                     ?>
                                 </td>
@@ -184,7 +184,7 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {
                         foreach ($table2 as $item): ?>
                             <tr>
                             <td> 
-    <?php echo '<a id="infoBtn" href="projectDetails.php?id='.$item['ProjectID'].'"><img src="images/info.png" alt="info" style="max-width: 30px; max-height: 30px;"></a>'; ?> 
+    <?php echo '<a id="infoBtn" href="projectDetails.php?id='.$item['ProjectID'].'"><img src="public/images/info.png" alt="info" style="max-width: 30px; max-height: 30px;"></a>'; ?> 
 </td>
                                 <?php if($_SESSION['Type'] != 'Customer'): ?>
                                     <td><?php echo $item['Customer_Name']; ?></td>
@@ -198,15 +198,15 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {
                                     <td><?php echo $item['Technician_Name']; ?></td>
                                 <?php elseif($_SESSION['Type'] == 'Administrator'): ?>
                                     <td class="text-center">
-  <?php echo '<a id="red" href="assignTech.php?id='.$item['ProjectID'].'"><img src="images/signup.png" alt="Assign Technician" width=40" height="40"></a>'; ?>
+  <?php echo '<a id="red" href="assignTech.php?id='.$item['ProjectID'].'"><img src="public/images/signup.png" alt="Assign Technician" width=40" height="40"></a>'; ?>
 </td>
                                 <?php endif; ?>
                                 <td>
                                     <?php 
                                         if ($item['Completed'] == "1") {
-                                            echo '<img src="images/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
+                                            echo '<img src="public/images/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
                                         } else {
-                                            echo '<img src="images/ongoing.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
+                                            echo '<img src="public/images/ongoing.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
                                         }
                                     ?>
                                 </td>
