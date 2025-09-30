@@ -19,7 +19,7 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {
 <html>
 <head>
 	<title>Search Results</title>
-	<link rel="stylesheet" type="text/css" href="css/technicians.css">
+	<link rel="stylesheet" type="text/css" href="public/css/technicians.css">
 </head>
 <body>
 

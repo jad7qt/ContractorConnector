@@ -1,5 +1,5 @@
 <!--HAMBURGER BELOW -->
-<link rel="stylesheet" href="css/hamburgerBoot.css">
+<link rel="stylesheet" href="public/css/hamburgerBoot.css">
 	<nav role="navigation">
 	  <div id="menuToggle">
 	    <!--

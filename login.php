@@ -70,7 +70,7 @@ if (!isset($_SESSION['Username'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOGIN</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
-    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" type="text/css" href="public/css/login.css">
 </head>
 <body>
 <header style="position: fixed; left: 0; top: 0; width: 100%;">

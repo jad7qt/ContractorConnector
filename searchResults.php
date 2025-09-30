@@ -21,7 +21,7 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {
 <html>
 <head>
 	<title>Search Results</title>
-	<link rel="stylesheet" type="text/css" href="css/searchResults.css">
+	<link rel="stylesheet" type="text/css" href="public/css/searchResults.css">
 </head>
 <body>
 

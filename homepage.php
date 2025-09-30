@@ -39,7 +39,7 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ContractorConnector</title>
-  <link rel="stylesheet" href="css/homepage.css">
+  <link rel="stylesheet" href="public/css/homepage.css">
 </head>
 
 
@@ -47,7 +47,7 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {
 <html>
 <head>
 	<title>Projects</title>
-	<link rel="stylesheet" type="text/css" href="css/projects.css">
+	<link rel="stylesheet" type="text/css" href="public/css/projects.css">
 </head>
 
 <!--HEADER-->
