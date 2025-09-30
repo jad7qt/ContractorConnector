@@ -106,7 +106,7 @@ function getComments($pageID){
 
 function getPayments($pageID){
     global $db;
-    $query1 = "SELECT FORMAT(Payment.Amount, 'C') as Amount, Payment.Date, Payment.Type
+    $query1 = "SELECT FORMAT(Payment.Amount, 'C') as Amount, Payment.PaymentDate, Payment.Type
     FROM Payment
     WHERE Payment.ProjectID = :pageID";
 
