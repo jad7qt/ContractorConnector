@@ -118,10 +118,10 @@ function getPayments($pageID){
     return $Projects; 
 }
 
-function getInvoice($pageID){
+function getInvoice($page_id){
     global $db;
-    $query1 = "SELECT FORMAT(Invoice.TotalPrice, 'C') as TotalPrice, FORMAT(TP.Total_Payment, 'C') as Total_Payment,
-    FORMAT((Invoice.TotalPrice - TP.Total_Payment), 'C') as Remaining_Payment
+    $query1 = "SELECT CONCAT('$',Invoice.TotalPrice) as TotalPrice, CONCAT('$',TP.Total_Payment) as Total_Payment,
+    CONCAT('$',(Invoice.TotalPrice - TP.Total_Payment)) as Remaining_Payment
     FROM Invoice
     INNER JOIN 
         (SELECT Payment.ProjectID, SUM(Payment.Amount) as Total_Payment
@@ -129,18 +129,14 @@ function getInvoice($pageID){
         GROUP BY Payment.ProjectID
         ORDER BY ProjectID) as TP
     ON Invoice.ProjectID = TP.ProjectID
-    INNER JOIN Project
-    ON Project.ProjectID = Invoice.ProjectID
-    INNER JOIN User
-    ON Project.CustomerID = User.UserID
-    WHERE Project.ProjectID = :pageID";
+    WHERE Invoice.ProjectID = :page_id";
 
     $statement1 = $db->prepare($query1);
-    $statement1->bindValue(':pageID', $pageID);
-    $statement1->execute();    
-    $Projects = $statement1->fetch();
+    $statement1->bindValue(':page_id', $page_id);
+    $statement1->execute();
+    $payment_details = $statement1->fetch();
     $statement1->closeCursor();
-    return $Projects; 
+    return $payment_details ?: ['TotalPrice' => '$0.00', 'Total_Payment' => '$0.00', 'Remaining_Payment' => '$0.00'];
 }
 
 ?>
