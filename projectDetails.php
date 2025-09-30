@@ -8,7 +8,27 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {
     require("projects-db.php");
     require("createProject-db.php");
 
-    $pageID = $_GET['id'];
+    if ( $_SERVER['REQUEST_METHOD'] == 'POST' ){
+        if(!empty($_POST['actionBtn']) && ($_POST['actionBtn'] == "postComment")){
+            postComment($_POST['projid'], $_SESSION['UserID'], $_POST['comment']);
+            $id=$_POST['projid'];
+            header("Location: projectDetails.php?id=$id");
+            exit();
+        }elseif(!empty($_POST['actionBtn']) && ($_POST['actionBtn'] == "deleteComment")){
+            deleteComment($_POST['commentid']);
+            $id=$_POST['projid'];
+            header("Location: projectDetails.php?id=$id");
+            exit();
+        }
+
+    }
+
+    $pageID = isset($_GET['id']) ? intval($_GET['id']) : null;
+    if (!$pageID) {
+        // redirect or show error
+        header("Location: homepage.php");
+        exit();
+    }
     $project = getProject($pageID);
 
     $comments = array();
@@ -16,21 +36,6 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {
     $comments = getComments($pageID);
     $invoice = getInvoice($pageID);
     $payments = getPayments($pageID);
-
-    if ( $_SERVER['REQUEST_METHOD'] == 'POST' ){
-        if(!empty($_POST['actionBtn']) && ($_POST['actionBtn'] == "postComment")){
-            postComment($_POST['projid'], $_SESSION['UserID'], $_POST['comment']);
-            $id=$_POST['projid'];
-            header("Location: projectDetails.php?id=$id");
-            quit();
-        }elseif(!empty($_POST['actionBtn']) && ($_POST['actionBtn'] == "deleteComment")){
-            deleteComment($_POST['userid'], $_POST['datetime']);
-            $id=$_POST['projid'];
-            header("Location: projectDetails.php?id=$id");
-            quit();
-        }
-
-    }
 
 }
 
@@ -139,13 +144,12 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {
                         <?php if($item['UserID'] == $_SESSION['UserID'] || $_SESSION['Type'] == "Administrator"){ ?>
                             <form name="commentDeleteForm" action="projectDetails.php" method="post">
                                 <button style="float: right;" id="delBtn" type="submit" class="btn btn-danger" name="actionBtn" value="deleteComment">X</button>
-                                <input type="hidden" name="userid" value="<?php echo $item['UserID']; ?>" />
-                                <input type="hidden" name="datetime" value="<?php echo $item['DateTime']; ?>" />
+                                <input type="hidden" name="commentid" value="<?php echo $item['CommentID']; ?>" />
                                 <input type="hidden" name="projid" value="<?php echo $item['ProjectID']; ?>" />
                             </form>
                         <?php } ?>
                         </td>
-                        <td><?php echo $item['DateTime']; ?></td>
+                        <td><?php echo $item['CommentTime']; ?></td>
                     </tr>
 
 

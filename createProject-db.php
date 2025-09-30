@@ -50,7 +50,7 @@ function postComment($projid, $userid, $comment)
 {
     global $db;
     $currenttime = date('Y-m-d H:i');
-    $query2 = "INSERT INTO Comment(UserID, DateTime, ProjectID, Text)
+    $query2 = "INSERT INTO Comment(UserID, CommentTime, ProjectID, Text)
     VALUES(:userid, :currenttime, :projid, :text)";
     $statement2 = $db->prepare($query2);
     $statement2->bindValue(':userid', $userid);
@@ -61,15 +61,13 @@ function postComment($projid, $userid, $comment)
     $statement2->closeCursor();
 }
 
-function deleteComment($userid, $datetime)
-{
+function deleteComment($commentid) {
     global $db;
-    $query2 = "DELETE FROM Comment WHERE UserID=:userid AND DateTime=:datetime";
-    $statement2 = $db->prepare($query2);
-    $statement2->bindValue(':userid', $userid);
-    $statement2->bindValue(':datetime', $datetime);
-    $statement2->execute();
-    $statement2->closeCursor();
+    $query = "DELETE FROM Comment WHERE CommentID=:commentid";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':commentid', $commentid);
+    $statement->execute();
+    $statement->closeCursor();
 }
 
 ?>
