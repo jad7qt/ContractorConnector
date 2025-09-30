@@ -76,7 +76,7 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {
                 <td>                                    
                     <?php 
                         if ($project['Completed'] == "1") {
-                            echo '<img src="public/images/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
+                            echo '<img src="public/images/icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
                         } else {
                             echo "Ongoing"; } ?>
                 </td>

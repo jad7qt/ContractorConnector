@@ -180,7 +180,7 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {
         <?php foreach ($AVGRating as $item): ?>
           <tr>
             <td>
-              <img src="public/images/star.png" alt="Star" style="width: 30px; height: 30px; vertical-align: middle;">
+              <img src="public/images/icons/star.png" alt="Star" style="width: 30px; height: 30px; vertical-align: middle;">
               <span style="color: #f7941e; font-size: 24px; vertical-align: middle;"><?php echo $item['AVGRating']; ?></span>
             </td>
           </tr>

@@ -47,7 +47,7 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) && $_SESSION['Typ
 <body>
 <div class="container">
 <div class="header">
-    <img src="public/images/logo_blank.png" alt="Logo" class="logo">
+    <img src="public/images/logos/logo_blank.png" alt="Logo" class="logo">
     <h1 class="site-title">Create Technician</h1>
 </div>
 <?php if (isset($_GET['error'])) { ?>

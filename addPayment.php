@@ -40,7 +40,7 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) && ($_SESSION['Ty
 <body>
 <div class="container">
 <div class="header">
-    <img src="public/images/logo_blank.png" alt="Logo" class="logo">
+    <img src="public/images/logos/logo_blank.png" alt="Logo" class="logo">
     <h1 id="addPay" class="site-title">Add Payment</h1>
 </div>
 <form name="mainForm" action="addPayment.php" method="post">
