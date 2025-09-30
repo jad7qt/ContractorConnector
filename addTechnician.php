@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SESSION['Type'] == 'Administrator'
             exit();
         }else{
         addUser($_POST['username'], $_POST['password'], $_POST['type'], $_POST['fname'], $_POST['lname']);
-        addTechnician($_POST['username'], $_POST['occupation_type']);
+        addTechnician($_POST['username'], $_POST['occupation-type']);
         header("Location: homepage.php");
         }
     }
@@ -76,7 +76,7 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) && $_SESSION['Typ
         </div>
         <div class="row mb-3 mx-3">
             Occupation:
-            <input type="text" class="form-control" name="occupation_type" maxlength=18 required/>
+            <input type="text" class="form-control" name="occupation-type" maxlength=18 required/>
         </div>
         <input type="hidden" name="type" value="Technician" />
         <div id="button-layout"> 
