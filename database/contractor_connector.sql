@@ -91,4 +91,28 @@ CREATE TABLE PhoneNumber (
 );
 
 -- Sample Project Data
-INSERT INTO User 
+
+INSERT INTO User (Username, Password, Type, FirstName, LastName) VALUES
+('admin_test', '$2y$10$kFcGWMVm91r5PoW8fVLn4elo0IpzrWkn3yDpzpIZyaq18Z/E.AuCy', 'Administrator', 'Alice', 'Admin'),
+('tech_test', '$2y$10$kFcGWMVm91r5PoW8fVLn4elo0IpzrWkn3yDpzpIZyaq18Z/E.AuCy', 'Technician', 'Bob', 'Builder'),
+('cust_test', '$2y$10$kFcGWMVm91r5PoW8fVLn4elo0IpzrWkn3yDpzpIZyaq18Z/E.AuCy', 'Customer', 'Carol', 'Client');
+
+INSERT INTO Administrator (UserID, Street, City, State, Zip)
+SELECT UserID, '10th Admin Rd.', 'Charlottesville', 'VA', '22901'
+FROM User
+WHERE Username = 'admin_test';
+
+INSERT INTO Technician (UserID, OccupationType)
+SELECT UserID, 'Electrician'
+FROM User
+WHERE Username = 'tech_test';
+
+INSERT INTO Customer (UserID, Street, City, State, Zip)
+SELECT UserID, '104 Customer St.', 'Harrisonburg', 'VA', '22801'
+FROM User
+WHERE Username = 'cust_test';
+
+INSERT INTO PhoneNumber (UserID, Type, Number)
+SELECT UserID, 'Mobile', '800-588-2300'
+FROM User
+WHERE Username = 'tech_test';
