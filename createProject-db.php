@@ -49,7 +49,8 @@ function newProject($cust_id, $tech_id, $jobtype, $description, $startdate, $end
 function postComment($projid, $userid, $comment)
 {
     global $db;
-    $currenttime = date('Y-m-d H:i');
+    $dt = new DateTime('now', new DateTimeZone('UTC'));
+    $currenttime = $dt->format('Y-m-d H:i');
     $query2 = "INSERT INTO Comment(UserID, CommentTime, ProjectID, Text)
     VALUES(:userid, :currenttime, :projid, :text)";
     $statement2 = $db->prepare($query2);
