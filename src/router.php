@@ -34,7 +34,7 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
         require 'createProject.php';
         break;
     case '/homepage.php':   
-        require 'homepage.php';
+        require 'pages/homepage.php';
         break;
     case '/logout.php':
         require 'logout.php';
