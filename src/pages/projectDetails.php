@@ -4,7 +4,7 @@ session_start();
 
 if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {
     // Connect to database
-    require("connect-db.php");
+    require_once("/ContractorConnector/src/config/connect-db.php");
     require("projects-db.php");
     require("createProject-db.php");
 

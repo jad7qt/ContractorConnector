@@ -1,7 +1,7 @@
 <?php 
 ob_start();
 session_start();
-require("connect-db.php");
+require_once("/ContractorConnector/src/config/connect-db.php");
 require("rating-db.php");
 
 if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {

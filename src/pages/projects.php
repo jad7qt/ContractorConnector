@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {
-    require("connect-db.php");
+    require_once("/ContractorConnector/src/config/connect-db.php");
     require("customer-db.php");
     require("projects-db.php");
 

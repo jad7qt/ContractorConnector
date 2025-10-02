@@ -1,64 +1,60 @@
 <?php 
-ob_start();
-session_start();
-require("connect-db.php");
+if (isset($_POST['uname']) && isset($_POST['password']) && !empty($_POST['actionBtn']) && ($_POST['actionBtn'] == "Login") ) {
 
-    if (isset($_POST['uname']) && isset($_POST['password']) && !empty($_POST['actionBtn']) && ($_POST['actionBtn'] == "Login") ) {
+    function validate($data){
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
 
-        function validate($data){
-            $data = trim($data);
-            $data = stripslashes($data);
-            $data = htmlspecialchars($data);
-            return $data;
-        }
+    $uname = validate($_POST['uname']);
+    $pass = validate($_POST['password']);
 
-        $uname = validate($_POST['uname']);
-        $pass = validate($_POST['password']);
+    if (empty($uname)) {
 
-        if (empty($uname)) {
+        header("Location: login.php?error=User Name is required");
 
-            header("Location: login.php?error=User Name is required");
+        exit();
 
-            exit();
+    }else if(empty($pass)){
 
-        }else if(empty($pass)){
+        header("Location: login.php?error=Password is required");
 
-            header("Location: login.php?error=Password is required");
+        exit();
+
+    }else{
+
+        global $db;
+        $query1 = "SELECT * FROM User WHERE Username=:username";
+        $statement = $db->prepare($query1);
+        $statement->bindValue(':username', $uname);
+        $statement->execute();
+        $result = $statement->fetch();
+        $statement->closeCursor();
+
+        if ($result && password_verify($pass, $result['Password'])) {
+
+            echo "Logged in!";
+            $_SESSION['Username'] = $result['Username'];
+            $_SESSION['FirstName'] = $result['FirstName'];
+            $_SESSION['LastName'] = $result['LastName'];
+            $_SESSION['UserID'] = $result['UserID'];
+            $_SESSION['Type'] = $result['Type'];
+
+            header("Location: homepage.php");
 
             exit();
 
         }else{
 
-            global $db;
-            $query1 = "SELECT * FROM User WHERE Username=:username";
-            $statement = $db->prepare($query1);
-            $statement->bindValue(':username', $uname);
-            $statement->execute();
-            $result = $statement->fetch();
-            $statement->closeCursor();
+            header("Location: login.php?error=Incorect User name or password");
 
-            if ($result && password_verify($pass, $result['Password'])) {
+            exit();
 
-                echo "Logged in!";
-                $_SESSION['Username'] = $result['Username'];
-                $_SESSION['FirstName'] = $result['FirstName'];
-                $_SESSION['LastName'] = $result['LastName'];
-                $_SESSION['UserID'] = $result['UserID'];
-                $_SESSION['Type'] = $result['Type'];
-
-                header("Location: homepage.php");
-
-                exit();
-
-            }else{
-
-                header("Location: login.php?error=Incorect User name or password");
-
-                exit();
-
-            }
         }
     }
+}
 
 if (!isset($_SESSION['Username'])){
 ?>
