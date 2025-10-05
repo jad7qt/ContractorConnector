@@ -42,7 +42,7 @@ if (isset($_POST['uname']) && isset($_POST['password']) && !empty($_POST['action
             $_SESSION['UserID'] = $result['UserID'];
             $_SESSION['Type'] = $result['Type'];
 
-            header("Location: homepage.php");
+            header("Location: " . BASE_URL . "homepage.php");
 
             exit();
 

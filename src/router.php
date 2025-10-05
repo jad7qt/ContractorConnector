@@ -34,7 +34,7 @@ switch ($path) {
         require __DIR__ . '/pages/createProject.php';
         break;
     case '/homepage.php':   
-        require __DIR__ . '/pages/pages/homepage.php';
+        require __DIR__ . '/pages/homepage.php';
         break;
     case '/logout.php':
         require __DIR__ . '/pages/logout.php';
