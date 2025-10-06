@@ -17,10 +17,9 @@ $Ratings = array();
 $AVGRating = array();
 
 $userID = $_SESSION['UserID'];
-$pageID = $_GET['id'];
-
-//temporary fix for no ID passed in - need to update anywhere that links to profile
-if($pageID == NULL){
+if (isset($_GET['id'])) {
+  $pageID = $_GET['id'];
+} else {
   $pageID = $userID;
 }
 
