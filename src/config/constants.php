@@ -16,6 +16,9 @@ define('SUPPORT_EMAIL', 'support@contractorconnector.local');
 define('CSS_PATH', BASE_URL . 'public/css/');
 define('JS_PATH',  BASE_URL . 'public/js/');
 define('IMG_PATH', BASE_URL . 'public/images/');
+define('INCLUDES_DIR', PROJECT_ROOT . '/src/includes/');
+define('COMPONENTS_DIR', PROJECT_ROOT . '/src/components/');
+define('MODELS_DIR', PROJECT_ROOT . '/src/models/');
 
 // Feature flags (toggle experimental features)
 define('ENABLE_BETA_FEATURES', false);

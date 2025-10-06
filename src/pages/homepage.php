@@ -1,7 +1,6 @@
 <?php 
-require_once __DIR__ . '/../includes/authGuard.php';
-require_once __DIR__ . '/../config/connect-db.php';
-require_once __DIR__ . '/../models/homepage-db.php';
+require_once INCLUDES_DIR . 'authGuard.php';
+require_once MODELS_DIR . 'homepage-db.php';
 
 $user_id = $_SESSION['UserID'];
 $user_type = $_SESSION['Type'];
@@ -50,10 +49,10 @@ switch ($user_type) {
 </head>
 
 <!--HEADER-->
-<?php include('header.php'); ?>
+<?php include COMPONENTS_DIR . 'header.php'; ?>
 <!--HEADER-->
 <!--hamburger-->
-<?php include('hamburger.php'); ?>
+<?php include COMPONENTS_DIR . 'hamburger.php'; ?>
 <!--hamburger-->
 
 <div class="search-container">
