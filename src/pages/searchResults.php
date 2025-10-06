@@ -26,10 +26,10 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {
 <body>
 
 <!--HEADER-->
-<?php include('header.php'); ?>
+<?php include COMPONENTS_DIR . 'header.php'; ?>
 <!--HEADER-->
 <!--hamburger-->
-<?php include('hamburger.php'); ?>
+<?php include COMPONENTS_DIR . 'hamburger.php'; ?>
 <!--hamburger-->
 
 

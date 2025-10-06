@@ -1,26 +1,24 @@
 <?php
-session_start();
-
 if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {
-    require_once("/ContractorConnector/src/config/connect-db.php");
-    require("customer-db.php");
-    require("projects-db.php");
+  require_once("/ContractorConnector/src/config/connect-db.php");
+  require("customer-db.php");
+  require("projects-db.php");
 
-    $Projects = array();
+  $Projects = array();
 
   // Display Projects
 
 	//admin master project table query
 if ($_SESSION['Type'] == 'Administrator') {
-    $Projects = adminMasterTable();
+  $Projects = adminMasterTable();
 }
 
 elseif ($_SESSION['Type'] == 'Technician') {
-    $Projects = techProjTable($_SESSION['UserID']);
+  $Projects = techProjTable($_SESSION['UserID']);
 }
 
 elseif ($_SESSION['Type'] == 'Customer') {
-    $Projects = custProjTable($_SESSION['UserID']);
+  $Projects = custProjTable($_SESSION['UserID']);
 }
 
 ?>
@@ -34,10 +32,10 @@ elseif ($_SESSION['Type'] == 'Customer') {
 
 
 <!--HEADER-->
-<?php include('header.php'); ?>
+<?php include COMPONENTS_DIR . 'header.php'; ?>
 <!--HEADER-->
 <!--hamburger-->
-<?php include('hamburger.php'); ?>
+<?php include COMPONENTS_DIR . 'hamburger.php'; ?>
 <!--hamburger-->
 
     

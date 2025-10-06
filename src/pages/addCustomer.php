@@ -1,8 +1,7 @@
 <?php 
-ob_start();
-session_start();
-require_once("/ContractorConnector/src/config/connect-db.php");
-require("customer-db.php");
+require_once INCLUDES_DIR . 'authGuard.php';
+auth_guard(['allow_guests' => true, 'redirect_logged_in' => true,]);
+require_once MODELS_DIR . 'customer-db.php';
 
 if ( ($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($_SESSION['UserID']) && !isset($_SESSION['Username'])) || (isset($_SESSION['Type']) && $_SESSION['Type'] == 'Administrator'))
 {
@@ -20,11 +19,6 @@ if ( ($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($_SESSION['UserID']) && !is
     }
     
 }
-?>
-
-<?php 
-if ( (!isset($_SESSION['UserID']) && !isset($_SESSION['Username'])) || $_SESSION['Type'] == 'Administrator') {
-
 ?>
 
 <!DOCTYPE html>
@@ -96,10 +90,5 @@ if ( (!isset($_SESSION['UserID']) && !isset($_SESSION['Username'])) || $_SESSION
 </html>
 
 <?php 
-}else{
-     header("Location: homepage.php");
-     exit();
-}
 ob_end_flush();
-
- ?>
+?>

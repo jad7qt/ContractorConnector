@@ -55,10 +55,10 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {
 
 
 <!--HEADER-->
-<?php include('header.php'); ?>
+<?php include COMPONENTS_DIR . 'header.php'; ?>
 <!--HEADER-->
 <!--hamburger-->
-<?php include('hamburgerBoot.php'); ?>
+<?php include COMPONENTS_DIR . 'hamburgerBoot.php'; ?>
 <!--hamburger-->
 
 <div class="results-container">

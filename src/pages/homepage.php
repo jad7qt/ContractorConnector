@@ -1,5 +1,6 @@
 <?php 
 require_once INCLUDES_DIR . 'authGuard.php';
+auth_guard();
 require_once MODELS_DIR . 'homepage-db.php';
 
 $user_id = $_SESSION['UserID'];
