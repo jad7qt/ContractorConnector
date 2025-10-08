@@ -1,24 +1,28 @@
 <?php
-if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {
-  require_once("/ContractorConnector/src/config/connect-db.php");
-  require("customer-db.php");
-  require("projects-db.php");
+require_once INCLUDES_DIR . 'authGuard.php';
+auth_guard();
+require_once MODELS_DIR . 'customer-db.php';
+require_once MODELS_DIR . 'projects-db.php';
 
-  $Projects = array();
+$projects = array();
+$type = $_SESSION['Type'];
 
-  // Display Projects
+// Display Projects
 
-	//admin master project table query
-if ($_SESSION['Type'] == 'Administrator') {
-  $Projects = adminMasterTable();
+// Admin master project table query
+if ($type == 'Administrator') {
+  $projects = adminMasterTable();
+  $table_title = 'Admin Project Master Table';
 }
 
-elseif ($_SESSION['Type'] == 'Technician') {
-  $Projects = techProjTable($_SESSION['UserID']);
+elseif ($type == 'Technician') {
+  $projects = techProjTable($_SESSION['UserID']);
+  $table_title = 'Technician Jobs Table';
 }
 
-elseif ($_SESSION['Type'] == 'Customer') {
-  $Projects = custProjTable($_SESSION['UserID']);
+else {
+  $projects = custProjTable($_SESSION['UserID']);
+  $table_title = 'Customer Projects Table';
 }
 
 ?>
@@ -39,89 +43,71 @@ elseif ($_SESSION['Type'] == 'Customer') {
 <!--hamburger-->
 
     
-	<div class="results-container">
-    <?php if($_SESSION['Type'] == 'Administrator'): ?>
-        <h3>Admin Project Master Table</h3>
-
-    <?php elseif($_SESSION['Type'] == 'Technician'): ?>
-        <h3>Technician Jobs Table</h3>
-
-    <?php elseif($_SESSION['Type'] == 'Customer'): ?>
-        <h3>Customer Projects Table</h3>
-
-    <?php endif; ?>
-
-            <?php if (count($Projects) > 0 ): ?>
-                <table>
-                    <thead>
-                        <tr>
-                            <th> Details </th>
-                            <?php if($_SESSION['Type'] != 'Customer'): ?>
-                                <th>Customer Name</th>
-                            <?php endif; ?>
-                            <th>Project Type</th>
-                            <th>Description</th>
-                            <th>Project Address</th>
-                            <th>Start Date</th>
-                            <th>End Date</th>
-                            <?php if($_SESSION['Type'] != 'Technician'): ?>
-                                <th>Technician Name</th>
-                            <?php endif; ?>                        
-                            <th>Status</th>                        
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php 
-                        foreach ($Projects as $item): ?>
-                            <tr>
-                            <td>
-  <?php echo '<a id="detailsRed" href="projectDetails.php?id='.$item['ProjectID'].'"><img src="public/images/icons/info.png" alt="Info" style="max-width: 30px; max-height: 30px;"></a>'; ?>
-</td>
-                                <?php if($_SESSION['Type'] != 'Customer'): ?>
-                                    <td><?php echo $item['Customer_Name']; ?></td>
-                                <?php endif; ?>
-                                <td><?php echo $item['JobType']; ?></td>
-                                <td><?php echo $item['Description']; ?></td>                            
-                                <td><?php echo $item['Project_Address']; ?></td>
-                                <td><?php echo $item['StartDate']; ?></td>
-                                <td><?php echo $item['EndDate']; ?></td>
-                                <?php if($_SESSION['Type'] != 'Technician'): ?>
-                                    <td class="techNames"><b><?php echo '<a id="techName" href="profile.php?id='.$item['TechnicianID'].'">'.$item['Technician_Name'].'</a>'; ?></b></td>
-                                <?php endif; ?>
-                                <td>
-                                    <?php 
-                                        if ($item['Completed'] == "1") {
-                                            echo '<img src="public/images/icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
-                                        } else {
-                                            echo '<img src="public/images/icons/ongoing.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
-                                        }
-                                    ?>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            <?php else: ?> 
-                <p>No results found</p>
+<div class="results-container">
+  <h3><?php echo $table_title; ?></h3>
+  <?php if (count($projects) > 0 ): ?>
+    <table>
+      <thead>
+        <tr>
+          <th> Details </th>
+          <?php if($_SESSION['Type'] != 'Customer'): ?>
+            <th>Customer Name</th>
+          <?php endif; ?>
+          <th>Project Type</th>
+          <th>Description</th>
+          <th>Project Address</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <?php if($_SESSION['Type'] != 'Technician'): ?>
+            <th>Technician Name</th>
+          <?php endif; ?>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($projects as $item): ?>
+          <tr>
+            <td>
+              <?php echo '<a id="detailsRed" href="projectDetails.php?id='.$item['ProjectID'].'"><img src="public/images/icons/info.png" alt="Info" style="max-width: 30px; max-height: 30px;"></a>'; ?>
+            </td>
+            <?php if($_SESSION['Type'] != 'Customer'): ?>
+              <td><?php echo $item['Customer_Name']; ?></td>
             <?php endif; ?>
-
-            <?php if($_SESSION['Type'] == 'Customer'): ?>
-                <button id="buttonNewProject" type="button" onclick="window.location.href='createProject.php'" class="btn btn-primary">
-                Add a New Project
-                </button>
+            <td><?php echo $item['JobType']; ?></td>
+            <td><?php echo $item['Description']; ?></td>                            
+            <td><?php echo $item['Project_Address']; ?></td>
+            <td><?php echo $item['StartDate']; ?></td>
+            <td><?php echo $item['EndDate']; ?></td>
+            <?php if($_SESSION['Type'] != 'Technician'): ?>
+              <td class="techNames"><b><?php echo '<a id="techName" href="profile.php?id='.$item['TechnicianID'].'">'.$item['Technician_Name'].'</a>'; ?></b></td>
             <?php endif; ?>
-        </div>
+            <td>
+              <?php 
+                if ($item['Completed'] == "1") {
+                  echo '<img src="public/images/icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
+                } else {
+                  echo '<img src="public/images/icons/ongoing.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
+                }
+              ?>
+            </td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+  <?php else: ?> 
+    <p>No results found</p>
+  <?php endif; ?>
+
+  <?php if($_SESSION['Type'] == 'Customer'): ?>
+    <button id="buttonNewProject" type="button" onclick="window.location.href='createProject.php'" class="btn btn-primary">
+      Add a New Project
+    </button>
+  <?php endif; ?>
+</div>
 
 </body>
-
-
-
+</html>
 
 <?php
-  } else {
-    header("Location: login.php");
-    exit();
-  }
   ob_end_flush();
 ?>
