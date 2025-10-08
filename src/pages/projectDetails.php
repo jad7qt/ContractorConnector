@@ -4,7 +4,6 @@ auth_guard();
 require_once MODELS_DIR . 'projects-db.php';
 require_once MODELS_DIR . 'createProject-db.php';
 
-
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
   if(!empty($_POST['actionBtn']) && ($_POST['actionBtn'] == "postComment")) {
     postComment($_POST['projid'], $_SESSION['UserID'], $_POST['comment']);

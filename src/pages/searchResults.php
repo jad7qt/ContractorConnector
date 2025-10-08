@@ -1,70 +1,68 @@
 <?php
-ob_start();
-session_start();
-require_once("/ContractorConnector/src/config/connect-db.php");
-require("search-db.php");
+require_once INCLUDES_DIR . 'authGuard.php';
+auth_guard();
+require_once MODELS_DIR . 'search-db.php';
 
+$Technician = array();
+$User = array();
 
-if (isset($_SESSION['UserID']) && isset($_SESSION['Username']) ) {
-  // Connect to database
-    $Technician = array();
-    $User = array();
-
-  // Search for technicians
-    if (isset($_POST['occupation-type'])) {
-        $Technician = searchTechByOcc($_POST['occupation-type']);
-    }
+// Search for technicians
+if (isset($_POST['occupation-type'])) {
+  $Technician = searchTechByOcc($_POST['occupation-type']);
+}
 
 ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Search Results</title>
-	<link rel="stylesheet" type="text/css" href="public/css/searchResults.css">
+  <title>Search Results</title>
+  <link rel="stylesheet" type="text/css" href="public/css/searchResults.css">
 </head>
+
 <body>
 
-<!--HEADER-->
-<?php include COMPONENTS_DIR . 'header.php'; ?>
-<!--HEADER-->
-<!--hamburger-->
-<?php include COMPONENTS_DIR . 'hamburger.php'; ?>
-<!--hamburger-->
+  <!--HEADER-->
+  <?php include COMPONENTS_DIR . 'header.php'; ?>
+  <!--HEADER-->
+  <!--hamburger-->
+  <?php include COMPONENTS_DIR . 'hamburger.php'; ?>
+  <!--hamburger-->
 
 
-	<div class="results-container">
-		<h3>Technician Results</h3>
-		<?php if (count($Technician) > 0 || count($User) > 0): ?>
-			<table>
-				<thead>
-					<tr>
-                        <th>Technician Name</th>
-						<th>Occupation Type</th>
-                        <th>Rating</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php foreach ($Technician as $item): ?>
-						<tr>
-							<td class="techNames"><b><?php echo '<a id="techName" href="profile.php?id='.$item['userID'].'">'.$item['Technician_Name'].'</a>'; ?></b></td>
-							<td><?php echo $item['OccupationType']; ?></td>
-                            <td><?php echo $item['Rating']; ?></td>
-						</tr>
-					<?php endforeach; ?>
-				</tbody>
-			</table>
-		<?php else: ?>
-			<p>No results found.</p>
-		<?php endif; ?>
-	</div>
+  <div class="results-container">
+    <h3>Technician Results</h3>
+    <?php if (count($Technician) > 0 || count($User) > 0): ?>
+      <table>
+        <thead>
+          <tr>
+            <th>Technician Name</th>
+            <th>Occupation Type</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($Technician as $item): ?>
+            <tr>
+              <td class="techNames">
+                <b><?php echo '<a id="techName" href="profile.php?id=' . $item['userID'] . '">' . $item['Technician_Name'] . '</a>'; ?></b>
+              </td>
+              <td><?php echo $item['OccupationType']; ?></td>
+              <td><?php echo $item['Rating']; ?></td>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    <?php else: ?>
+      <p>No results found.</p>
+    <?php endif; ?>
+  </div>
 </body>
+
 </html>
 
 
 <?php
-  } else {
-    header("Location: login.php");
-    exit();
-  }
+ob_end_flush();
 ?>

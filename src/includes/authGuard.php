@@ -1,18 +1,22 @@
 <?php
 // Function for redirecting users based on authorization status of current login credentials.
-function auth_guard(array $permissions = ['allow_guests' => false, 'redirect_logged_in' => false,]) {
-  $permissions = array_merge([
+function auth_guard(
+  array $permissions =
+  [
     'allow_guests' => false,
-    'redirect_logged_in' => false,  // Redirect logged in users, (Sign up page)
-  ], $permissions);
+    'redirect_logged_in' => false,
+    'allow_cust' => true,
+    'allow_tech' => true,
+  ]
+) {
 
   $is_logged_in = isset($_SESSION['UserID']) && isset($_SESSION['Username']);
-  $is_admin = ($is_logged_in && isset($_SESSION['Type']) && $_SESSION['Type'] === 'Administrator');
+  $type = isset($_SESSION['Type']) ? $_SESSION['Type'] : '';
 
   $allowed = false;
 
   // Always allow Administrators
-  if ($is_admin) {
+  if ($type === 'Administrator') {
     $allowed = true;
     return $allowed;
   }
@@ -24,6 +28,12 @@ function auth_guard(array $permissions = ['allow_guests' => false, 'redirect_log
       exit;
     }
   }
+  
+  // If user type not allowed on this page, return
+  if ((!$permissions['allow_cust'] && $type === 'Customer') || (!$permissions['allow_tech'] && $type === 'Technician')) {
+    header('Location: ' . BASE_URL . 'homepage.php');
+    exit;
+  }
 
   if ($is_logged_in || $permissions['allow_guests']) {
     $allowed = true;
@@ -31,7 +41,7 @@ function auth_guard(array $permissions = ['allow_guests' => false, 'redirect_log
 
   if (!$allowed) {
     header('Location: ' . BASE_URL . 'login.php');
-      exit;
+    exit;
   }
   return $allowed;
 }
