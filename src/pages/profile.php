@@ -207,107 +207,104 @@ $Phones = getUserPhones($pageID);
         <?php endforeach; ?>
       </tbody>
     </table>
-        <?php else: ?> 
-            <p>No Ratings on file</p>
-        <?php endif; ?>
+  <?php else: ?> 
+    <p>No Ratings on file</p>
+  <?php endif; ?>
 
-        <?php
-        if($_SESSION['Type'] == "Customer"){ ?>
-         <!-- MODAL BUTTOM -->
-         <!-- TODO: Make this button only show up if user has not already rated, change to update btn
-        if the user has already rated which will allow them to change or delete their old rating. -->
-        <?php if(!$hasRated){?>
-        <button id="buttonRate" type="button" class="btn btn-primary" data-toggle="modal" data-target="#ratingModal">
+  <?php if($_SESSION['Type'] == "Customer") { ?>
+    <!-- MODAL BUTTOM -->
+    <!-- TODO: Make this button only show up if user has not already rated, change to update btn
+  if the user has already rated which will allow them to change or delete their old rating. -->
+    <?php if(!$hasRated) { ?>
+      <button id="buttonRate" type="button" class="btn btn-primary" data-toggle="modal" data-target="#ratingModal">
         Rate this Technician
-        </button>
+      </button>
         
 
-        <!-- Modal -->
-        <div class="modal fade" id="ratingModal" tabindex="-1" role="dialog" aria-labelledby="ratingModalLabel" aria-hidden="true">
+      <!-- Modal -->
+      <div class="modal fade" id="ratingModal" tabindex="-1" role="dialog" aria-labelledby="ratingModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+          <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="ratingModalLabel">Rate Technician</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <h5 class="modal-title" id="ratingModalLabel">Rate Technician</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
-                </button>
+              </button>
             </div>
-                <form name="rateForm" action="rating.php" method="post">
-                <div class="modal-body">
-                    <div class="row mb-3 mx-3">
-                        Rating (0.0-5.0):
-                        <input type="number" class="form-control" name="rating" min=0 max=5 step=0.1 required />
-                    </div>
-                    <div class="row mb-3 mx-3">
-                        Comment:
-                        <input type="text" class="form-control" name="comment" required />
-                    </div>
-                    <input type="hidden" name="TechID" value=<?php echo $_GET['id'];?> />
-                    <input type="hidden" name="CustID" value=<?php echo $_SESSION['UserID'];?> />
+            <form name="rateForm" action="rating.php" method="post">
+              <div class="modal-body">
+                <div class="row mb-3 mx-3">
+                  Rating (0.0-5.0):
+                  <input type="number" class="form-control" name="rating" min=0 max=5 step=0.1 required />
                 </div>
-                <div class="modal-footer">
-                    <button id="buttonCreateCustomer" type="submit" class="btn btn-primary" name="actionBtn" value="rate">Post</button>
+                <div class="row mb-3 mx-3">
+                  Comment:
+                  <input type="text" class="form-control" name="comment" required />
                 </div>
-                </form>
-            </div>
+                <input type="hidden" name="TechID" value=<?php echo $_GET['id'];?> />
+                <input type="hidden" name="CustID" value=<?php echo $_SESSION['UserID'];?> />
+              </div>
+              <div class="modal-footer">
+                <button id="buttonCreateCustomer" type="submit" class="btn btn-primary" name="actionBtn" value="rate">Post</button>
+              </div>
+            </form>
+          </div>
         </div>
-        </div>
-        <?php }else{?>
-        <button id="buttonRate" type="button" class="btn btn-primary" data-toggle="modal" data-target="#ratingModal">
+      </div>
+    <?php } else { ?>
+      <button id="buttonRate" type="button" class="btn btn-primary" data-toggle="modal" data-target="#ratingModal">
         Update Rating
-        </button>
+      </button>
         
 
-        <!-- Modal -->
-        <div class="modal fade" id="ratingModal" tabindex="-1" role="dialog" aria-labelledby="ratingModalLabel" aria-hidden="true">
+      <!-- Modal -->
+      <div class="modal fade" id="ratingModal" tabindex="-1" role="dialog" aria-labelledby="ratingModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+          <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="ratingModalLabel">Update Technician Rating</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <h5 class="modal-title" id="ratingModalLabel">Update Technician Rating</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
-                </button>
+              </button>
             </div>
-                <form name="rateForm" action="rating.php" method="post">
-                <div class="modal-body">
-                    <div class="row mb-3 mx-3">
-                        Rating (0.0-5.0):
-                        <input type="number" class="form-control" name="rating" min=0 max=5 step=0.1 value="<?php if ($hasRated) echo $ratingGiven['Rating'] ?>" required />
-                    </div>
-                    <div class="row mb-3 mx-3">
-                        Comment:
-                        <input type="text" class="form-control" name="comment" maxlength=65 value="<?php if ($hasRated) echo $ratingGiven['Comment'] ?>" required />
-                    </div>
-                    <input type="hidden" name="TechID" value=<?php echo $_GET['id'];?> />
-                    <input type="hidden" name="CustID" value=<?php echo $_SESSION['UserID'];?> />
+            <form name="rateForm" action="rating.php" method="post">
+              <div class="modal-body">
+                <div class="row mb-3 mx-3">
+                  Rating (0.0-5.0):
+                  <input type="number" class="form-control" name="rating" min=0 max=5 step=0.1 value="<?php if ($hasRated) echo $ratingGiven['Rating'] ?>" required />
                 </div>
-                <div class="modal-footer">
-                    <button id="buttonDeleteRating" type="submit" class="btn btn-primary" name="actionBtn" value="deleteRate">Delete</button>
-                    <button id="buttonUpdateRating" type="submit" class="btn btn-primary" name="actionBtn" value="updateRate">Update</button>
+                <div class="row mb-3 mx-3">
+                  Comment:
+                  <input type="text" class="form-control" name="comment" maxlength=65 value="<?php if ($hasRated) echo $ratingGiven['Comment'] ?>" required />
                 </div>
-                </form>
-            </div>
+                <input type="hidden" name="TechID" value=<?php echo $_GET['id'];?> />
+                <input type="hidden" name="CustID" value=<?php echo $_SESSION['UserID'];?> />
+              </div>
+              <div class="modal-footer">
+                <button id="buttonDeleteRating" type="submit" class="btn btn-primary" name="actionBtn" value="deleteRate">Delete</button>
+                <button id="buttonUpdateRating" type="submit" class="btn btn-primary" name="actionBtn" value="updateRate">Update</button>
+              </div>
+            </form>
+          </div>
         </div>
-        </div>
+      </div>
 
-        <?php }?>
+    <?php }?>
     <!-- END MODAL -->
-    <?php } ?>
+  <?php } ?>
 
-    </div>
-    <?php }
-
-    if($userID == $pageID){ ?>
-    <div id="centerAlign">
-        <button id="updateProfileBtn" onclick="window.location.href='updateProfile.php'" class="btn btn-primary" value="updateProfile">Update Profile</button>
-    </div>
-    <?php } ?>
-
-
+</div>
+<?php 
+}
+if($userID == $pageID) { 
+?>
+  <div id="centerAlign">
+    <button id="updateProfileBtn" onclick="window.location.href='updateProfile.php'" class="btn btn-primary" value="updateProfile">Update Profile</button>
+  </div>
+<?php } ?>
 
 </body>
 </html>
-
 
 <?php
   ob_end_flush();
