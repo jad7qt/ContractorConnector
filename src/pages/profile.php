@@ -17,7 +17,7 @@ $Ratings = array();
 $AVGRating = array();
 
 $userID = $_SESSION['UserID'];
-if (isset($_GET['id'])) {
+if (isset($_GET['id']) && $_GET['id'] != '') {
   $pageID = $_GET['id'];
 } else {
   $pageID = $userID;
