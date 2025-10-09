@@ -62,7 +62,7 @@ $Phones = getUserPhones($pageID);
 <?php include COMPONENTS_DIR . 'header.php'; ?>
 <!--HEADER-->
 <!--hamburger-->
-<?php include COMPONENTS_DIR . 'hamburgerBoot.php'; ?>
+<?php include COMPONENTS_DIR . 'hamburger.php'; ?>
 <!--hamburger-->
 
 

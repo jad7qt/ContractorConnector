@@ -1,6 +1,6 @@
 <?php
 require_once INCLUDES_DIR . 'authGuard.php';
-auth_guard(['allow_cust' => false]);
+auth_guard(allow_cust: false);
 require_once MODELS_DIR . 'acceptJob-db.php';
 require_once MODELS_DIR . 'createProject-db.php';
 

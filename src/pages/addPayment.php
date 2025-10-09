@@ -1,6 +1,6 @@
 <?php
 require_once INCLUDES_DIR . 'authGuard.php';
-auth_guard(['allow_tech' => false]);
+auth_guard(allow_tech: false);
 require_once MODELS_DIR . 'customer-db.php';
 require_once MODELS_DIR . 'payments-db.php';
 

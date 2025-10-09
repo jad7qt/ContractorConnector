@@ -1,6 +1,6 @@
 <?php 
 require_once INCLUDES_DIR . 'authGuard.php';
-auth_guard(['allow_guests' => true, 'redirect_logged_in' => true,]);
+auth_guard(allow_guests: true, redirect_logged_in: true);
 require_once MODELS_DIR . 'customer-db.php';
 
 if ( ($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($_SESSION['UserID']) && !isset($_SESSION['Username'])) || (isset($_SESSION['Type']) && $_SESSION['Type'] == 'Administrator'))
