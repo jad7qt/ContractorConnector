@@ -57,7 +57,8 @@ $Techs = selectAllTechs();
         <select id="techid" style="width:550px" name="techid" class="form-control" required>
           <?php foreach ($Techs as $item): ?>
             <option value="<?php echo $item['UserID']; ?>">
-              <?php echo $item['FirstName'] . " " . $item['LastName'] . " (" . $item['Username'] . ")"; ?></option>
+              <?php echo $item['FirstName'] . " " . $item['LastName'] . " (" . $item['Username'] . ")"; ?>
+            </option>
           <?php endforeach; ?>
         </select>
       </div>
