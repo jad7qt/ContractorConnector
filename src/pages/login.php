@@ -16,6 +16,10 @@ if (isset($_POST['uname']) && isset($_POST['password']) && !empty($_POST['action
   $uname = validate($_POST['uname']);
   $pass = validate($_POST['password']);
 
+  if (isset($_POST['timezone'])) {
+    $_SESSION['timezone'] = $_POST['timezone'];
+  }
+
   if (empty($uname)) {
 
     header("Location: login.php?error=User Name is required");
@@ -29,6 +33,7 @@ if (isset($_POST['uname']) && isset($_POST['password']) && !empty($_POST['action
     exit();
 
   } else {
+    
 
     global $db;
     $query1 = "SELECT * FROM User WHERE Username=:username";
@@ -71,7 +76,7 @@ if (isset($_POST['uname']) && isset($_POST['password']) && !empty($_POST['action
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LOGIN</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
-  <link rel="stylesheet" type="text/css" href="public/css/login.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH; ?>/login.css">
 </head>
 
 <body>
@@ -120,6 +125,7 @@ if (isset($_POST['uname']) && isset($_POST['password']) && !empty($_POST['action
       <p>&copy; 2023 ContractorConnector. All Rights Reserved.</p>
     </div>
   </footer>
+  <script src="<?php echo JS_PATH; ?>/timezone.js"></script>
 </body>
 
 </html>

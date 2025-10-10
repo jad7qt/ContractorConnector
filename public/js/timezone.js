@@ -2,9 +2,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const usertimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   console.log("User's timezone:", usertimezone);
-  fetch('save_timezone.php', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ timezone: usertimezone })
-  });
+  const time_input = document.getElementById('timezoneInput');
+  if (time_input) {
+    tzInput.value = tz;
+  }
 });
