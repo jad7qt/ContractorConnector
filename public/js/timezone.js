@@ -4,6 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log("User's timezone:", usertimezone);
   const time_input = document.getElementById('timezoneInput');
   if (time_input) {
-    tzInput.value = tz;
+    time_input.value = usertimezone;
   }
 });
