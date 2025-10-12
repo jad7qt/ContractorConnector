@@ -4,8 +4,15 @@ auth_guard();
 require_once MODELS_DIR . 'profile-db.php';
 
 if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
+  $user_id = $_SESSION['UserID'];
+  $phone_type = $_POST['phoneType'];
+  $phone_num = filter_var($_POST['phoneNum'], FILTER_SANITIZE_NUMBER_INT);
   if (!empty($_POST['actionBtn']) && ($_POST['actionBtn'] == "addPhone")) {
-    addPhoneNum($_SESSION['UserID'], $_POST['phoneType'], $_POST['phoneNum']);
+    if (hasPhoneType($user_id, $phone_type)) {
+      header("Location: profile.php?error=You already have a {$phone_type} phone");
+      exit();
+    }
+    addPhoneNum($_SESSION['UserID'], $phone_type, $phone_num);
     header("Location: profile.php");
     exit();
   }
@@ -124,6 +131,7 @@ $Phones = getUserPhones($pageID);
       </button>
 
       <!-- Modal -->
+       
       <div class="modal fade" id="phoneModal" tabindex="-1" role="dialog" aria-labelledby="phoneModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -154,6 +162,11 @@ $Phones = getUserPhones($pageID);
                 <button id="buttonAddPhone" type="submit" class="btn btn-primary" name="actionBtn"
                   value="addPhone">Add</button>
               </div>
+              <?php if (isset($_GET['error'])): ?>
+                <?php if (isset($_GET['error'])) { ?>
+                  <p class="error"><?php echo htmlspecialchars($_GET['error']); ?></p>
+                <?php } ?>
+              <?php endif; ?>
             </form>
           </div>
         </div>
@@ -161,6 +174,13 @@ $Phones = getUserPhones($pageID);
 
     <?php } ?>
     <!-- END MODAL FOR ADD PHONE -->
+    <?php if (isset($_GET['error'])): ?>
+      <script>
+        window.onload = function() {
+          $('#phoneModal').modal('show');
+        };
+      </script>
+    <?php endif; ?>
   </div>
 
   <!-- Ratings for Technicians -->
@@ -312,10 +332,7 @@ $Phones = getUserPhones($pageID);
       <?php } ?>
 
     </div>
-  <?php
-  }
-  if ($userID == $pageID) {
-    ?>
+  <?php } if ($userID == $pageID) { ?>
     <div id="centerAlign">
       <button id="updateProfileBtn" onclick="window.location.href='updateProfile.php'" class="btn btn-primary"
         value="updateProfile">Update Profile</button>
