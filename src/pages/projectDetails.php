@@ -156,7 +156,15 @@ $payments = getPayments($pageID);
                 </form>
               <?php } ?>
             </td>
-            <td><?php echo $item['CommentTime']; ?></td>
+            <?php 
+            $date_time = new DateTime($item['CommentTime'], new DateTimeZone('UTC'));
+            if (isset($_SESSION['timezone'])) {
+              $timezone = new DateTimeZone($_SESSION['timezone']);
+              $date_time->setTimezone($timezone);
+            }
+            $formatted_date = $date_time->format('g:i A - F j, Y'); // Example format: Saturday, October 12, 2025
+            ?>
+            <td><?php echo $formatted_date; ?></td>
           </tr>
         <?php endforeach; ?>
       </tbody>
