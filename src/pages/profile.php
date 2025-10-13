@@ -163,9 +163,9 @@ $Phones = getUserPhones($pageID);
                   value="addPhone">Add</button>
               </div>
               <?php if (isset($_GET['error'])): ?>
-                <?php if (isset($_GET['error'])) { ?>
-                  <p class="error"><?php echo htmlspecialchars($_GET['error']); ?></p>
-                <?php } ?>
+                <div class="alert alert-danger mx-3">
+                  <?php echo htmlspecialchars($_GET['error']); ?>
+                </div>
               <?php endif; ?>
             </form>
           </div>
