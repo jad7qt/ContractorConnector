@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /ContractorConnector/
+
+# 1) If the request maps to a real file or directory, serve it directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# 2) Otherwise rewrite to index.php (your single entry point)
+RewriteRule ^ index.php [L,QSA]
