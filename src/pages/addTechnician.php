@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SESSION['Type'] == 'Administrator'
 <body>
   <div class="container">
     <div class="header">
-      <img src="public/images/logos/logo_blank.png" alt="Logo" class="logo">
+      <img src="<?php echo IMG_PATH; ?>/logos/logo_blank.png" alt="Logo" class="logo">
       <h1 class="site-title">Create Technician</h1>
     </div>
     <?php if (isset($_GET['error'])) { ?>

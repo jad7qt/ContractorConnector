@@ -42,7 +42,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($_SESSION['UserID']) && !iss
 <body>
   <div class="container">
     <div class="header">
-      <img src="public/images/logos/logo_blank.png" alt="Logo" class="logo">
+      <img src="<?php echo IMG_PATH; ?>/logos/logo_blank.png" alt="Logo" class="logo">
       <h1 class="site-title">Welcome to ContractorConnector</h1>
     </div>
     <?php if (isset($_GET['error'])) { ?>

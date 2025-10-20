@@ -75,7 +75,7 @@ if ($_SESSION['Type'] == 'Customer') {
 <body>
   <div class="container">
     <div class="header">
-      <img src="public/images/logos/logo_blank.png" alt="Logo" class="logo">
+      <img src="<?php echo IMG_PATH; ?>/logos/logo_blank.png" alt="Logo" class="logo">
       <h1 class="site-title">Update Your Profile</h1>
     </div>
 

@@ -36,7 +36,7 @@ if (isset($_POST['occupation-type'])) {
       <div>
         <input type="text" id="occupation-type" name="occupation-type" placeholder="Enter Name">
         <button type="submit">
-          <img src="public/images/icons/search.png" alt="Search"
+          <img src="<?php echo IMG_PATH; ?>/icons/search.png" alt="Search"
             style="max-width: 20px; max-height: 20px; filter: invert(1);">
         </button>
 
@@ -74,7 +74,7 @@ if (isset($_POST['occupation-type'])) {
               <td><?php echo $item['OccupationType']; ?></td>
               <td>
                 <?php if ($item['Rating']): ?>
-                  <img src="public/images/icons/star.png" alt="Star" style="width: 20px; height: 20px;">
+                  <img src="<?php echo IMG_PATH; ?>/icons/star.png" alt="Star" style="width: 20px; height: 20px;">
                   <?php echo $item['Rating']; ?>
                 <?php endif; ?>
               </td>

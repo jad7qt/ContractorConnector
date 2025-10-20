@@ -63,7 +63,7 @@ switch ($user_type) {
     <div>
       <input type="text" id="occupation-type" name="occupation-type" placeholder="Enter Occupation">
       <button type="submit">
-        <img src="public/images/icons/search.png" alt="Search"
+        <img src="<?php echo IMG_PATH; ?>/icons/search.png" alt="Search"
           style="max-width: 20px; max-height: 20px; filter: invert(1);">
       </button>
     </div>
