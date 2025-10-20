@@ -13,6 +13,12 @@ COPY ./ /var/www/html/
 # Set working directory
 WORKDIR /var/www/html
 
+# Set Apache document root to /var/www/html/public
+ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
+
+# Update Apache config to reflect new document root
+RUN sed -ri -e 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf
+
 # Adjust ownership & permissions if needed
 RUN chown -R www-data:www-data /var/www/html
 
