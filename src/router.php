@@ -1,6 +1,10 @@
 <?php
-$base = dirname($_SERVER['SCRIPT_NAME']);
-$path = str_replace($base, '', @parse_url($_SERVER['REQUEST_URI'])['path']);
+$uri     = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$base    = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
+$path    = '/' . trim(substr($uri, strlen($base)), '/');
+$path    = $path === '/' ? '/' : rtrim($path, '/');  // drop trailing slash
+echo "Requested path: $path";
+
 switch ($path) {
   case '/':                   // URL (without file name) to a default LOGIN screen
   case '/login.php':

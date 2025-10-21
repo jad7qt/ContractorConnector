@@ -10,7 +10,6 @@ error_reporting(E_ALL);
 
 $scriptName = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
 $base = rtrim($scriptName, '/') . '/';
-$base = str_replace('/public', '', $base);
 
 define('BASE_URL', $base);
 define('PROJECT_ROOT', realpath(__DIR__ . '/../../'));

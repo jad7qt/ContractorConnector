@@ -36,7 +36,7 @@ $Techs = selectAllTechs();
 <body>
   <div class="container">
     <div class="header">
-      <img src="<?php echo IMG_PATH; ?>/logos/logo_blank.png" alt="Logo" class="logo">
+      <img src="<?php echo IMG_PATH; ?>logos/logo_blank.png" alt="Logo" class="logo">
       <h1 class="site-title">Create a New Project</h1>
     </div>
     <?php if (isset($_GET['error'])) { ?>

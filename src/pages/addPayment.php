@@ -38,7 +38,7 @@ $pageID = $_GET['id'];
 <body>
   <div class="container">
     <div class="header">
-      <img src="<?php echo IMG_PATH; ?>/logos/logo_blank.png" alt="Logo" class="logo">
+      <img src="<?php echo IMG_PATH; ?>logos/logo_blank.png" alt="Logo" class="logo">
       <h1 id="addPay" class="site-title">Add Payment</h1>
     </div>
     <form name="mainForm" action="addPayment.php" method="post">
