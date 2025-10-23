@@ -18,7 +18,7 @@ if (isset($_POST['occupation-type'])) {
 
 <head>
   <title>Search Results</title>
-  <link rel="stylesheet" type="text/css" href="public/css/searchResults.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH; ?>searchResults.css">
 </head>
 
 <body>

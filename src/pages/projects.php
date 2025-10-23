@@ -28,7 +28,7 @@ if ($type == 'Administrator') {
 
 <head>
   <title>Projects</title>
-  <link rel="stylesheet" type="text/css" href="public/css/projects.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH; ?>projects.css">
 </head>
 
 

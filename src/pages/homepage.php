@@ -46,8 +46,8 @@ switch ($user_type) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ContractorConnector</title>
-  <link rel="stylesheet" href="public/css/homepage.css">
-  <link rel="stylesheet" type="text/css" href="public/css/projects.css">
+  <link rel="stylesheet" href="<?php echo CSS_PATH; ?>homepage.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH; ?>projects.css">
 </head>
 
 <!--HEADER-->

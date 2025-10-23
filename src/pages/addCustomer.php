@@ -36,7 +36,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($_SESSION['UserID']) && !iss
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
   <link rel="icon" type="image/png" href="https://www.cs.virginia.edu/~up3f/cs4750/public/images/db-icon.png" />
-  <link rel="stylesheet" href="public/css/addCustomer.css">
+  <link rel="stylesheet" href="<?php echo CSS_PATH; ?>addCustomer.css">
 </head>
 
 <body>

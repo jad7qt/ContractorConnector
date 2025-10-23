@@ -29,7 +29,7 @@ if ($_SESSION['Type'] == 'Administrator') {
 
 <head>
   <title>Payments</title>
-  <link rel="stylesheet" type="text/css" href="public/css/searchResults.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH; ?>searchResults.css">
 </head>
 
 <body>

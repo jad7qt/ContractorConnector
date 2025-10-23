@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="your name">
   <meta name="description" content="About Us - ContractorConnector">
-  <link rel="stylesheet" href="public/css/about.css">
+  <link rel="stylesheet" href="<?php echo CSS_PATH; ?>about.css">
 
 </head>
 
