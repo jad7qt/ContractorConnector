@@ -1,5 +1,3 @@
--- Sample Project Data
-
 INSERT INTO User (Username, Password, Type, FirstName, LastName) VALUES
 ('admin_test', '$2y$10$kFcGWMVm91r5PoW8fVLn4elo0IpzrWkn3yDpzpIZyaq18Z/E.AuCy', 'Administrator', 'Alice', 'Admin'),
 ('tech1_test', '$2y$10$kFcGWMVm91r5PoW8fVLn4elo0IpzrWkn3yDpzpIZyaq18Z/E.AuCy', 'Technician', 'Bob', 'Builder'),
@@ -33,8 +31,8 @@ WHERE Username = 'tech1_test';
 
 INSERT INTO Project (CustomerID, TechnicianID, JobType, Description, StartDate, EndDate, Completed)
 SELECT
-    (SELECT UserID FROM USER WHERE Username = 'cust_test'),
-    (SELECT UserID FROM USER WHERE Username = 'tech1_test'),
+    (SELECT UserID FROM User WHERE Username = 'cust_test'),
+    (SELECT UserID FROM User WHERE Username = 'tech1_test'),
     'Electrical',
     'Install new lighting fixtures in the living room.',
     '2024-10-01',
@@ -43,8 +41,8 @@ SELECT
 
 INSERT INTO Project (CustomerID, TechnicianID, JobType, Description, StartDate, EndDate, Completed)
 SELECT
-    (SELECT UserID FROM USER WHERE Username = 'cust_test'),
-    (SELECT UserID FROM USER WHERE Username = 'tech2_test'),
+    (SELECT UserID FROM User WHERE Username = 'cust_test'),
+    (SELECT UserID FROM User WHERE Username = 'tech2_test'),
     'Carpentry',
     'Build outdoor patio deck.',
     '2025-10-01',

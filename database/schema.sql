@@ -1,4 +1,3 @@
---- Database Schema SQL
 CREATE DATABASE IF NOT EXISTS ContractorConnector;
 USE ContractorConnector;
 
