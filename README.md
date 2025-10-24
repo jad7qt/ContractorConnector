@@ -64,6 +64,20 @@ This will:
 Open your browser and visit:
 [http://localhost:8080](http://localhost:8080)
 
+
+#### 👤 Demo Users
+
+The database is preloaded with four demo users for testing and exploration:
+
+| Username      | Password       |
+|---------------|----------------|
+| admin_test    | Password2025!  |
+| tech1_test    | Password2025!  |
+| tech2_test    | Password2025!  |
+| cust_test     | Password2025!  |
+
+These accounts can be used to log into the web app and interact with the system.
+
 ---
 
 ## Acknowledgments
