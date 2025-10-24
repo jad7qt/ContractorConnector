@@ -7,12 +7,12 @@ require_once MODELS_DIR . 'createProject-db.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SESSION['Type'] == 'Administrator') {
   if (!empty($_POST['actionBtn']) && ($_POST['actionBtn'] == "Assign Tech")) {
     acceptJob($_POST['techid'], $_POST['projid']);
-    header("Location: homepage.php");
+    header("Location: homepage");
     exit();
   }
 
 } elseif ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SESSION['Type'] == 'Technician') {
-  header("Location: assignTech.php?error=Only Admins can assign Technicians");
+  header("Location: assignTech?error=Only Admins can assign Technicians");
 }
 ?>
 
@@ -39,19 +39,19 @@ $Techs = selectAllTechs();
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
   <link rel="icon" type="image/png" href="https://www.cs.virginia.edu/~up3f/cs4750/public/images/db-icon.png" />
-  <link rel="stylesheet" href="public/css/addCustomer.css">
+  <link rel="stylesheet" href="<?php echo CSS_PATH; ?>addCustomer.css">
 </head>
 
 <body>
   <div class="container">
     <div class="header">
-      <img src="public/images/logos/logo_blank.png" alt="Logo" class="logo">
+      <img src="<?php echo IMG_PATH; ?>logos/logo_blank.png" alt="Logo" class="logo">
       <h1 class="site-title">Assign a Technician to Project</h1>
     </div>
     <?php if (isset($_GET['error'])) { ?>
       <p class="error"><?php echo $_GET['error']; ?></p>
     <?php } ?>
-    <form name="mainForm" action="assignTech.php" method="post">
+    <form name="mainForm" action="assignTech" method="post">
       <div class="row mb-3 mx-3">
         Technician to Assign:
         <select id="techid" style="width:550px" name="techid" class="form-control" required>
@@ -66,7 +66,7 @@ $Techs = selectAllTechs();
       <div id="button-layout">
         <input id="buttonAssignTech" type="submit" class="btn btn-primary" name="actionBtn" value="Assign Tech"
           title="class to assign Tech" />
-        <button id="backBtn" type="button" onclick="window.location.href='homepage.php';" name="actionBtn"
+        <button id="backBtn" type="button" onclick="window.location.href='homepage';" name="actionBtn"
           value="Back">Back</button>
       </div>
     </form>

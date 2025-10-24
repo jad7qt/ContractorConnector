@@ -10,11 +10,12 @@ error_reporting(E_ALL);
 
 $scriptName = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
 $base = rtrim($scriptName, '/') . '/';
+
 define('BASE_URL', $base);
 define('PROJECT_ROOT', realpath(__DIR__ . '/../../'));
 
-require_once __DIR__ . '/connect-db.php';
 require_once __DIR__ . '/constants.php';
+require_once __DIR__ . '/connect-db.php';
 
 if (!empty($_SESSION['timezone'])) {
     date_default_timezone_set($_SESSION['timezone']);

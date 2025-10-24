@@ -6,7 +6,7 @@ require_once MODELS_DIR . 'customer-db.php';
 if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
   if (!empty($_POST['actionBtn']) && ($_POST['actionBtn'] == "Update Profile")) {
     if (usernameTaken($_POST['username']) && newUsernameTaken($_POST['username'])['UserID'] != $_SESSION['UserID']) {
-      header("Location: updateProfile.php?error=Username is already taken");
+      header("Location: updateprofile?error=Username is already taken");
       exit();
     }
     if ($_SESSION['Type'] == 'Administrator') { // Admin
@@ -35,7 +35,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
     $_SESSION['LastName'] = $result[0]['LastName'];
     $_SESSION['UserID'] = $result[0]['UserID'];
     $_SESSION['Type'] = $result[0]['Type'];
-    header("Location: profile.php");
+    header("Location: profile");
     exit();
   }
 
@@ -69,13 +69,13 @@ if ($_SESSION['Type'] == 'Customer') {
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
   <link rel="icon" type="image/png" href="https://www.cs.virginia.edu/~up3f/cs4750/public/images/db-icon.png" />
-  <link rel="stylesheet" href="public/css/addCustomer.css">
+  <link rel="stylesheet" href="<?php echo CSS_PATH; ?>addCustomer.css">
 </head>
 
 <body>
   <div class="container">
     <div class="header">
-      <img src="public/images/logos/logo_blank.png" alt="Logo" class="logo">
+      <img src="<?php echo IMG_PATH; ?>logos/logo_blank.png" alt="Logo" class="logo">
       <h1 class="site-title">Update Your Profile</h1>
     </div>
 
@@ -83,7 +83,7 @@ if ($_SESSION['Type'] == 'Customer') {
     <?php if (isset($_GET['error'])) { ?>
       <p class="error"><?php echo $_GET['error']; ?></p>
     <?php } ?>
-    <form name="mainForm" action="updateProfile.php" method="post">
+    <form name="mainForm" action="updateprofile" method="post">
       <div class="row mb-3 mx-3">
         Username:
         <input type="text" class="form-control" name="username" maxlength=19 value=<?php echo $_SESSION['Username']; ?>
@@ -128,7 +128,7 @@ if ($_SESSION['Type'] == 'Customer') {
       <div id="button-layout">
         <input id="buttonUpdateUser" type="submit" class="btn btn-primary" name="actionBtn" value="Update Profile"
           title="class to update existing customer" />
-        <button id="backBtn" type="button" onclick="window.location.href='profile.php';" name="actionBtn"
+        <button id="backBtn" type="button" onclick="window.location.href='profile';" name="actionBtn"
           value="Back">Back</button>
 
       </div>

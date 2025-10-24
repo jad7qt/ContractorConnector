@@ -13,9 +13,9 @@ define('DEFAULT_TIMEZONE', 'UTC');
 define('SUPPORT_EMAIL', 'support@contractorconnector.local');
 
 // Asset paths (relative to BASE_URL defined in bootstrap.php)
-define('CSS_PATH', BASE_URL . 'public/css/');
-define('JS_PATH',  BASE_URL . 'public/js/');
-define('IMG_PATH', BASE_URL . 'public/images/');
+define('CSS_PATH', BASE_URL . 'css/');
+define('JS_PATH',  BASE_URL . 'js/');
+define('IMG_PATH', BASE_URL . 'images/');
 define('INCLUDES_DIR', PROJECT_ROOT . '/src/includes/');
 define('COMPONENTS_DIR', PROJECT_ROOT . '/src/components/');
 define('MODELS_DIR', PROJECT_ROOT . '/src/models/');

@@ -28,7 +28,7 @@ if ($type == 'Administrator') {
 
 <head>
   <title>Projects</title>
-  <link rel="stylesheet" type="text/css" href="public/css/projects.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH; ?>projects.css">
 </head>
 
 
@@ -65,7 +65,9 @@ if ($type == 'Administrator') {
         <?php foreach ($projects as $item): ?>
           <tr>
             <td>
-              <?php echo '<a id="detailsRed" href="projectDetails.php?id=' . $item['ProjectID'] . '"><img src="public/images/icons/info.png" alt="Info" style="max-width: 30px; max-height: 30px;"></a>'; ?>
+              <a id="detailsRed" href="projectDetails?id=<?php echo $item['ProjectID']; ?>">
+                <img src="<?php echo IMG_PATH; ?>icons/info.png" alt="Info" style="max-width: 30px; max-height: 30px;">
+              </a>
             </td>
             <?php if ($_SESSION['Type'] != 'Customer'): ?>
               <td><?php echo $item['Customer_Name']; ?></td>
@@ -77,17 +79,20 @@ if ($type == 'Administrator') {
             <td><?php echo $item['EndDate']; ?></td>
             <?php if ($_SESSION['Type'] != 'Technician'): ?>
               <td class="techNames">
-                <b><?php echo '<a id="techName" href="profile.php?id=' . $item['TechnicianID'] . '">' . $item['Technician_Name'] . '</a>'; ?></b>
+                <b>
+                  <a id="techName" href="profile?id=<?php echo $item['TechnicianID']; ?>">
+                    <?php echo $item['Technician_Name']; ?>
+                  </a>
+                </b>
               </td>
             <?php endif; ?>
             <td>
-              <?php
-              if ($item['Completed'] == "1") {
-                echo '<img src="public/images/icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
-              } else {
-                echo '<img src="public/images/icons/ongoing.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
-              }
-              ?>
+              <?php if ($item['Completed'] == "1"): ?>
+                <img src="<?php echo IMG_PATH; ?>icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">
+              <?php else: ?>
+                <img src="<?php echo IMG_PATH; ?>icons/ongoing.png" alt="Completed"
+                  style="max-width: 30px; max-height: 30px;">
+              <?php endif; ?>
             </td>
           </tr>
         <?php endforeach; ?>
@@ -98,7 +103,7 @@ if ($type == 'Administrator') {
   <?php endif; ?>
 
   <?php if ($_SESSION['Type'] == 'Customer'): ?>
-    <button id="buttonNewProject" type="button" onclick="window.location.href='createProject.php'"
+    <button id="buttonNewProject" type="button" onclick="window.location.href='createProject'"
       class="btn btn-primary">
       Add a New Project
     </button>

@@ -12,5 +12,3 @@ handlers:
 
 - url: /.*
   script: index.php
-
-# If your main page is index.php, comment the above entrypoint setting 

@@ -38,7 +38,7 @@ function newUsernameTaken($username)
     $statement = $db->prepare($query);
     $statement->bindValue(':username', $username);
     $statement->execute();
-    $users = $statement->fetch;
+    $users = $statement->fetch();
     $statement->closeCursor();
     if(!empty($users)){
         return $users;

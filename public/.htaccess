@@ -1,5 +1,5 @@
 RewriteEngine On
-RewriteBase /ContractorConnector/
+RewriteBase /
 
 # 1) If the request maps to a real file or directory, serve it directly
 RewriteCond %{REQUEST_FILENAME} -f [OR]

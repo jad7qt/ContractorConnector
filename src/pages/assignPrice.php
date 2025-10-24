@@ -7,7 +7,7 @@ require_once MODELS_DIR . 'createProject-db.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && ($_SESSION['Type'] == 'Administrator' || $_SESSION['Type'] == 'Technician')) {
   if (!empty($_POST['actionBtn']) && ($_POST['actionBtn'] == "Assign Price")) {
     assignPrice($_POST['projid'], $_POST['price']);
-    header("Location: payments.php");
+    header("Location: payments");
     exit();
   }
 }
@@ -29,19 +29,19 @@ $projid = $_GET['id'];
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
   <link rel="icon" type="image/png" href="https://www.cs.virginia.edu/~up3f/cs4750/public/images/db-icon.png" />
-  <link rel="stylesheet" href="public/css/addCustomer.css">
+  <link rel="stylesheet" href="<?php echo CSS_PATH; ?>addCustomer.css">
 </head>
 
 <body>
   <div class="container">
     <div class="header">
-      <img src="public/images/logos/logo_blank.png" alt="Logo" class="logo">
+      <img src="<?php echo IMG_PATH; ?>logos/logo_blank.png" alt="Logo" class="logo">
       <h1 class="site-title">Assign Price for Project</h1>
     </div>
     <?php if (isset($_GET['error'])) { ?>
       <p class="error"><?php echo $_GET['error']; ?></p>
     <?php } ?>
-    <form name="mainForm" action="assignPrice.php" method="post">
+    <form name="mainForm" action="assignPrice" method="post">
       <div class="row mb-3 mx-3">
         Price to Assign:
         <input type="number" class="form-control" name="price" required />
@@ -50,7 +50,7 @@ $projid = $_GET['id'];
       <div id="button-layout">
         <input id="buttonAssignPrice" type="submit" class="btn btn-primary" name="actionBtn" value="Assign Price"
           title="class to assign Price" />
-        <button id="backBtn" type="button" onclick="window.location.href='payments.php';" name="actionBtn"
+        <button id="backBtn" type="button" onclick="window.location.href='payments';" name="actionBtn"
           value="Back">Back
         </button>
       </div>

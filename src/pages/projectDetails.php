@@ -8,12 +8,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (!empty($_POST['actionBtn']) && ($_POST['actionBtn'] == "postComment")) {
     postComment($_POST['projid'], $_SESSION['UserID'], $_POST['comment']);
     $id = $_POST['projid'];
-    header("Location: projectDetails.php?id=$id");
+    header("Location: projectDetails?id=$id");
     exit();
   } elseif (!empty($_POST['actionBtn']) && ($_POST['actionBtn'] == "deleteComment")) {
     deleteComment($_POST['commentid']);
     $id = $_POST['projid'];
-    header("Location: projectDetails.php?id=$id");
+    header("Location: projectDetails?id=$id");
     exit();
   }
 }
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $pageID = isset($_GET['id']) ? intval($_GET['id']) : null;
 if (!$pageID) {
   // redirect or show error
-  header("Location: homepage.php");
+  header("Location: homepage");
   exit();
 }
 $project = getProject($pageID);
@@ -49,7 +49,7 @@ $payments = getPayments($pageID);
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-  <link rel="stylesheet" type="text/css" href="public/css/projects.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH; ?>projects.css">
 </head>
 
 
@@ -79,13 +79,11 @@ $payments = getPayments($pageID);
         <td><?php echo $project['StartDate']; ?></td>
         <td><?php echo $project['EndDate']; ?></td>
         <td>
-          <?php
-          if ($project['Completed'] == "1") {
-            echo '<img src="public/images/icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
-          } else {
-            echo "Ongoing";
-          }
-          ?>
+          <?php if ($project['Completed'] == "1"): ?>
+            <img src="<?php echo IMG_PATH; ?>icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">
+          <?php else: ?>
+            Ongoing
+          <?php endif; ?>
         </td>
       </tr>
     </tbody>
@@ -122,7 +120,11 @@ $payments = getPayments($pageID);
     <tbody>
       <tr>
         <td class="techNames">
-          <b><?php echo '<a id="techName" href="profile.php?id=' . $project['TechnicianID'] . '">' . $project['Technician_Name'] . '</a>'; ?></b>
+          <b>
+            <a id="techName" href="profile?id=<?php echo $project['TechnicianID']; ?>">
+              <?php echo $project['Technician_Name']; ?>
+            </a>
+          </b>
         </td>
         <td><?php echo $project['Technician_Type']; ?></td>
       </tr>
@@ -148,7 +150,7 @@ $payments = getPayments($pageID);
             <td>
               <?php echo $item['Text']; ?>
               <?php if ($item['UserID'] == $_SESSION['UserID'] || $_SESSION['Type'] == "Administrator") { ?>
-                <form name="commentDeleteForm" action="projectDetails.php" method="post">
+                <form name="commentDeleteForm" action="projectDetails" method="post">
                   <button style="float: right;" id="delBtn" type="submit" class="btn btn-danger" name="actionBtn"
                     value="deleteComment">X</button>
                   <input type="hidden" name="commentid" value="<?php echo $item['CommentID']; ?>" />
@@ -156,7 +158,7 @@ $payments = getPayments($pageID);
                 </form>
               <?php } ?>
             </td>
-            <?php 
+            <?php
             $date_time = new DateTime($item['CommentTime'], new DateTimeZone('UTC'));
             if (isset($_SESSION['timezone'])) {
               $timezone = new DateTimeZone($_SESSION['timezone']);
@@ -188,7 +190,7 @@ $payments = getPayments($pageID);
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form name="commentForm" action="projectDetails.php" method="post">
+        <form name="commentForm" action="projectDetails" method="post">
           <div class="modal-body">
             <div class="row mb-3 mx-3">
               Comment:

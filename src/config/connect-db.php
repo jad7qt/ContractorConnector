@@ -1,10 +1,15 @@
 <?php
+define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
+define('DB_NAME', getenv('DB_NAME') ?: 'ContractorConnector');
+define('DB_USER', getenv('DB_USER') ?: 'root');
+define('DB_PASS', getenv('DB_PASS') ?: '');
 
-$host = 'localhost';
-$dbname = 'ContractorConnector';
-$username = 'root';
-$password = '';
-$dsn = "mysql:host=$host;dbname=$dbname";
+
+$dsn = sprintf(
+  'mysql:host=%s;dbname=%s;charset=utf8mb4',
+  DB_HOST,
+  DB_NAME
+);
 
 // Class Hosted Database
 /*
@@ -60,18 +65,13 @@ $dsn = "mysql:unix_socket=/cloudsql/$host;dbname=$dbname";
 //    (use http://ipv4.whatismyv6.com/ to find the IP address)
 // 2. On the SQL connections page, add authorized networks, enter the IP address
 
-try
-{
-    $db = new PDO($dsn, $username, $password);
-}
-catch(PDOException $e)
-{
-    $error_message = $e->getMessage();
-    echo "<p>An error occurred while connecting to the database: $error_message </p>";
-}
-catch(Exception $e)
-{
-    $error_message = $e->getMessage();
-    echo "<p>Error message: $error_message </p>";
+try {
+  $db = new PDO($dsn, DB_USER, DB_PASS);
+} catch (PDOException $e) {
+  $error_message = $e->getMessage();
+  echo "<p>An error occurred while connecting to the database: $error_message </p>";
+} catch (Exception $e) {
+  $error_message = $e->getMessage();
+  echo "<p>Error message: $error_message </p>";
 }
 ?>

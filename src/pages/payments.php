@@ -29,7 +29,7 @@ if ($_SESSION['Type'] == 'Administrator') {
 
 <head>
   <title>Payments</title>
-  <link rel="stylesheet" type="text/css" href="public/css/searchResults.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH; ?>searchResults.css">
 </head>
 
 <body>
@@ -68,7 +68,9 @@ if ($_SESSION['Type'] == 'Administrator') {
               <td><?php echo $item['Remaining_Payment']; ?></td>
               <?php if ($_SESSION['Type'] != "Technician") { ?>
                 <td style="text-align: center;">
-                  <?php echo '<a id="paymentBtnn" href="addPayment.php?id=' . $item['ProjectID'] . '"><img src="public/images/icons/pay.png" alt="Pay" style="width: 30px; height: 30px;"></a>'; ?>
+                  <a id="paymentBtnn" href="addPayment?id=<?php echo $item['ProjectID']; ?>">
+                    <img src="<?php echo IMG_PATH; ?>icons/pay.png" alt="Pay" style="width: 30px; height: 30px;">
+                  </a>
                 </td>
               <?php } ?>
             </tr>
@@ -136,7 +138,9 @@ if ($_SESSION['Type'] == 'Administrator') {
                 <td><?php echo $item['JobType']; ?></td>
                 <td><?php echo $item['StartDate']; ?></td>
                 <td><?php echo $item['EndDate']; ?></td>
-                <td><?php echo '<a href="assignPrice.php?id=' . $item['ProjectID'] . '">Assign Price</a>'; ?></td>
+                <td>
+                  <a href="assignPrice?id=<?php echo $item['ProjectID']; ?>">Assign Price</a>
+                </td>
               </tr>
             <?php endforeach; ?>
           </tbody>
