@@ -17,7 +17,7 @@
       <p>
         Feel free to reach us at info@ContractorConnector.com
       </p>
-      <button class="btn-back" onclick="window.location.href='login.php';">Back to Login</button>
+      <button class="btn-back" onclick="window.location.href='login';">Back</button>
     </div>
   </div>
 </body>

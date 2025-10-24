@@ -7,7 +7,7 @@ require_once MODELS_DIR . 'createProject-db.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && ($_SESSION['Type'] == 'Administrator' || $_SESSION['Type'] == 'Technician')) {
   if (!empty($_POST['actionBtn']) && ($_POST['actionBtn'] == "Assign Price")) {
     assignPrice($_POST['projid'], $_POST['price']);
-    header("Location: payments.php");
+    header("Location: payments");
     exit();
   }
 }
@@ -41,7 +41,7 @@ $projid = $_GET['id'];
     <?php if (isset($_GET['error'])) { ?>
       <p class="error"><?php echo $_GET['error']; ?></p>
     <?php } ?>
-    <form name="mainForm" action="assignPrice.php" method="post">
+    <form name="mainForm" action="assignPrice" method="post">
       <div class="row mb-3 mx-3">
         Price to Assign:
         <input type="number" class="form-control" name="price" required />
@@ -50,7 +50,7 @@ $projid = $_GET['id'];
       <div id="button-layout">
         <input id="buttonAssignPrice" type="submit" class="btn btn-primary" name="actionBtn" value="Assign Price"
           title="class to assign Price" />
-        <button id="backBtn" type="button" onclick="window.location.href='payments.php';" name="actionBtn"
+        <button id="backBtn" type="button" onclick="window.location.href='payments';" name="actionBtn"
           value="Back">Back
         </button>
       </div>

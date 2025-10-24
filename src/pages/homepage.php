@@ -58,7 +58,7 @@ switch ($user_type) {
 <!--hamburger-->
 
 <div class="search-container">
-  <form action="searchResults.php" method="POST">
+  <form action="searchResults" method="POST">
     <label for="occupation-type">Search for a <b>Local Technician</b></label>
     <div>
       <input type="text" id="occupation-type" name="occupation-type" placeholder="Enter Occupation">
@@ -106,7 +106,7 @@ switch ($user_type) {
         <?php foreach ($projects as $item): ?>
           <tr>
             <td>
-              <a href="projectDetails.php?id=<?php echo $item['ProjectID']; ?>">
+              <a href="projectDetails?id=<?php echo $item['ProjectID']; ?>">
                 <img id="infoImg" src="<?php echo IMG_PATH; ?>icons/info.png" alt="Project Info"
                   style="max-width: 30px; max-height: 30px;">
               </a>
@@ -166,7 +166,7 @@ switch ($user_type) {
         <?php foreach ($table2 as $item): ?>
           <tr>
             <td>
-              <a id="infoBtn" href="projectDetails.php?id=<?php echo $item['ProjectID']; ?>">
+              <a id="infoBtn" href="projectDetails?id=<?php echo $item['ProjectID']; ?>">
                 <img src="<?php echo IMG_PATH; ?>icons/info.png" alt="info" style="max-width: 30px; max-height: 30px;">
               </a>
             </td>
@@ -182,7 +182,7 @@ switch ($user_type) {
               <td><?php echo $item['Technician_Name']; ?></td>
             <?php elseif ($user_type == 'Administrator'): ?>
               <td class="text-center">
-                <a id="red" href="assignTech.php?id=<?php $item['ProjectID']; ?>">
+                <a id="red" href="assignTech?id=<?php $item['ProjectID']; ?>">
                   <img src="<?php echo IMG_PATH; ?>icons/signup.png" alt="Assign Technician" width="40" height="40">
                 </a>
               </td>

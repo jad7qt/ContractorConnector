@@ -7,23 +7,27 @@ function auth_guard($allow_guests = false, $redirect_logged_in = false, $allow_c
 
   $allowed = false;
 
-  // Always allow Administrators
+  // Check Special Admin rules
   if ($type === 'Administrator') {
     $allowed = true ? $allow_admin : false;
+    if (!$allowed) {
+      header(header: 'Location: ' . BASE_URL . 'homepage');
+      exit;
+    }
     return $allowed;
   }
 
-  // Redirect logged in users if required
+  // Redirect logged in users (non-admin) if required
   if ($redirect_logged_in) {
     if ($is_logged_in) {
-      header('Location: ' . BASE_URL . 'homepage.php');
+      header(header: 'Location: ' . BASE_URL . 'homepage');
       exit;
     }
   }
   
   // If user type not allowed on this page, return
   if ((!$allow_cust && $type === 'Customer') || (!$allow_tech && $type === 'Technician')) {
-    header('Location: ' . BASE_URL . 'homepage.php');
+    header('Location: ' . BASE_URL . 'homepage');
     exit;
   }
 
@@ -32,7 +36,7 @@ function auth_guard($allow_guests = false, $redirect_logged_in = false, $allow_c
   }
 
   if (!$allowed) {
-    header('Location: ' . BASE_URL . 'login.php');
+    header('Location: ' . BASE_URL . 'login');
     exit;
   }
   return $allowed;

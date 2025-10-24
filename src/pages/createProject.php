@@ -6,11 +6,11 @@ require_once MODELS_DIR . 'createProject-db.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SESSION['Type'] == 'Customer') {
   if (!empty($_POST['actionBtn']) && ($_POST['actionBtn'] == "Create Project")) {
     newProject($_SESSION['UserID'], $_POST['techid'], $_POST['jobtype'], $_POST['description'], $_POST['startdate'], $_POST['enddate']);
-    header("Location: projects.php");
+    header("Location: projects");
     exit();
   }
 } elseif ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SESSION['Type'] == 'Technician') {
-  header("Location: createProject.php?error=Only Customers can create a new project");
+  header("Location: createProject?error=Only Customers can create a new project");
 }
 
 $Techs = array();
@@ -42,7 +42,7 @@ $Techs = selectAllTechs();
     <?php if (isset($_GET['error'])) { ?>
       <p class="error"><?php echo $_GET['error']; ?></p>
     <?php } ?>
-    <form name="mainForm" action="createProject.php" method="post">
+    <form name="mainForm" action="createProject" method="post">
       <div class="row mb-3 mx-3">
         Requested Technician:
         <select id="techid" style="width:550px" name="techid" class="form-control" required>
@@ -91,7 +91,7 @@ $Techs = selectAllTechs();
       <div id="button-layout">
         <input id="buttonCreateProject" type="submit" class="btn btn-primary" name="actionBtn" value="Create Project"
           title="class to add new Project" />
-        <button id="backBtn" type="button" onclick="window.location.href='projects.php';" name="actionBtn"
+        <button id="backBtn" type="button" onclick="window.location.href='projects';" name="actionBtn"
           value="Back">Back</button>
       </div>
     </form>

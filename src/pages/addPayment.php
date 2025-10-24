@@ -7,7 +7,7 @@ require_once MODELS_DIR . 'payments-db.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SESSION['Type'] != 'Technician') {
   if (!empty($_POST['actionBtn']) && ($_POST['actionBtn'] == "Add Payment")) {
     addPaymentAdmin($_POST['projid'], $_POST['paymentType'], $_POST['amount']);
-    header("Location: payments.php");
+    header("Location: payments");
     exit();
   }
 }
@@ -41,7 +41,7 @@ $pageID = $_GET['id'];
       <img src="<?php echo IMG_PATH; ?>logos/logo_blank.png" alt="Logo" class="logo">
       <h1 id="addPay" class="site-title">Add Payment</h1>
     </div>
-    <form name="mainForm" action="addPayment.php" method="post">
+    <form name="mainForm" action="addPayment" method="post">
       <div class="row mb-3 mx-3">
         Payment Type:
         <select id="paymentType" style="width:90%" name="paymentType" class="form-control" required>
@@ -59,7 +59,7 @@ $pageID = $_GET['id'];
       <div id="button-layout">
         <input id="buttonAddTechnician" type="submit" class="btn btn-primary" name="actionBtn" value="Add Payment"
           title="class to add payment" />
-        <button type="button" onclick="window.location.href='payments.php';" name="actionBtn" value="Back">Back</button>
+        <button type="button" onclick="window.location.href='payments';" name="actionBtn" value="Back">Back</button>
       </div>
     </form>
   </div>

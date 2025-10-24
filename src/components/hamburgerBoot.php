@@ -23,11 +23,11 @@
 	    but hey, it's pure CSS magic.
 	    -->
 	    <ul id="menu">
-	      <a href="projects.php"><li>Projects</li></a>
-	      <a href="payments.php"><li>Payments</li></a>
-	      <a href="profile.php"><li>Profile</li></a>
-	      <a href="technicians.php"><li>View Technicians</li></a>
-	      <a href="contact-loggedin.php"><li>Contact</li></a>
+	      <a href="projects"><li>Projects</li></a>
+	      <a href="payments"><li>Payments</li></a>
+	      <a href="profile"><li>Profile</li></a>
+	      <a href="technicians"><li>View Technicians</li></a>
+	      <a href="contact"><li>Contact</li></a>
 	    </ul>
 	  </div>
 	</nav>

@@ -68,7 +68,7 @@ if ($_SESSION['Type'] == 'Administrator') {
               <td><?php echo $item['Remaining_Payment']; ?></td>
               <?php if ($_SESSION['Type'] != "Technician") { ?>
                 <td style="text-align: center;">
-                  <a id="paymentBtnn" href="addPayment.php?id=<?php echo $item['ProjectID']; ?>">
+                  <a id="paymentBtnn" href="addPayment?id=<?php echo $item['ProjectID']; ?>">
                     <img src="<?php echo IMG_PATH; ?>icons/pay.png" alt="Pay" style="width: 30px; height: 30px;">
                   </a>
                 </td>
@@ -139,7 +139,7 @@ if ($_SESSION['Type'] == 'Administrator') {
                 <td><?php echo $item['StartDate']; ?></td>
                 <td><?php echo $item['EndDate']; ?></td>
                 <td>
-                  <a href="assignPrice.php?id=<?php echo $item['ProjectID']; ?>">Assign Price</a>
+                  <a href="assignPrice?id=<?php echo $item['ProjectID']; ?>">Assign Price</a>
                 </td>
               </tr>
             <?php endforeach; ?>

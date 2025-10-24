@@ -31,7 +31,7 @@ if (isset($_POST['occupation-type'])) {
   <!--hamburger-->
 
   <div class="search-container">
-    <form action="technicians.php" method="POST">
+    <form action="technicians" method="POST">
       <label for="occupation-type">Search for a <b>Technician</b></label>
       <div>
         <input type="text" id="occupation-type" name="occupation-type" placeholder="Enter Name">
@@ -42,7 +42,7 @@ if (isset($_POST['occupation-type'])) {
 
         <!--     ADD Technician if they arent in the system    -->
         <?php if ($_SESSION['Type'] == 'Administrator') { ?>
-          <button type="button" class="techButton" onclick="window.location.href='addTechnician.php';"
+          <button type="button" class="techButton" onclick="window.location.href='addTechnician';"
             value="Add Technician"> <span class="plus-sign">+</span>
             Add Technician</button>
         <?php } ?>
@@ -70,7 +70,7 @@ if (isset($_POST['occupation-type'])) {
             <tr>
               <td class="techNames">
                 <b>
-                  <a id="techName" href="profile.php?id=<?php echo $item['userID']; ?>">
+                  <a id="techName" href="profile?id=<?php echo $item['userID']; ?>">
                     <?php echo $item['Technician_Name']; ?>
                   </a>
                 </b>

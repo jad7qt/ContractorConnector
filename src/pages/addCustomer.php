@@ -6,12 +6,12 @@ require_once MODELS_DIR . 'customer-db.php';
 if (($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($_SESSION['UserID']) && !isset($_SESSION['Username'])) || (isset($_SESSION['Type']) && $_SESSION['Type'] == 'Administrator')) {
   if (!empty($_POST['actionBtn']) && ($_POST['actionBtn'] == "Create Customer")) {
     if (usernameTaken($_POST['username'])) {
-      header("Location: addCustomer.php?error=Username is already taken");
+      header("Location: addCustomer?error=Username is already taken");
       exit();
     } else {
       addUser($_POST['username'], $_POST['password'], $_POST['type'], $_POST['fname'], $_POST['lname']);
       addCustomer($_POST['username'], $_POST['st'], $_POST['city'], $_POST['state'], $_POST['zip']);
-      header("Location: login.php");
+      header("Location: login");
       exit();
     }
   }
@@ -48,7 +48,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($_SESSION['UserID']) && !iss
     <?php if (isset($_GET['error'])) { ?>
       <p class="error"><?php echo $_GET['error']; ?></p>
     <?php } ?>
-    <form name="mainForm" action="addCustomer.php" method="post">
+    <form name="mainForm" action="addCustomer" method="post">
       <div class="row mb-3 mx-3">
         Username:
         <input type="text" class="form-control" name="username" maxlength=19 required />
@@ -83,7 +83,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($_SESSION['UserID']) && !iss
       <div id="button-layout">
         <input id="buttonCreateCustomer" type="submit" class="btn btn-primary" name="actionBtn" value="Create Customer"
           title="class to add Customer/User" />
-        <button type="button" onclick="window.location.href='login.php';" name="actionBtn" value="Back">Back</button>
+        <button type="button" onclick="window.location.href='login';" name="actionBtn" value="Back">Back</button>
       </div>
     </form>
   </div>

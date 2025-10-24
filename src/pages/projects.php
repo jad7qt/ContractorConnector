@@ -65,7 +65,7 @@ if ($type == 'Administrator') {
         <?php foreach ($projects as $item): ?>
           <tr>
             <td>
-              <a id="detailsRed" href="projectDetails.php?id=<?php echo $item['ProjectID']; ?>">
+              <a id="detailsRed" href="projectDetails?id=<?php echo $item['ProjectID']; ?>">
                 <img src="<?php echo IMG_PATH; ?>icons/info.png" alt="Info" style="max-width: 30px; max-height: 30px;">
               </a>
             </td>
@@ -80,7 +80,7 @@ if ($type == 'Administrator') {
             <?php if ($_SESSION['Type'] != 'Technician'): ?>
               <td class="techNames">
                 <b>
-                  <a id="techName" href="profile.php?id=<?php echo $item['TechnicianID']; ?>">
+                  <a id="techName" href="profile?id=<?php echo $item['TechnicianID']; ?>">
                     <?php echo $item['Technician_Name']; ?>
                   </a>
                 </b>
@@ -103,7 +103,7 @@ if ($type == 'Administrator') {
   <?php endif; ?>
 
   <?php if ($_SESSION['Type'] == 'Customer'): ?>
-    <button id="buttonNewProject" type="button" onclick="window.location.href='createProject.php'"
+    <button id="buttonNewProject" type="button" onclick="window.location.href='createProject'"
       class="btn btn-primary">
       Add a New Project
     </button>

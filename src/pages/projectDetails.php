@@ -8,12 +8,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (!empty($_POST['actionBtn']) && ($_POST['actionBtn'] == "postComment")) {
     postComment($_POST['projid'], $_SESSION['UserID'], $_POST['comment']);
     $id = $_POST['projid'];
-    header("Location: projectDetails.php?id=$id");
+    header("Location: projectDetails?id=$id");
     exit();
   } elseif (!empty($_POST['actionBtn']) && ($_POST['actionBtn'] == "deleteComment")) {
     deleteComment($_POST['commentid']);
     $id = $_POST['projid'];
-    header("Location: projectDetails.php?id=$id");
+    header("Location: projectDetails?id=$id");
     exit();
   }
 }
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $pageID = isset($_GET['id']) ? intval($_GET['id']) : null;
 if (!$pageID) {
   // redirect or show error
-  header("Location: homepage.php");
+  header("Location: homepage");
   exit();
 }
 $project = getProject($pageID);
@@ -121,7 +121,7 @@ $payments = getPayments($pageID);
       <tr>
         <td class="techNames">
           <b>
-            <a id="techName" href="profile.php?id=<?php echo $project['TechnicianID']; ?>">
+            <a id="techName" href="profile?id=<?php echo $project['TechnicianID']; ?>">
               <?php echo $project['Technician_Name']; ?>
             </a>
           </b>
@@ -150,7 +150,7 @@ $payments = getPayments($pageID);
             <td>
               <?php echo $item['Text']; ?>
               <?php if ($item['UserID'] == $_SESSION['UserID'] || $_SESSION['Type'] == "Administrator") { ?>
-                <form name="commentDeleteForm" action="projectDetails.php" method="post">
+                <form name="commentDeleteForm" action="projectDetails" method="post">
                   <button style="float: right;" id="delBtn" type="submit" class="btn btn-danger" name="actionBtn"
                     value="deleteComment">X</button>
                   <input type="hidden" name="commentid" value="<?php echo $item['CommentID']; ?>" />
@@ -190,7 +190,7 @@ $payments = getPayments($pageID);
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form name="commentForm" action="projectDetails.php" method="post">
+        <form name="commentForm" action="projectDetails" method="post">
           <div class="modal-body">
             <div class="row mb-3 mx-3">
               Comment:

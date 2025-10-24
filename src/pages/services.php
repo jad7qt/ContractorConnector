@@ -1,3 +1,8 @@
+<?php
+require_once INCLUDES_DIR . 'authGuard.php';
+auth_guard(allow_guests: true);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,14 +12,14 @@
   <meta name="author" content="your name">
   <meta name="description" content="About Us - ContractorConnector">
   <title>Services - ContractorConnector</title>
-  <link rel="stylesheet" href="public/css/about.css">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>about.css">
 </head>
 
 <body>
   <div class="container">
     <div class="header">ContractorConnector: Services </div>
     <div class="about-us-content">
-      <img src="public/images/pictures/tools.jpeg" alt="ContractorConnector" class="about-image">
+      <img src="<?= IMG_PATH ?>pictures/tools.jpeg" alt="ContractorConnector" class="about-image">
       <h2>Top Quality Services with Top Quality Technicians</h2>
       <p>
         At ContractorConnector, we pride ourselves on delivering exceptional service by working with only the most
@@ -37,7 +42,7 @@
         projects are in the hands of highly skilled professionals who are dedicated to providing top-notch service and
         outstanding results.
       </p>
-      <button class="btn-back" onclick="window.location.href='login.php';">Back to Login</button>
+      <button class="btn-back" onclick="window.location.href='login';">Back to Login</button>
     </div>
   </div>
 </body>

@@ -47,7 +47,7 @@ if (isset($_POST['occupation-type'])) {
             <tr>
               <td class="techNames">
                 <b>
-                  <a id="techName" href="profile.php?id=<?php echo $item['userID']; ?>">
+                  <a id="techName" href="profile?id=<?php echo $item['userID']; ?>">
                     <?php echo $item['Technician_Name']; ?>
                   </a>
                 </b>

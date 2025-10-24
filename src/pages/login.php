@@ -22,13 +22,13 @@ if (isset($_POST['uname']) && isset($_POST['password']) && !empty($_POST['action
 
   if (empty($uname)) {
 
-    header("Location: login.php?error=User Name is required");
+    header("Location: login?error=User Name is required");
 
     exit();
 
   } else if (empty($pass)) {
 
-    header("Location: login.php?error=Password is required");
+    header("Location: login?error=Password is required");
 
     exit();
 
@@ -52,13 +52,13 @@ if (isset($_POST['uname']) && isset($_POST['password']) && !empty($_POST['action
       $_SESSION['UserID'] = $result['UserID'];
       $_SESSION['Type'] = $result['Type'];
 
-      header("Location: " . BASE_URL . "homepage.php");
+      header("Location: " . BASE_URL . "homepage");
 
       exit();
 
     } else {
 
-      header("Location: login.php?error=Incorect User name or password");
+      header("Location: login?error=Incorect User name or password");
 
       exit();
 
@@ -89,16 +89,16 @@ if (isset($_POST['uname']) && isset($_POST['password']) && !empty($_POST['action
       </div>
       <nav>
         <ul style="display: flex; align-items: center; justify-content: flex-end; margin: 0;">
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="contact.php">Contact</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="services">Services</a></li>
+          <li><a href="contact">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <form action="login.php" method="post">
+    <form action="login" method="post">
       <h2>LOGIN</h2>
       <?php if (isset($_GET['error'])) { ?>
         <p class="error"><?php echo $_GET['error']; ?></p>
@@ -111,7 +111,7 @@ if (isset($_POST['uname']) && isset($_POST['password']) && !empty($_POST['action
         Login <img src="<?php echo IMG_PATH; ?>icons/login.png" alt="Login"
           style="max-width: 20px; max-height: 20px; filter: invert(1); display: inline-block; vertical-align: middle;">
       </button>
-      <button id="signUpBtn" type="button" onclick="window.location.href='addCustomer.php';" name="actionBtn"
+      <button id="signUpBtn" type="button" onclick="window.location.href='addCustomer';" name="actionBtn"
         value="SignUp">
         SignUp <img src="<?php echo IMG_PATH; ?>icons/signup.png" alt="SignUp"
           style="max-width: 20px; max-height: 20px; filter: invert(1); display: inline-block; vertical-align: middle;">

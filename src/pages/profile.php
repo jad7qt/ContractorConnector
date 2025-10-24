@@ -9,11 +9,11 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
   $phone_num = filter_var($_POST['phoneNum'], FILTER_SANITIZE_NUMBER_INT);
   if (!empty($_POST['actionBtn']) && ($_POST['actionBtn'] == "addPhone")) {
     if (hasPhoneType($user_id, $phone_type)) {
-      header("Location: profile.php?error=You already have a {$phone_type} phone");
+      header("Location: profile?error=You already have a {$phone_type} phone");
       exit();
     }
     addPhoneNum($_SESSION['UserID'], $phone_type, $phone_num);
-    header("Location: profile.php");
+    header("Location: profile");
     exit();
   }
 }
@@ -142,7 +142,7 @@ $Phones = getUserPhones($pageID);
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form name="rateForm" action="profile.php" method="post">
+            <form name="rateForm" action="profile" method="post">
               <div class="modal-body">
                 <div class="row mb-3 mx-3">
                   Type:
@@ -261,7 +261,7 @@ $Phones = getUserPhones($pageID);
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <form name="rateForm" action="rating.php" method="post">
+                <form name="rateForm" action="rating" method="post">
                   <div class="modal-body">
                     <div class="row mb-3 mx-3">
                       Rating (0.0-5.0):
@@ -299,7 +299,7 @@ $Phones = getUserPhones($pageID);
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <form name="rateForm" action="rating.php" method="post">
+                <form name="rateForm" action="rating" method="post">
                   <div class="modal-body">
                     <div class="row mb-3 mx-3">
                       Rating (0.0-5.0):
@@ -334,7 +334,7 @@ $Phones = getUserPhones($pageID);
     </div>
   <?php } if ($userID == $pageID) { ?>
     <div id="centerAlign">
-      <button id="updateProfileBtn" onclick="window.location.href='updateProfile.php'" class="btn btn-primary"
+      <button id="updateProfileBtn" onclick="window.location.href='updateprofile'" class="btn btn-primary"
         value="updateProfile">Update Profile</button>
     </div>
   <?php } ?>
