@@ -106,7 +106,10 @@ switch ($user_type) {
         <?php foreach ($projects as $item): ?>
           <tr>
             <td>
-              <?php echo '<a href="projectDetails.php?id=' . $item['ProjectID'] . '"><img id="infoImg" src="public/images/icons/info.png" alt="Project Info" style="max-width: 30px; max-height: 30px;"></a>'; ?>
+              <a href="projectDetails.php?id=<?php echo $item['ProjectID']; ?>">
+                <img id="infoImg" src="<?php echo IMG_PATH; ?>icons/info.png" alt="Project Info"
+                  style="max-width: 30px; max-height: 30px;">
+              </a>
             </td>
             <?php if ($user_type != 'Customer'): ?>
               <td><?php echo $item['Customer_Name']; ?></td>
@@ -120,13 +123,12 @@ switch ($user_type) {
               <td><?php echo $item['Technician_Name']; ?></td>
             <?php endif; ?>
             <td>
-              <?php
-              if ($item['Completed'] == "1") {
-                echo '<img src="public/images/icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
-              } else {
-                echo '<img src="public/images/icons/ongoing.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
-              }
-              ?>
+              <?php if ($item['Completed'] == "1"): ?>
+                <img src="<?php echo IMG_PATH; ?>icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">
+              <?php else: ?>
+                <img src="<?php echo IMG_PATH; ?>icons/ongoing.png" alt="Completed"
+                  style="max-width: 30px; max-height: 30px;">
+              <?php endif; ?>
             </td>
           </tr>
         <?php endforeach; ?>
@@ -164,7 +166,9 @@ switch ($user_type) {
         <?php foreach ($table2 as $item): ?>
           <tr>
             <td>
-              <?php echo '<a id="infoBtn" href="projectDetails.php?id=' . $item['ProjectID'] . '"><img src="public/images/icons/info.png" alt="info" style="max-width: 30px; max-height: 30px;"></a>'; ?>
+              <a id="infoBtn" href="projectDetails.php?id=<?php echo $item['ProjectID']; ?>">
+                <img src="<?php echo IMG_PATH; ?>icons/info.png" alt="info" style="max-width: 30px; max-height: 30px;">
+              </a>
             </td>
             <?php if ($user_type != 'Customer'): ?>
               <td><?php echo $item['Customer_Name']; ?></td>
@@ -178,17 +182,18 @@ switch ($user_type) {
               <td><?php echo $item['Technician_Name']; ?></td>
             <?php elseif ($user_type == 'Administrator'): ?>
               <td class="text-center">
-                <?php echo '<a id="red" href="assignTech.php?id=' . $item['ProjectID'] . '"><img src="public/images/icons/signup.png" alt="Assign Technician" width=40" height="40"></a>'; ?>
+                <a id="red" href="assignTech.php?id=<?php $item['ProjectID']; ?>">
+                  <img src="<?php echo IMG_PATH; ?>icons/signup.png" alt="Assign Technician" width="40" height="40">
+                </a>
               </td>
             <?php endif; ?>
             <td>
-              <?php
-              if ($item['Completed'] == "1") {
-                echo '<img src="public/images/icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
-              } else {
-                echo '<img src="public/images/icons/ongoing.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
-              }
-              ?>
+              <?php if ($item['Completed'] == "1"): ?>
+                <img src="<?php echo IMG_PATH; ?>icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">
+              <?php else: ?>
+                <img src="<?php echo IMG_PATH; ?>icons/ongoing.png" alt="Completed"
+                  style="max-width: 30px; max-height: 30px;">
+              <?php endif; ?>
             </td>
           </tr>
         <?php endforeach; ?>

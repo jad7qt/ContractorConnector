@@ -79,13 +79,11 @@ $payments = getPayments($pageID);
         <td><?php echo $project['StartDate']; ?></td>
         <td><?php echo $project['EndDate']; ?></td>
         <td>
-          <?php
-          if ($project['Completed'] == "1") {
-            echo '<img src="public/images/icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">';
-          } else {
-            echo "Ongoing";
-          }
-          ?>
+          <?php if ($project['Completed'] == "1"): ?>
+            <img src="<?php echo IMG_PATH; ?>icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">
+          <?php else: ?>
+            Ongoing
+          <?php endif; ?>
         </td>
       </tr>
     </tbody>
@@ -122,7 +120,11 @@ $payments = getPayments($pageID);
     <tbody>
       <tr>
         <td class="techNames">
-          <b><?php echo '<a id="techName" href="profile.php?id=' . $project['TechnicianID'] . '">' . $project['Technician_Name'] . '</a>'; ?></b>
+          <b>
+            <a id="techName" href="profile.php?id=<?php echo $project['TechnicianID']; ?>">
+              <?php echo $project['Technician_Name']; ?>
+            </a>
+          </b>
         </td>
         <td><?php echo $project['Technician_Type']; ?></td>
       </tr>
@@ -156,7 +158,7 @@ $payments = getPayments($pageID);
                 </form>
               <?php } ?>
             </td>
-            <?php 
+            <?php
             $date_time = new DateTime($item['CommentTime'], new DateTimeZone('UTC'));
             if (isset($_SESSION['timezone'])) {
               $timezone = new DateTimeZone($_SESSION['timezone']);

@@ -69,7 +69,11 @@ if (isset($_POST['occupation-type'])) {
           <?php foreach ($Technician as $item): ?>
             <tr>
               <td class="techNames">
-                <b><?php echo '<a id="techName" href="profile.php?id=' . $item['userID'] . '">' . $item['Technician_Name'] . '</a>'; ?></b>
+                <b>
+                  <a id="techName" href="profile.php?id=<?php echo $item['userID']; ?>">
+                    <?php echo $item['Technician_Name']; ?>
+                  </a>
+                </b>
               </td>
               <td><?php echo $item['OccupationType']; ?></td>
               <td>

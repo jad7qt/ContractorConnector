@@ -14,7 +14,7 @@
   <div class="container">
     <div class="about-us-content">
       <h2>Contact</h2>
-      <img id="logo-image" src="public/images/logos/logo_blank.png" alt="ContractorConnector" class="about-image">
+      <img id="logo-image" src="<?php echo IMG_PATH; ?>logos/logo_blank.png" alt="ContractorConnector" class="about-image">
       <p>
         Feel free to reach us at info@ContractorConnector.com
       </p>
