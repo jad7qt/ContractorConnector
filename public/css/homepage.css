@@ -46,15 +46,6 @@ label[for="occupation-type"] {
 
 /* End Search Bar */
 
-#btnSearch:hover {
-  background-color: #b6190b;
-  color: white;
-}
-
 #infoBtn {
   color: #7a1107;
-}
-
-#btnSearch {
-  margin: 0px;
 }

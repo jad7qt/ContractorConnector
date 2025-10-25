@@ -94,24 +94,6 @@ label[for="occupation-type"] {
   /* adjust size as needed */
 }
 
-#buttonRed {
-  background-color: #7a1107;
-  border: none;
-}
-
-#buttonRed:hover {
-  background-color: #b6190b;
-  border: none;
-}
-
-#techName {
-  color: #7a1107;
-}
-
-#btnSearch {
-  margin: 0px;
-}
-
 .star {
   display: inline-block;
   width: 0;
