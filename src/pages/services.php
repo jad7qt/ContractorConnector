@@ -12,6 +12,7 @@ auth_guard(allow_guests: true);
   <meta name="author" content="your name">
   <meta name="description" content="About Us - ContractorConnector">
   <title>Services - ContractorConnector</title>
+  <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
   <link rel="stylesheet" href="<?= CSS_PATH ?>about.css">
 </head>
 

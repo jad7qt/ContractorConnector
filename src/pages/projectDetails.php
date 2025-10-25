@@ -49,7 +49,8 @@ $payments = getPayments($pageID);
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-  <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH; ?>projects.css">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>projects.css">
 </head>
 
 
@@ -80,7 +81,7 @@ $payments = getPayments($pageID);
         <td><?php echo $project['EndDate']; ?></td>
         <td>
           <?php if ($project['Completed'] == "1"): ?>
-            <img src="<?php echo IMG_PATH; ?>icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">
+            <img src="<?= IMG_PATH ?>icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">
           <?php else: ?>
             Ongoing
           <?php endif; ?>

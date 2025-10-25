@@ -4,10 +4,6 @@
   .results-container {
     margin: 50px auto;
     max-width: 800px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
-    background-color: #f7f7f7;
   }
 
   h3 {

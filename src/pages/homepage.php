@@ -46,8 +46,9 @@ switch ($user_type) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ContractorConnector</title>
-  <link rel="stylesheet" href="<?php echo CSS_PATH; ?>homepage.css">
-  <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH; ?>projects.css">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>homepage.css">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>projects.css">
 </head>
 
 <!--HEADER-->
@@ -63,7 +64,7 @@ switch ($user_type) {
     <div>
       <input type="text" id="occupation-type" name="occupation-type" placeholder="Enter Occupation">
       <button type="submit">
-        <img src="<?php echo IMG_PATH; ?>icons/search.png" alt="Search"
+        <img src="<?= IMG_PATH ?>icons/search.png" alt="Search"
           style="max-width: 20px; max-height: 20px; filter: invert(1);">
       </button>
     </div>
@@ -107,7 +108,7 @@ switch ($user_type) {
           <tr>
             <td>
               <a href="projectDetails?id=<?php echo $item['ProjectID']; ?>">
-                <img id="infoImg" src="<?php echo IMG_PATH; ?>icons/info.png" alt="Project Info"
+                <img id="infoImg" src="<?= IMG_PATH ?>icons/info.png" alt="Project Info"
                   style="max-width: 30px; max-height: 30px;">
               </a>
             </td>
@@ -124,9 +125,9 @@ switch ($user_type) {
             <?php endif; ?>
             <td>
               <?php if ($item['Completed'] == "1"): ?>
-                <img src="<?php echo IMG_PATH; ?>icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">
+                <img src="<?= IMG_PATH ?>icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">
               <?php else: ?>
-                <img src="<?php echo IMG_PATH; ?>icons/ongoing.png" alt="Completed"
+                <img src="<?= IMG_PATH ?>icons/ongoing.png" alt="Completed"
                   style="max-width: 30px; max-height: 30px;">
               <?php endif; ?>
             </td>
@@ -167,7 +168,7 @@ switch ($user_type) {
           <tr>
             <td>
               <a id="infoBtn" href="projectDetails?id=<?php echo $item['ProjectID']; ?>">
-                <img src="<?php echo IMG_PATH; ?>icons/info.png" alt="info" style="max-width: 30px; max-height: 30px;">
+                <img src="<?= IMG_PATH ?>icons/info.png" alt="info" style="max-width: 30px; max-height: 30px;">
               </a>
             </td>
             <?php if ($user_type != 'Customer'): ?>
@@ -183,15 +184,15 @@ switch ($user_type) {
             <?php elseif ($user_type == 'Administrator'): ?>
               <td class="text-center">
                 <a id="red" href="assignTech?id=<?php $item['ProjectID']; ?>">
-                  <img src="<?php echo IMG_PATH; ?>icons/signup.png" alt="Assign Technician" width="40" height="40">
+                  <img src="<?= IMG_PATH ?>icons/signup.png" alt="Assign Technician" width="40" height="40">
                 </a>
               </td>
             <?php endif; ?>
             <td>
               <?php if ($item['Completed'] == "1"): ?>
-                <img src="<?php echo IMG_PATH; ?>icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">
+                <img src="<?= IMG_PATH ?>icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">
               <?php else: ?>
-                <img src="<?php echo IMG_PATH; ?>icons/ongoing.png" alt="Completed"
+                <img src="<?= IMG_PATH ?>icons/ongoing.png" alt="Completed"
                   style="max-width: 30px; max-height: 30px;">
               <?php endif; ?>
             </td>

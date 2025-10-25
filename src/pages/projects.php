@@ -28,7 +28,8 @@ if ($type == 'Administrator') {
 
 <head>
   <title>Projects</title>
-  <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH; ?>projects.css">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>projects.css">
 </head>
 
 
@@ -66,7 +67,7 @@ if ($type == 'Administrator') {
           <tr>
             <td>
               <a id="detailsRed" href="projectDetails?id=<?php echo $item['ProjectID']; ?>">
-                <img src="<?php echo IMG_PATH; ?>icons/info.png" alt="Info" style="max-width: 30px; max-height: 30px;">
+                <img src="<?= IMG_PATH ?>icons/info.png" alt="Info" style="max-width: 30px; max-height: 30px;">
               </a>
             </td>
             <?php if ($_SESSION['Type'] != 'Customer'): ?>
@@ -88,9 +89,9 @@ if ($type == 'Administrator') {
             <?php endif; ?>
             <td>
               <?php if ($item['Completed'] == "1"): ?>
-                <img src="<?php echo IMG_PATH; ?>icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">
+                <img src="<?= IMG_PATH ?>icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">
               <?php else: ?>
-                <img src="<?php echo IMG_PATH; ?>icons/ongoing.png" alt="Completed"
+                <img src="<?= IMG_PATH ?>icons/ongoing.png" alt="Completed"
                   style="max-width: 30px; max-height: 30px;">
               <?php endif; ?>
             </td>

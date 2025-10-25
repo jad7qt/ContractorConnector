@@ -18,7 +18,8 @@ if (isset($_POST['occupation-type'])) {
 
 <head>
   <title>Search Results</title>
-  <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH; ?>technicians.css">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>technicians.css">
 </head>
 
 <body>
@@ -36,7 +37,7 @@ if (isset($_POST['occupation-type'])) {
       <div>
         <input type="text" id="occupation-type" name="occupation-type" placeholder="Enter Name">
         <button type="submit">
-          <img src="<?php echo IMG_PATH; ?>icons/search.png" alt="Search"
+          <img src="<?= IMG_PATH ?>icons/search.png" alt="Search"
             style="max-width: 20px; max-height: 20px; filter: invert(1);">
         </button>
 
@@ -78,7 +79,7 @@ if (isset($_POST['occupation-type'])) {
               <td><?php echo $item['OccupationType']; ?></td>
               <td>
                 <?php if ($item['Rating']): ?>
-                  <img src="<?php echo IMG_PATH; ?>icons/star.png" alt="Star" style="width: 20px; height: 20px;">
+                  <img src="<?= IMG_PATH ?>icons/star.png" alt="Star" style="width: 20px; height: 20px;">
                   <?php echo $item['Rating']; ?>
                 <?php endif; ?>
               </td>
