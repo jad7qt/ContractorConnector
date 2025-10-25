@@ -74,7 +74,7 @@ if (isset($_POST['uname']) && isset($_POST['password']) && !empty($_POST['action
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LOGIN</title>
+  <title>Contractor Connector</title>
   <link rel="icon" type="image/png" href="<?= IMG_PATH ?>logos/logo_blank.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
   <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
