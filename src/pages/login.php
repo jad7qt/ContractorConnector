@@ -109,14 +109,12 @@ if (isset($_POST['uname']) && isset($_POST['password']) && !empty($_POST['action
       <input type="text" name="uname" placeholder="User Name"><br>
       <label>Password</label>
       <input type="password" name="password" placeholder="Password"><br>
-      <button class="btnlogin" type="submit" name="actionBtn" value="Login">
-        Login <img src="<?= IMG_PATH ?>icons/login.png" alt="Login"
-          style="max-width: 20px; max-height: 20px; filter: invert(1); display: inline-block; vertical-align: middle;">
+      <button class="btn btn-red" type="submit" name="actionBtn" value="Login">
+        Login <img src="<?= IMG_PATH ?>icons/login.png" class="btn-icon" alt="Login">
       </button>
-      <button id="signUpBtn" type="button" onclick="window.location.href='addCustomer';" name="actionBtn"
+      <button class="btn btn-grey"type="button" onclick="window.location.href='addCustomer';" name="actionBtn"
         value="SignUp">
-        SignUp <img src="<?= IMG_PATH ?>icons/signup.png" alt="SignUp"
-          style="max-width: 20px; max-height: 20px; filter: invert(1); display: inline-block; vertical-align: middle;">
+        SignUp <img src="<?= IMG_PATH ?>icons/signup.png" class="btn-icon" alt="SignUp">
       </button>
       <input type="hidden" name="timezone" id="timezoneInput">
     </form>

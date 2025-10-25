@@ -1,4 +1,5 @@
 <header>
+    <link rel="stylesheet" href="<?= CSS_PATH ?>styles.css">
     <link rel="stylesheet" href="<?= CSS_PATH ?>header.css">
 		<div class="logo-container">
       		<img src="<?= IMG_PATH ?>logos/logo_blank.png" alt="Logo" class="logo">
