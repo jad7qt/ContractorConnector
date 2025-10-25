@@ -29,7 +29,7 @@ $Techs = selectAllTechs();
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <link rel="icon" type="image/png" href="https://www.cs.virginia.edu/~up3f/cs4750/public/images/db-icon.png" />
+  <link rel="icon" type="image/png" href="<?= IMG_PATH ?>logos/logo_blank.png">
   <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
   <link rel="stylesheet" href="<?= CSS_PATH ?>addCustomer.css">
 </head>
@@ -63,7 +63,6 @@ $Techs = selectAllTechs();
         Description:
         <input type="text" class="form-control" name="description" maxlength=64 required />
       </div>
-      <div id="liner"></div>
       <div class="row mb-3 mx-3">
         Proposed Start Date:
         <input id="startDateInput" type="date" class="form-control" name="startdate" min='2023-04-15' required />
@@ -89,11 +88,12 @@ $Techs = selectAllTechs();
         document.getElementById("startDateInput").setAttribute("min", today);
         document.getElementById("endDateInput").setAttribute("min", today);
       </script>
-      <div id="button-layout">
-        <input id="buttonCreateProject" type="submit" class="btn btn-primary" name="actionBtn" value="Create Project"
-          title="class to add new Project" />
-        <button id="backBtn" type="button" onclick="window.location.href='projects';" name="actionBtn"
+      <div id="liner"></div>
+      <div class="button-form-layout">
+        <button class="btn btn-grey" type="button" onclick="window.location.href='projects';" name="actionBtn"
           value="Back">Back</button>
+        <button type="submit" class="btn btn-red" name="actionBtn"
+          title="class to add new Project" >Create Project</button>
       </div>
     </form>
   </div>

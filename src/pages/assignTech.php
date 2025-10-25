@@ -27,8 +27,6 @@ $Techs = selectAllTechs();
 
 <head>
   <meta charset="UTF-8">
-
-  <!-- 2. include meta tag to ensure proper rendering and touch zooming -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Jared Dutt">
   <meta name="description" content="Page to create a new project for customer view">
@@ -38,7 +36,7 @@ $Techs = selectAllTechs();
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-  <link rel="icon" type="image/png" href="https://www.cs.virginia.edu/~up3f/cs4750/public/images/db-icon.png" />
+  <link rel="icon" type="image/png" href="<?= IMG_PATH ?>logos/logo_blank.png">
   <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
   <link rel="stylesheet" href="<?= CSS_PATH ?>addCustomer.css">
 </head>
@@ -67,7 +65,7 @@ $Techs = selectAllTechs();
       <div id="button-layout">
         <input id="buttonAssignTech" type="submit" class="btn btn-primary" name="actionBtn" value="Assign Tech"
           title="class to assign Tech" />
-        <button id="backBtn" type="button" onclick="window.location.href='homepage';" name="actionBtn"
+        <button class="btn btn-grey" type="button" onclick="window.location.href='homepage';" name="actionBtn"
           value="Back">Back</button>
       </div>
     </form>

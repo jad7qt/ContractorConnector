@@ -28,7 +28,9 @@ if ($_SESSION['Type'] == 'Administrator') {
 <html>
 
 <head>
+  <meta charset="UTF-8">
   <title>Payments</title>
+  <link rel="icon" type="image/png" href="<?= IMG_PATH ?>logos/logo_blank.png">
   <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
   <link rel="stylesheet" href="<?= CSS_PATH ?>searchResults.css">
 </head>

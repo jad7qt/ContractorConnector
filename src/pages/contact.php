@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="your name">
   <meta name="description" content="About Us - ContractorConnector">
+  <link rel="icon" type="image/png" href="<?= IMG_PATH ?>logos/logo_blank.png">
   <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
   <link rel="stylesheet" href="<?= CSS_PATH ?>about.css">
 </head>

@@ -52,6 +52,7 @@ $Phones = getUserPhones($pageID);
 <html>
 
 <head>
+  <meta charset="UTF-8">
   <title>Profile</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -64,6 +65,7 @@ $Phones = getUserPhones($pageID);
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+  <link rel="icon" type="image/png" href="<?= IMG_PATH ?>logos/logo_blank.png">
   <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
   <link rel="stylesheet" href="<?= CSS_PATH ?>profile.css">
 </head>
@@ -127,7 +129,7 @@ $Phones = getUserPhones($pageID);
 
     <!-- ADD MODAL HERE FOR ADDING PHONE NUMBERS -->
     <?php if ($pageID == $userID) { ?>
-      <button id="buttonRed" type="button" class="btn btn-primary" data-toggle="modal" data-target="#phoneModal">
+      <button type="button" class="btn btn-red btn-primary" data-toggle="modal" data-target="#phoneModal">
         Add Phone Number
       </button>
 
@@ -318,9 +320,9 @@ $Phones = getUserPhones($pageID);
                     <input type="hidden" name="CustID" value=<?php echo $_SESSION['UserID']; ?> />
                   </div>
                   <div class="modal-footer">
-                    <button id="buttonDeleteRating" type="submit" class="btn btn-primary" name="actionBtn"
+                    <button type="submit" class="btn btn-red btn-primary" name="actionBtn"
                       value="deleteRate">Delete</button>
-                    <button id="buttonUpdateRating" type="submit" class="btn btn-primary" name="actionBtn"
+                    <button type="submit" class="btn btn-red btn-primary" name="actionBtn"
                       value="updateRate">Update</button>
                   </div>
                 </form>
@@ -334,8 +336,8 @@ $Phones = getUserPhones($pageID);
 
     </div>
   <?php } if ($userID == $pageID) { ?>
-    <div id="centerAlign">
-      <button id="updateProfileBtn" onclick="window.location.href='updateprofile'" class="btn btn-primary"
+    <div class="update-profile-div">
+      <button id="updateProfileBtn" onclick="window.location.href='updateprofile'" class="btn btn-red btn-primary"
         value="updateProfile">Update Profile</button>
     </div>
   <?php } ?>

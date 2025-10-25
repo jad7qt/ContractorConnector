@@ -46,6 +46,7 @@ switch ($user_type) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ContractorConnector</title>
+  <link rel="icon" type="image/png" href="<?= IMG_PATH ?>logos/logo_blank.png">
   <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
   <link rel="stylesheet" href="<?= CSS_PATH ?>homepage.css">
   <link rel="stylesheet" href="<?= CSS_PATH ?>projects.css">
@@ -183,7 +184,7 @@ switch ($user_type) {
               <td><?php echo $item['Technician_Name']; ?></td>
             <?php elseif ($user_type == 'Administrator'): ?>
               <td class="text-center">
-                <a id="red" href="assignTech?id=<?php $item['ProjectID']; ?>">
+                <a href="assignTech?id=<?php $item['ProjectID']; ?>">
                   <img src="<?= IMG_PATH ?>icons/signup.png" alt="Assign Technician" width="40" height="40">
                 </a>
               </td>

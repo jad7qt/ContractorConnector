@@ -17,7 +17,9 @@ if (isset($_POST['occupation-type'])) {
 <html>
 
 <head>
+  <meta charset="UTF-8">
   <title>Search Results</title>
+  <link rel="icon" type="image/png" href="<?= IMG_PATH ?>logos/logo_blank.png">
   <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
   <link rel="stylesheet" href="<?= CSS_PATH ?>technicians.css">
 </head>
