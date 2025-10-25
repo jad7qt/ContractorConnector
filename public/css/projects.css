@@ -1,109 +1,85 @@
+/* Search Results */
 
-  /* Search Results */
+th,
+td {
+  padding: 5px;
+}
 
-  h3 {
-    color:#333;
-    text-align: center;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .results-container table th {
-    background-color: #333;
-    color: #fff;
-    text-align: left;
-  }
-  
-  th,
-  td {
-    padding: 5px;
-    border: 1px solid #ccc;
-    color: #333;
-  }
+/* End Search Results */
 
-  /* End Search Results */
+#btnAddComment {
+  background-color: #7a1107;
+  border: none;
+}
 
-  #CCbutton{
-    padding-top: 9px;
-    padding-bottom: 9px;
-  }
-
-  #btnAddComment{
-    background-color: #7a1107;
-    border: none;
-  }
-
-  #btnAddComment:hover{
-    background-color: #b6190b;
-    border: none;
-  }
-
-
-  #buttonAddComment{
-    background-color: #7a1107;
-    border: none;
-  }
-
-  #buttonAddComment:hover{
-    background-color: #b6190b;
-    border: none;
-  }
-
-
-  #buttonNewProject{
-    background-color: #7a1107;
-    border: none;
-    margin-top: 15px;
-  }
-
-  #buttonNewProject:hover{
-    background-color: #b6190b;
-    border: none;
-  }
-
-
-  #buttonCreateProject{
-    background-color: #7a1107;
-    border: none;
-    margin-top: 15px;
-  }
-
-  #buttonCreateProject:hover{
-    background-color: #b6190b;
-    border: none;
-  }
-
-  #detailsRed{
-    color:#7a1107;
-  }
-
-
-  #buttonCreateProject{
-    background-color:#7a1107;
-    height: 45px;
-    
-    margin:0px;
-    margin-right: 15px;
-    border:0px;
+#btnAddComment:hover {
+  background-color: #b6190b;
+  border: none;
 }
 
 
-#buttonCreateProject:hover{
-    background-color: #b6190b;
-    ;
+#buttonAddComment {
+  background-color: #7a1107;
+  border: none;
 }
 
-#backBtn{
-    height: 45px;
-    align-items: center;
+#buttonAddComment:hover {
+  background-color: #b6190b;
+  border: none;
+}
+
+
+#buttonNewProject {
+  background-color: #7a1107;
+  border: none;
+  margin-top: 15px;
+}
+
+#buttonNewProject:hover {
+  background-color: #b6190b;
+  border: none;
+}
+
+
+#buttonCreateProject {
+  background-color: #7a1107;
+  border: none;
+  margin-top: 15px;
+}
+
+#buttonCreateProject:hover {
+  background-color: #b6190b;
+  border: none;
+}
+
+#detailsRed {
+  color: #7a1107;
+}
+
+
+#buttonCreateProject {
+  background-color: #7a1107;
+  height: 45px;
+
+  margin: 0px;
+  margin-right: 15px;
+  border: 0px;
+}
+
+
+#buttonCreateProject:hover {
+  background-color: #b6190b;
+  ;
+}
+
+#backBtn {
+  height: 45px;
+  align-items: center;
 
 }
 
-#infoBtn{
-  color:#7a1107;
+#infoBtn {
+  color: #7a1107;
 }
 
 
@@ -112,11 +88,12 @@
   color: black;
   text-align: center;
   font-weight: bold;
-  font-size: 2em; /* You can adjust this value to suit your needs */
+  font-size: 2em;
+  /* You can adjust this value to suit your needs */
 }
 
-#noResults{
-  color:#333;
+#noResults {
+  color: #333;
 }
 
 .no-results {
@@ -127,16 +104,16 @@
   text-align: center;
 }
 
-#addCommentBtn{
+#addCommentBtn {
   margin-top: 15px;
   background-color: #7a1107;
-  border:none;
+  border: none;
 }
 
-#addCommentBtn:hover{
+#addCommentBtn:hover {
   margin-top: 15px;
   background-color: #b6190b;
-  border:none;
+  border: none;
 }
 
 
@@ -147,7 +124,8 @@
 }
 
 .text-content {
-  margin-right: 10px; /* Adds some space between the text and the button */
+  margin-right: 10px;
+  /* Adds some space between the text and the button */
 }
 
 .delete-btn {
@@ -155,40 +133,44 @@
   background-color: #7a1107;
   cursor: pointer;
   border-radius: 5px;
-  padding: 5px; 
+  padding: 5px;
   width: 40px;
   height: 20px;
   text-align: center;
-  line-height: 20px; 
+  line-height: 20px;
 }
+
 .no-results {
   color: black;
 }
 
-#delBtn{
-  background-color:#7a1107;
-  border:none;
-  width: 25px;  /* Adjust as needed */
-  height: 25px; /* Adjust as needed */
-  padding: 0;   /* Remove padding */
-  font-size: 10px; /* Adjust as needed */
+#delBtn {
+  background-color: #7a1107;
+  border: none;
+  width: 25px;
+  /* Adjust as needed */
+  height: 25px;
+  /* Adjust as needed */
+  padding: 0;
+  /* Remove padding */
+  font-size: 10px;
+  /* Adjust as needed */
 }
 
-#delBtn:hover{
-  background-color:#b6190b;
-  border:none;
+#delBtn:hover {
+  background-color: #b6190b;
+  border: none;
 }
 
 
-#techName{
-  color:#7a1107;
+#techName {
+  color: #7a1107;
 }
 
-#btnSearch{
+#btnSearch {
   margin: 0px;
 }
 
 #red {
-  color:#7a1107
+  color: #7a1107
 }
-

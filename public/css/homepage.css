@@ -1,5 +1,3 @@
-
-
 /* Search Bar */
 
 /* Style for the search bar container */
@@ -48,23 +46,15 @@ label[for="occupation-type"] {
 
 /* End Search Bar */
 
-
-#CCbutton{
-  padding-top: 9px;
-  padding-bottom: 9px;
-}
-
-
-
-#btnSearch:hover{
+#btnSearch:hover {
   background-color: #b6190b;
   color: white;
 }
 
-#infoBtn{
-  color:#7a1107;
+#infoBtn {
+  color: #7a1107;
 }
 
-#btnSearch{
+#btnSearch {
   margin: 0px;
 }

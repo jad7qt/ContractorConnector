@@ -16,7 +16,8 @@ form {
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-h1, h2 {
+h1,
+h2 {
   text-align: center;
   margin-bottom: 40px;
   color: #333;
@@ -152,15 +153,15 @@ footer p {
   font-size: 16px;
 }
 
-.btn-back{
+.btn-back {
   background-color: red;
   align-self: center;
 }
 
-.btnlogin{
+.btnlogin {
   background: #7a1107
 }
 
-#signUpBtn{
+#signUpBtn {
   background: #333
 }
