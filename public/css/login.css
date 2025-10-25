@@ -5,7 +5,6 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
 }
 
 form {
@@ -14,13 +13,6 @@ form {
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-h1,
-h2 {
-  text-align: center;
-  margin-bottom: 40px;
-  color: #333;
 }
 
 input {
@@ -38,31 +30,6 @@ label {
   font-size: 16px;
   padding: 10px 0;
   display: block;
-}
-
-button {
-  display: inline-block;
-  background: #7a1107;
-  padding: 12px 24px;
-  color: #fff;
-  font-weight: 500;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover {
-  background: #555;
-}
-
-.error {
-  background: #f0f0f0;
-  color: #333;
-  padding: 10px;
-  width: 100%;
-  border-radius: 5px;
-  margin: 20px 0;
 }
 
 a {
@@ -104,7 +71,6 @@ header .container {
 
 header h1 {
   color: #fff;
-  margin: 0;
   font-size: 24px;
 }
 
@@ -117,11 +83,6 @@ nav ul {
 
 nav ul li {
   margin-left: 20px;
-}
-
-nav a {
-  color: #fff;
-  text-decoration: none;
 }
 
 nav a:hover {
@@ -151,17 +112,4 @@ footer p {
   color: #fff;
   margin: 0;
   font-size: 16px;
-}
-
-.btn-back {
-  background-color: red;
-  align-self: center;
-}
-
-.btnlogin {
-  background: #7a1107
-}
-
-#signUpBtn {
-  background: #333
 }

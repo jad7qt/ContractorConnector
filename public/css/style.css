@@ -1,4 +1,8 @@
 /* Main App Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
 .results-container {
   margin: 30px auto;
   max-width: 1000px;
@@ -15,9 +19,11 @@
   text-align: left;
 }
 
+h1,
+h2,
 h3 {
-  color: #333;
   text-align: center;
+  color: #333;
 }
 
 table {
@@ -84,4 +90,31 @@ button:hover {
 .button-form-layout {
   display: flex;
   justify-content: space-between;
+}
+
+.logo {
+  height: 50px;
+  margin-right: 10px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.error {
+  background: #f0f0f0;
+  color: #333;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+.btn-icon {
+  max-width: 20px;
+  max-height: 20px;
+  filter: invert(1);
+  display: inline-block;
+  vertical-align: middle;
 }
