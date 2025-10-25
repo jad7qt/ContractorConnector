@@ -1,16 +1,4 @@
-/* addCustomer.css */
-
-/* 
-PAGES: 
-add customer
-add tech
-create new project
-update profile
-add payment 
-assign price
-assign tech
-*/
-
+/* Style for Form Pages */
 
 body {
   background: #333333;
@@ -48,6 +36,11 @@ body {
   text-align: center;
 }
 
+.button-form-layout {
+  display: flex;
+  justify-content: space-between;
+}
+
 input {
   display: block;
   border: 2px solid #e0e0e0;
@@ -65,8 +58,6 @@ label {
   display: block;
 }
 
-/* Add Customer Form Specific Styles */
-
 .row {
   display: flex;
   flex-wrap: nowrap;
@@ -81,20 +72,6 @@ label {
   margin-bottom: 1rem !important;
 }
 
-#buttonCreateCustomer {
-  background-color: #7a1107;
-  max-width: 200px;
-  margin: 0px;
-  margin-right: 15px;
-  padding: 12px 24px;
-  margin-left: 30%;
-}
-
-#button-layout {
-  display: flex;
-  align-content: center;
-}
-
 #address {
   text-align: center;
   margin-bottom: 10px;
@@ -106,19 +83,4 @@ label {
   padding: 1px;
   margin-top: 10px;
   margin-bottom: 10px;
-}
-
-#buttonAssignTech {
-  background-color: #7a1107;
-  border: none;
-  height: 45px;
-
-  margin: 0px;
-  margin-right: 15px;
-  border: 0px;
-}
-
-#buttonAssignTech:hover {
-  background-color: #b6190b;
-  border: none;
 }

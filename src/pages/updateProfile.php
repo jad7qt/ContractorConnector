@@ -66,7 +66,7 @@ if ($_SESSION['Type'] == 'Customer') {
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="icon" type="image/png" href="<?= IMG_PATH ?>logos/logo_blank.png">
   <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
-  <link rel="stylesheet" href="<?= CSS_PATH ?>addCustomer.css">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>form.css">
 </head>
 
 <body>
@@ -120,8 +120,7 @@ if ($_SESSION['Type'] == 'Customer') {
 
       <div id="liner"></div>
       <div class="button-form-layout">
-        <button class="btn btn-grey" type="button" onclick="window.location.href='profile';" name="actionBtn"
-          value="Back">Back</button>
+        <button type="button" class="btn btn-grey" onclick="window.location.href='profile';" name="actionBtn">Back</button>
         <button type="submit" class="btn btn-red" name="actionBtn" title="Update existing customer data">Update
           Profile</button>
       </div>

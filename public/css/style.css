@@ -87,11 +87,6 @@ button:hover {
   background: #555;
 }
 
-.button-form-layout {
-  display: flex;
-  justify-content: space-between;
-}
-
 .logo {
   height: 50px;
   margin-right: 10px;

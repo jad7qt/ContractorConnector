@@ -30,7 +30,7 @@ $projid = $_GET['id'];
 
   <link rel="icon" type="image/png" href="<?= IMG_PATH ?>logos/logo_blank.png">
   <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
-  <link rel="stylesheet" href="<?= CSS_PATH ?>addCustomer.css">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>form.css">
 </head>
 
 <body>
@@ -48,12 +48,10 @@ $projid = $_GET['id'];
         <input type="number" class="form-control" name="price" required />
       </div>
       <input type="hidden" name="projid" value="<?php echo $projid; ?>" />
-      <div id="button-layout">
-        <input id="buttonAssignPrice" type="submit" class="btn btn-primary" name="actionBtn" value="Assign Price"
-          title="class to assign Price" />
-        <button class="btn btn-grey" type="button" onclick="window.location.href='payments';" name="actionBtn"
-          value="Back">Back
-        </button>
+      <div id="liner"></div>
+      <div class="button-form-layout">
+        <button type="button" class="btn btn-grey" onclick="window.location.href='payments';" name="actionBtn">Back</button>
+        <button type="submit" class="btn btn-red" name="actionBtn" title="class to assign Price">Assign Price</button>
       </div>
     </form>
   </div>

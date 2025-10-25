@@ -31,14 +31,14 @@ $pageID = $_GET['id'];
 
   <link rel="icon" type="image/png" href="<?= IMG_PATH ?>logos/logo_blank.png">
   <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
-  <link rel="stylesheet" href="<?= CSS_PATH ?>addTechnician.css">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>form.css">
 </head>
 
 <body>
   <div class="container">
     <div class="header">
       <img src="<?= IMG_PATH ?>logos/logo_blank.png" alt="Logo" class="logo">
-      <h1 id="addPay" class="site-title">Add Payment</h1>
+      <h1 class="site-title">Add Payment</h1>
     </div>
     <form name="mainForm" action="addPayment" method="post">
       <div class="row mb-3 mx-3">
@@ -55,10 +55,10 @@ $pageID = $_GET['id'];
         <input type="number" class="form-control" name="amount" required />
       </div>
       <input type="hidden" name="projid" value="<?php echo $pageID; ?>" />
-      <div id="button-layout">
-        <input id="buttonAddTechnician" type="submit" class="btn btn-primary" name="actionBtn" value="Add Payment"
-          title="class to add payment" />
-        <button type="button" onclick="window.location.href='payments';" name="actionBtn" value="Back">Back</button>
+      <div id="liner"></div>
+      <div class="button-form-layout">
+        <button type="button" class="btn btn-grey" onclick="window.location.href='payments';" name="actionBtn">Back</button>
+        <button type="submit" class="btn btn-red" name="actionBtn" title="class to add payment">Add Payment</button>
       </div>
     </form>
   </div>

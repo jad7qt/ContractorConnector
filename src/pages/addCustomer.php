@@ -35,7 +35,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($_SESSION['UserID']) && !iss
 
   <link rel="icon" type="image/png" href="<?= IMG_PATH ?>logos/logo_blank.png">
   <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
-  <link rel="stylesheet" href="<?= CSS_PATH ?>addCustomer.css">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>form.css">
 </head>
 
 <body>
@@ -79,10 +79,9 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($_SESSION['UserID']) && !iss
         <input type="text" class="form-control" name="zip" pattern="\b\d{5}\b" required />
       </div>
       <input type="hidden" name="type" value="Customer" />
-      <div id="button-layout">
-        <input id="buttonCreateCustomer" type="submit" class="btn btn-primary" name="actionBtn" value="Create Customer"
-          title="class to add Customer/User" />
-        <button type="button" onclick="window.location.href='login';" name="actionBtn" value="Back">Back</button>
+      <div class="button-form-layout">
+        <button type="button" class="btn btn-grey" onclick="window.location.href='login';" name="actionBtn">Back</button>
+        <button type="submit" class="btn btn-red" name="actionBtn" title="class to add Customer/User">Create Customer</button>
       </div>
     </form>
   </div>

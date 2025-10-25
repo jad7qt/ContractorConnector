@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SESSION['Type'] == 'Administrator'
 
   <link rel="icon" type="image/png" href="<?= IMG_PATH ?>logos/logo_blank.png">
   <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
-  <link rel="stylesheet" href="<?= CSS_PATH ?>addTechnician.css">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>form.css">
 </head>
 
 <body>
@@ -62,19 +62,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SESSION['Type'] == 'Administrator'
         Last Name:
         <input type="text" class="form-control" name="lname" maxlength=10 required />
       </div>
-      <div id="liner"></div>
-      <div id="Occupation">
-        Occupation Type:
-      </div>
       <div class="row mb-3 mx-3">
         Occupation:
         <input type="text" class="form-control" name="occupation-type" maxlength=18 required />
       </div>
       <input type="hidden" name="type" value="Technician" />
-      <div id="button-layout">
-        <input id="buttonCreateTechnician" type="submit" class="btn btn-primary" name="actionBtn"
-          value="Create Technician" title="class to add Technician/User" />
-        <button type="button" onclick="window.location.href='homepage';" name="actionBtn" value="Back">Back</button>
+      <div id="liner"></div>
+      <div class="button-form-layout">
+        <button type="button" class="btn btn-grey" onclick="window.location.href='homepage';" name="actionBtn">Back</button>
+        <button type="submit" class="btn btn-red" name="actionBtn" title="class to add Technician/User">Create Technician</button>
       </div>
     </form>
   </div>
