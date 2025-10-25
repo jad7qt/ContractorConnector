@@ -1,5 +1,17 @@
 /* addCustomer.css */
 
+/* 
+PAGES: 
+add customer
+add tech
+create new project
+update profile
+add payment 
+assign price
+assign tech
+*/
+
+
 body {
   background: #333333;
   display: flex;
@@ -15,7 +27,6 @@ body {
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-
 }
 
 .header {
