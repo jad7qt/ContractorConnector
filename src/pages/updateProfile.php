@@ -121,7 +121,7 @@ if ($_SESSION['Type'] == 'Customer') {
       <div id="liner"></div>
       <div class="button-form-layout">
         <button type="button" class="btn btn-grey" onclick="window.location.href='profile';" name="actionBtn">Back</button>
-        <button type="submit" class="btn btn-red" name="actionBtn" title="Update existing customer data">Update
+        <button type="submit" class="btn btn-red" name="actionBtn" title="Update existing customer data" value="Update Profile">Update
           Profile</button>
       </div>
     </form>

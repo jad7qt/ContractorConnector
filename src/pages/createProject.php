@@ -93,7 +93,7 @@ $Techs = selectAllTechs();
       <div class="button-form-layout">
         <button type="button" class="btn btn-grey" onclick="window.location.href='projects';"
           name="actionBtn">Back</button>
-        <button type="submit" class="btn btn-red" name="actionBtn" title="class to add new Project">Create
+        <button type="submit" class="btn btn-red" name="actionBtn" title="class to add new Project" value="Create Project">Create
           Project</button>
       </div>
     </form>

@@ -82,7 +82,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($_SESSION['UserID']) && !iss
       <div id="liner"></div>
       <div class="button-form-layout">
         <button type="button" class="btn btn-grey" onclick="window.location.href='login';" name="actionBtn">Back</button>
-        <button type="submit" class="btn btn-red" name="actionBtn" title="class to add Customer/User">Create Customer</button>
+        <button type="submit" class="btn btn-red" name="actionBtn" title="class to add Customer/User" value="Create Customer">Create Customer</button>
       </div>
     </form>
   </div>

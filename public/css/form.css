@@ -24,14 +24,14 @@ body {
   font-weight: bold;
   display: flex;
   align-items: center;
-  margin-left: 10%
+  justify-content: center;
 }
 
 .title-content {
   font-family: 'Helvetica';
   font-weight: 300;
   font-size: 1.5em;
-  margin: auto;
+  margin: 0;
   color: black;
   text-align: center;
 }

@@ -2,9 +2,8 @@
 
 .results-container {
   max-width: 800px;
+  padding-top: 20px;
 }
-
-/* End Search Results */
 
 #buttonAddPhone {
   background-color: #7a1107;

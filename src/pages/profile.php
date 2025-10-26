@@ -162,7 +162,7 @@ $Phones = getUserPhones($pageID);
                 </div>
               </div>
               <div class="modal-footer">
-                <button id="buttonAddPhone" type="submit" class="btn btn-primary" name="actionBtn"
+                <button type="submit" class="btn btn-red" name="actionBtn"
                   value="addPhone">Add</button>
               </div>
               <?php if (isset($_GET['error'])): ?>

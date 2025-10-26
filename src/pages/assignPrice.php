@@ -52,7 +52,7 @@ $projid = $_GET['id'];
       <div id="liner"></div>
       <div class="button-form-layout">
         <button type="button" class="btn btn-grey" onclick="window.location.href='payments';" name="actionBtn">Back</button>
-        <button type="submit" class="btn btn-red" name="actionBtn" title="class to assign Price">Assign Price</button>
+        <button type="submit" class="btn btn-red" name="actionBtn" title="class to assign Price" value="Assign Price">Assign Price</button>
       </div>
     </form>
   </div>

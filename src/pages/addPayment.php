@@ -9,10 +9,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SESSION['Type'] != 'Technician') {
     addPaymentAdmin($_POST['projid'], $_POST['paymentType'], $_POST['amount']);
     header("Location: payments");
     exit();
+  } else {
+    $pageID = $_POST["projid"];
   }
 }
 
-$pageID = $_GET['id'];
+if (isset($_GET["id"])) {
+  $pageID = $_GET["id"];
+}
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +62,7 @@ $pageID = $_GET['id'];
       <div id="liner"></div>
       <div class="button-form-layout">
         <button type="button" class="btn btn-grey" onclick="window.location.href='payments';" name="actionBtn">Back</button>
-        <button type="submit" class="btn btn-red" name="actionBtn" title="class to add payment">Add Payment</button>
+        <button type="submit" class="btn btn-red" name="actionBtn" title="class to add payment" value="Add Payment">Add Payment</button>
       </div>
     </form>
   </div>

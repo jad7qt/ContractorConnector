@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SESSION['Type'] == 'Administrator'
       <div id="liner"></div>
       <div class="button-form-layout">
         <button type="button" class="btn btn-grey" onclick="window.location.href='homepage';" name="actionBtn">Back</button>
-        <button type="submit" class="btn btn-red" name="actionBtn" title="class to add Technician/User">Create Technician</button>
+        <button type="submit" class="btn btn-red" name="actionBtn" title="class to add Technician/User" value="Create Technician">Create Technician</button>
       </div>
     </form>
   </div>
