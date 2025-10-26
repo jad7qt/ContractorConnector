@@ -7,43 +7,6 @@ td {
 
 /* End Search Results */
 
-#btnAddComment {
-  background-color: #7a1107;
-  border: none;
-}
-
-#btnAddComment:hover {
-  background-color: #b6190b;
-  border: none;
-}
-
-
-#buttonAddComment {
-  background-color: #7a1107;
-  border: none;
-}
-
-#buttonAddComment:hover {
-  background-color: #b6190b;
-  border: none;
-}
-
-
-#buttonNewProject {
-  background-color: #7a1107;
-  border: none;
-  margin-top: 15px;
-}
-
-#buttonNewProject:hover {
-  background-color: #b6190b;
-  border: none;
-}
-
-#detailsRed {
-  color: #7a1107;
-}
-
 .amount-owed {
   color: black;
   text-align: center;
@@ -63,19 +26,6 @@ td {
 .center-text {
   text-align: center;
 }
-
-#addCommentBtn {
-  margin-top: 15px;
-  background-color: #7a1107;
-  border: none;
-}
-
-#addCommentBtn:hover {
-  margin-top: 15px;
-  background-color: #b6190b;
-  border: none;
-}
-
 
 .content-cell {
   display: flex;

@@ -129,7 +129,7 @@ $Phones = getUserPhones($pageID);
 
     <!-- ADD MODAL HERE FOR ADDING PHONE NUMBERS -->
     <?php if ($pageID == $userID) { ?>
-      <button type="button" class="btn btn-red btn-primary" data-toggle="modal" data-target="#phoneModal">
+      <button type="button" class="btn btn-red space-above" data-toggle="modal" data-target="#phoneModal">
         Add Phone Number
       </button>
 
@@ -320,10 +320,12 @@ $Phones = getUserPhones($pageID);
                     <input type="hidden" name="CustID" value=<?php echo $_SESSION['UserID']; ?> />
                   </div>
                   <div class="modal-footer">
-                    <button type="submit" class="btn btn-red btn-primary" name="actionBtn"
-                      value="deleteRate">Delete</button>
-                    <button type="submit" class="btn btn-red btn-primary" name="actionBtn"
-                      value="updateRate">Update</button>
+                    <button type="submit" class="btn btn-red" name="actionBtn" value="deleteRate">
+                      Delete
+                    </button>
+                    <button type="submit" class="btn btn-red" name="actionBtn" value="updateRate">
+                      Update
+                    </button>
                   </div>
                 </form>
               </div>

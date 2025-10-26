@@ -67,8 +67,8 @@ if ($type == 'Administrator') {
       <tbody>
         <?php foreach ($projects as $item): ?>
           <tr>
-            <td>
-              <a id="detailsRed" href="projectDetails?id=<?php echo $item['ProjectID']; ?>">
+            <td class="icon-td">
+              <a href="projectDetails?id=<?php echo $item['ProjectID']; ?>">
                 <img src="<?= IMG_PATH ?>icons/info.png" alt="Info" style="max-width: 30px; max-height: 30px;">
               </a>
             </td>
@@ -89,7 +89,7 @@ if ($type == 'Administrator') {
                 </b>
               </td>
             <?php endif; ?>
-            <td>
+            <td class="icon-td">
               <?php if ($item['Completed'] == "1"): ?>
                 <img src="<?= IMG_PATH ?>icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">
               <?php else: ?>
@@ -106,8 +106,7 @@ if ($type == 'Administrator') {
   <?php endif; ?>
 
   <?php if ($_SESSION['Type'] == 'Customer'): ?>
-    <button id="buttonNewProject" type="button" onclick="window.location.href='createProject'"
-      class="btn btn-primary">
+    <button type="button" onclick="window.location.href='createProject'" class="btn btn-red space-above">
       Add a New Project
     </button>
   <?php endif; ?>

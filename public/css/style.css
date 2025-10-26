@@ -34,6 +34,24 @@ h3 {
   color: #333;
 }
 
+h1 {
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+h3 {
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  unicode-bidi: isolate;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -126,7 +144,7 @@ nav a {
   vertical-align: middle;
 }
 
-.info-td {
+.icon-td {
   text-align: center;
 }
 

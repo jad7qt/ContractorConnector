@@ -45,9 +45,9 @@ if (isset($_POST['occupation-type'])) {
 
         <!--     ADD Technician if they arent in the system    -->
         <?php if ($_SESSION['Type'] == 'Administrator') { ?>
-          <button type="button" class="techButton" onclick="window.location.href='addTechnician';"
-            value="Add Technician"> <span class="plus-sign">+</span>
-            Add Technician</button>
+          <button type="button" class="btn btn-grey" onclick="window.location.href='addTechnician';" value="Add Technician">
+            <span class="plus-sign">+</span>Add Technician
+          </button>
         <?php } ?>
 
       </div>

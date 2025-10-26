@@ -60,7 +60,7 @@ $payments = getPayments($pageID);
 <?php include COMPONENTS_DIR . 'header.php'; ?>
 <!--HEADER-->
 <!--hamburger-->
-<?php include COMPONENTS_DIR . 'hamburgerBoot.php'; ?>
+<?php include COMPONENTS_DIR . 'hamburger.php'; ?>
 <!--hamburger-->
 
 <div class="results-container">
@@ -175,10 +175,9 @@ $payments = getPayments($pageID);
       </tbody>
     </table>
   <?php else: ?>
-    <p class="no-results">No comments found for project</p>
+    <p class="no-results">No comments found for this project</p>
   <?php endif; ?>
-  <button id="addCommentBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#commentModal"
-    id="btnAddComment">
+  <button type="button" class="btn btn-red space-above" data-toggle="modal" data-target="#commentModal">
     Add Comment
   </button>
 
@@ -202,7 +201,7 @@ $payments = getPayments($pageID);
           </div>
           <input type="hidden" id="projid" name="projid" value="<?php echo $pageID; ?>" />
           <div class="modal-footer">
-            <button id="buttonAddComment" type="submit" class="btn btn-primary" name="actionBtn"
+            <button type="submit" class="btn btn-red" name="actionBtn"
               value="postComment">Post</button>
           </div>
         </form>
@@ -217,7 +216,7 @@ $payments = getPayments($pageID);
     <thead>
       <tr>
         <th>Total Price</th>
-        <th>Amount Payed </th>
+        <th>Amount Paid </th>
         <th>Remaining Payment</th>
       </tr>
     </thead>

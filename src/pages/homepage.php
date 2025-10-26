@@ -107,9 +107,9 @@ switch ($user_type) {
       <tbody>
         <?php foreach ($projects as $item): ?>
           <tr>
-            <td class="info-td">
+            <td class="icon-td">
               <a href="projectDetails?id=<?php echo $item['ProjectID']; ?>">
-                <img id="infoImg" src="<?= IMG_PATH ?>icons/info.png" alt="Project Info"
+                <img src="<?= IMG_PATH ?>icons/info.png" alt="Project Info"
                   style="max-width: 30px; max-height: 30px;">
               </a>
             </td>
@@ -124,7 +124,7 @@ switch ($user_type) {
             <?php if ($user_type != 'Technician'): ?>
               <td><?php echo $item['Technician_Name']; ?></td>
             <?php endif; ?>
-            <td>
+            <td class="icon-td">
               <?php if ($item['Completed'] == "1"): ?>
                 <img src="<?= IMG_PATH ?>icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">
               <?php else: ?>
@@ -167,7 +167,7 @@ switch ($user_type) {
       <tbody>
         <?php foreach ($table2 as $item): ?>
           <tr>
-            <td class="info-td">
+            <td class="icon-td">
               <a href="projectDetails?id=<?php echo $item['ProjectID']; ?>">
                 <img src="<?= IMG_PATH ?>icons/info.png" alt="info" style="max-width: 30px; max-height: 30px;">
               </a>
@@ -183,13 +183,13 @@ switch ($user_type) {
             <?php if ($user_type == 'Customer'): ?>
               <td><?php echo $item['Technician_Name']; ?></td>
             <?php elseif ($user_type == 'Administrator'): ?>
-              <td class="text-center">
+              <td class="icon-td">
                 <a href="assignTech?id=<?php $item['ProjectID']; ?>">
                   <img src="<?= IMG_PATH ?>icons/signup.png" alt="Assign Technician" width="40" height="40">
                 </a>
               </td>
             <?php endif; ?>
-            <td>
+            <td class="icon-td">
               <?php if ($item['Completed'] == "1"): ?>
                 <img src="<?= IMG_PATH ?>icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">
               <?php else: ?>

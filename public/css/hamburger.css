@@ -10,13 +10,11 @@ body {
 }
 
 #menuToggle {
-  display: block;
+  display: inline-block;
   position: relative;
   top: 50px;
   left: 50px;
-
   z-index: 1;
-
   -webkit-user-select: none;
   user-select: none;
 }
@@ -24,7 +22,6 @@ body {
 #menuToggle a {
   text-decoration: none;
   color: #e9e9e9;
-
   transition: color 0.3s ease;
 }
 
@@ -111,6 +108,7 @@ body {
   * at the top left of the screen
   */
 #menu {
+  display: block;
   position: absolute;
   width: 130px;
   margin-left: -50px;
@@ -119,16 +117,13 @@ body {
   padding: 50px;
   padding-top: 85px;
   padding-bottom: 35px;
-
   background: #333;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
-  /* to stop flickering of text in safari */
-
   transform-origin: 0% 0%;
   transform: translate(-100%, 0);
-
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+  box-sizing: content-box;
 }
 
 #menu li {

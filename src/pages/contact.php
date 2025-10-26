@@ -18,7 +18,7 @@
       <p>
         Feel free to reach us at info@ContractorConnector.com
       </p>
-      <button class="btn-back" onclick="window.location.href='login';">Back</button>
+      <button class="btn btn-grey" onclick="window.location.href='login';">Back</button>
     </div>
   </div>
 </body>

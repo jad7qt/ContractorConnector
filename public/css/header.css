@@ -9,11 +9,17 @@ header {
   height: 70px;
   box-sizing: border-box;
   z-index: 2;
+  line-height: 1;
 }
 
 #CCbutton {
+  font-size: 1rem;
   padding-top: 9px;
   padding-bottom: 9px;
+}
+
+h2 {
+  margin: 0px
 }
 
 .logo-container {
@@ -28,7 +34,7 @@ header {
 .site-title {
   font-family: 'Helvetica';
   font-weight: 300;
-  font-size: 1.5em;
+  font-size: 1.25em;
   color: #fff;
 }
 
