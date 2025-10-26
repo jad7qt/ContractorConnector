@@ -1,73 +1,25 @@
-/* Search Results */
+/* Project Table Styles */
 
 th,
 td {
   padding: 5px;
 }
 
-/* End Search Results */
-
 .amount-owed {
   color: black;
   text-align: center;
   font-weight: bold;
   font-size: 2em;
-  /* You can adjust this value to suit your needs */
-}
-
-#noResults {
-  color: #333;
 }
 
 .no-results {
   color: black;
 }
 
-.center-text {
-  text-align: center;
-}
-
-.content-cell {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.text-content {
-  margin-right: 10px;
-  /* Adds some space between the text and the button */
-}
-
-.delete-btn {
-  color: white;
-  background-color: #7a1107;
-  cursor: pointer;
-  border-radius: 5px;
-  padding: 5px;
-  width: 40px;
-  height: 20px;
-  text-align: center;
-  line-height: 20px;
-}
-
-.no-results {
-  color: black;
-}
-
-#delBtn {
-  background-color: #7a1107;
-  border: none;
+.btn-del {
   width: 25px;
-  /* Adjust as needed */
   height: 25px;
-  /* Adjust as needed */
   padding: 0;
-  /* Remove padding */
   font-size: 10px;
-  /* Adjust as needed */
-}
-
-#delBtn:hover {
-  background-color: #b6190b;
-  border: none;
+  float: right;
 }

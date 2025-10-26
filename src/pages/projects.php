@@ -69,7 +69,7 @@ if ($type == 'Administrator') {
           <tr>
             <td class="icon-td">
               <a href="projectDetails?id=<?php echo $item['ProjectID']; ?>">
-                <img src="<?= IMG_PATH ?>icons/info.png" alt="Info" style="max-width: 30px; max-height: 30px;">
+                <img class="icon-md" src="<?= IMG_PATH ?>icons/info.png" alt="Info">
               </a>
             </td>
             <?php if ($_SESSION['Type'] != 'Customer'): ?>
@@ -91,10 +91,9 @@ if ($type == 'Administrator') {
             <?php endif; ?>
             <td class="icon-td">
               <?php if ($item['Completed'] == "1"): ?>
-                <img src="<?= IMG_PATH ?>icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">
+                <img class="icon-md" src="<?= IMG_PATH ?>icons/check.png" alt="Completed">
               <?php else: ?>
-                <img src="<?= IMG_PATH ?>icons/ongoing.png" alt="Completed"
-                  style="max-width: 30px; max-height: 30px;">
+                <img class="icon-md" src="<?= IMG_PATH ?>icons/ongoing.png" alt="Ongoing">
               <?php endif; ?>
             </td>
           </tr>

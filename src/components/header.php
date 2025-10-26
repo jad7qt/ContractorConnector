@@ -10,8 +10,7 @@
   </h2>
 
   <button class="logout-button" onclick="window.location.href='logout'">
-    <img src="<?= IMG_PATH ?>icons/logout.png" alt="Logout"
-      style="filter: invert(1); max-width: 20px; max-height: 20px;">
+    <img class="invert-icon" src="<?= IMG_PATH ?>icons/logout.png" alt="Logout">
   </button>
 
 </header>

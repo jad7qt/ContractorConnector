@@ -72,7 +72,7 @@ $payments = getPayments($pageID);
         <th>Description </th>
         <th>Start Date</th>
         <th>End Date</th>
-        <th>Completed</th>
+        <th>Status</th>
       </tr>
     </thead>
     <tbody>
@@ -81,11 +81,11 @@ $payments = getPayments($pageID);
         <td><?php echo $project['Description']; ?></td>
         <td><?php echo $project['StartDate']; ?></td>
         <td><?php echo $project['EndDate']; ?></td>
-        <td>
+        <td class="icon-td">
           <?php if ($project['Completed'] == "1"): ?>
-            <img src="<?= IMG_PATH ?>icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">
+            <img class="icon-md" src="<?= IMG_PATH ?>icons/check.png" alt="Completed">
           <?php else: ?>
-            Ongoing
+            <img class="icon-md" src="<?= IMG_PATH ?>icons/ongoing.png" alt="Ongoing">
           <?php endif; ?>
         </td>
       </tr>
@@ -154,8 +154,9 @@ $payments = getPayments($pageID);
               <?php echo $item['Text']; ?>
               <?php if ($item['UserID'] == $_SESSION['UserID'] || $_SESSION['Type'] == "Administrator") { ?>
                 <form name="commentDeleteForm" action="projectDetails" method="post">
-                  <button style="float: right;" id="delBtn" type="submit" class="btn btn-danger" name="actionBtn"
-                    value="deleteComment">X</button>
+                  <button type="submit" class="btn btn-red btn-del" name="actionBtn" value="deleteComment">
+                    X
+                  </button>
                   <input type="hidden" name="commentid" value="<?php echo $item['CommentID']; ?>" />
                   <input type="hidden" name="projid" value="<?php echo $item['ProjectID']; ?>" />
                 </form>

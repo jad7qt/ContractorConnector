@@ -65,8 +65,7 @@ switch ($user_type) {
     <div class="search-bar">
       <input type="text" id="occupation-type" name="occupation-type" placeholder="Enter Occupation">
       <button class="btn btn-red" type="submit">
-        <img src="<?= IMG_PATH ?>icons/search.png" alt="Search"
-          style="max-width: 20px; max-height: 20px; filter: invert(1);">
+        <img class="invert-icon" src="<?= IMG_PATH ?>icons/search.png" alt="Search">
       </button>
     </div>
   </form>
@@ -109,8 +108,7 @@ switch ($user_type) {
           <tr>
             <td class="icon-td">
               <a href="projectDetails?id=<?php echo $item['ProjectID']; ?>">
-                <img src="<?= IMG_PATH ?>icons/info.png" alt="Project Info"
-                  style="max-width: 30px; max-height: 30px;">
+                <img class="icon-md" src="<?= IMG_PATH ?>icons/info.png" alt="Project Info">
               </a>
             </td>
             <?php if ($user_type != 'Customer'): ?>
@@ -126,10 +124,9 @@ switch ($user_type) {
             <?php endif; ?>
             <td class="icon-td">
               <?php if ($item['Completed'] == "1"): ?>
-                <img src="<?= IMG_PATH ?>icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">
+                <img class="icon-md" src="<?= IMG_PATH ?>icons/check.png" alt="Completed">
               <?php else: ?>
-                <img src="<?= IMG_PATH ?>icons/ongoing.png" alt="Completed"
-                  style="max-width: 30px; max-height: 30px;">
+                <img class="icon-md" src="<?= IMG_PATH ?>icons/ongoing.png" alt="Ongoing">
               <?php endif; ?>
             </td>
           </tr>
@@ -169,7 +166,7 @@ switch ($user_type) {
           <tr>
             <td class="icon-td">
               <a href="projectDetails?id=<?php echo $item['ProjectID']; ?>">
-                <img src="<?= IMG_PATH ?>icons/info.png" alt="info" style="max-width: 30px; max-height: 30px;">
+                <img class="icon-md" src="<?= IMG_PATH ?>icons/info.png" alt="info">
               </a>
             </td>
             <?php if ($user_type != 'Customer'): ?>
@@ -191,10 +188,9 @@ switch ($user_type) {
             <?php endif; ?>
             <td class="icon-td">
               <?php if ($item['Completed'] == "1"): ?>
-                <img src="<?= IMG_PATH ?>icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">
+                <img class="icon-md" src="<?= IMG_PATH ?>icons/check.png" alt="Completed">
               <?php else: ?>
-                <img src="<?= IMG_PATH ?>icons/ongoing.png" alt="Completed"
-                  style="max-width: 30px; max-height: 30px;">
+                <img class="icon-md" src="<?= IMG_PATH ?>icons/ongoing.png" alt="Ongoing">
               <?php endif; ?>
             </td>
           </tr>

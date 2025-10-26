@@ -21,7 +21,6 @@ if (isset($_POST['occupation-type'])) {
   <title>Search Results</title>
   <link rel="icon" type="image/png" href="<?= IMG_PATH ?>logos/logo_blank.png">
   <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
-  <link rel="stylesheet" href="<?= CSS_PATH ?>technicians.css">
 </head>
 
 <body>
@@ -39,11 +38,9 @@ if (isset($_POST['occupation-type'])) {
       <div class="search-bar">
         <input type="text" id="occupation-type" name="occupation-type" placeholder="Enter Name">
         <button class="btn btn-red" type="submit">
-          <img src="<?= IMG_PATH ?>icons/search.png" alt="Search"
-            style="max-width: 20px; max-height: 20px; filter: invert(1);">
+          <img class="invert-icon" src="<?= IMG_PATH ?>icons/search.png" alt="Search">
         </button>
 
-        <!--     ADD Technician if they arent in the system    -->
         <?php if ($_SESSION['Type'] == 'Administrator') { ?>
           <button type="button" class="btn btn-grey" onclick="window.location.href='addTechnician';" value="Add Technician">
             <span class="plus-sign">+</span>Add Technician
@@ -57,7 +54,7 @@ if (isset($_POST['occupation-type'])) {
   </div>
 
 
-  <div class="results-container">
+  <div class="results-container results-small">
     <h3>Technician Search Results</h3>
     <?php if (count($Technician) > 0): ?>
       <table>
@@ -81,7 +78,7 @@ if (isset($_POST['occupation-type'])) {
               <td><?php echo $item['OccupationType']; ?></td>
               <td>
                 <?php if ($item['Rating']): ?>
-                  <img src="<?= IMG_PATH ?>icons/star.png" alt="Star" style="width: 20px; height: 20px;">
+                  <img class="icon" src="<?= IMG_PATH ?>icons/star.png" alt="Star">
                   <?php echo $item['Rating']; ?>
                 <?php endif; ?>
               </td>

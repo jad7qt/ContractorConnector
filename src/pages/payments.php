@@ -32,7 +32,6 @@ if ($_SESSION['Type'] == 'Administrator') {
   <title>Payments</title>
   <link rel="icon" type="image/png" href="<?= IMG_PATH ?>logos/logo_blank.png">
   <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
-  <link rel="stylesheet" href="<?= CSS_PATH ?>searchResults.css">
 </head>
 
 <body>
@@ -46,7 +45,7 @@ if ($_SESSION['Type'] == 'Administrator') {
   <!--hamburger-->
 
 
-  <div class="results-container">
+  <div class="results-container results-small">
     <h3>Projects with Remaining Payments</h3>
     <?php if (count($Payments) > 0): ?>
       <table>
@@ -70,9 +69,9 @@ if ($_SESSION['Type'] == 'Administrator') {
               <td><?php echo $item['EndDate']; ?></td>
               <td><?php echo $item['Remaining_Payment']; ?></td>
               <?php if ($_SESSION['Type'] != "Technician") { ?>
-                <td style="text-align: center;">
+                <td class="icon-td">
                   <a href="addPayment?id=<?php echo $item['ProjectID']; ?>">
-                    <img src="<?= IMG_PATH ?>icons/pay.png" alt="Pay" style="width: 30px; height: 30px;">
+                    <img class="icon-md" src="<?= IMG_PATH ?>icons/pay.png" alt="Pay">
                   </a>
                 </td>
               <?php } ?>
@@ -87,7 +86,7 @@ if ($_SESSION['Type'] == 'Administrator') {
 
 
   <?php if ($_SESSION['Type'] == 'Customer') { ?>
-    <div class="results-container">
+    <div class="results-container results-small">
       <h3>Previous Payments</h3>
       <?php if (count($prevPayments) > 0): ?>
         <table>
@@ -119,7 +118,7 @@ if ($_SESSION['Type'] == 'Administrator') {
       <?php endif; ?>
     </div>
   <?php } else { ?>
-    <div class="results-container">
+    <div class="results-container results-small">
       <h3>Projects without Invoices</h3>
       <?php if (count($invoices) > 0): ?>
         <table>
