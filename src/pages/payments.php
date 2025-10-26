@@ -109,7 +109,7 @@ if ($_SESSION['Type'] == 'Administrator') {
                 <td><?php echo $item['PaymentID']; ?></td>
                 <td><?php echo $item['Amount']; ?></td>
                 <td><?php echo $item['Type']; ?></td>
-                <td><?php echo $item['Date']; ?></td>
+                <td><?php echo $item['PaymentDate']; ?></td>
               </tr>
             <?php endforeach; ?>
           </tbody>
