@@ -48,7 +48,6 @@ switch ($user_type) {
   <title>ContractorConnector</title>
   <link rel="icon" type="image/png" href="<?= IMG_PATH ?>logos/logo_blank.png">
   <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
-  <link rel="stylesheet" href="<?= CSS_PATH ?>homepage.css">
   <link rel="stylesheet" href="<?= CSS_PATH ?>projects.css">
 </head>
 
@@ -165,7 +164,7 @@ switch ($user_type) {
         <?php foreach ($table2 as $item): ?>
           <tr>
             <td class="icon-td">
-              <a href="projectDetails?id=<?php echo $item['ProjectID']; ?>">
+              <a href="projectDetails?id=<?= $item['ProjectID'] ?>">
                 <img class="icon-md" src="<?= IMG_PATH ?>icons/info.png" alt="info">
               </a>
             </td>
@@ -181,7 +180,7 @@ switch ($user_type) {
               <td><?php echo $item['Technician_Name']; ?></td>
             <?php elseif ($user_type == 'Administrator'): ?>
               <td class="icon-td">
-                <a href="assignTech?id=<?php $item['ProjectID']; ?>">
+                <a href="assignTech?id=<?= $item['ProjectID'] ?>">
                   <img src="<?= IMG_PATH ?>icons/signup.png" alt="Assign Technician" width="40" height="40">
                 </a>
               </td>
