@@ -36,11 +36,12 @@ $pageID = $_GET['id'];
 
 <body>
   <div class="container">
-    <div class="header">
+    <div class="form-header">
       <img src="<?= IMG_PATH ?>logos/logo_blank.png" alt="Logo" class="logo">
-      <h1 class="site-title">Add Payment</h1>
+      <h1 class="title-content">Add Payment</h1>
     </div>
     <form name="mainForm" action="addPayment" method="post">
+      <div id="liner"></div>
       <div class="row mb-3 mx-3">
         Payment Type:
         <select id="paymentType" style="width:90%" name="paymentType" class="form-control" required>

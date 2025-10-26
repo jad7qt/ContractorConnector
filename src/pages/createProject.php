@@ -36,14 +36,15 @@ $Techs = selectAllTechs();
 
 <body>
   <div class="container">
-    <div class="header">
+    <div class="form-header">
       <img src="<?= IMG_PATH ?>logos/logo_blank.png" alt="Logo" class="logo">
-      <h1 class="site-title">Create a New Project</h1>
+      <h1 class="title-content">Create a New Project</h1>
     </div>
     <?php if (isset($_GET['error'])) { ?>
       <p class="error"><?php echo $_GET['error']; ?></p>
     <?php } ?>
     <form name="mainForm" action="createProject" method="post">
+      <div id="liner"></div>
       <div class="row mb-3 mx-3">
         Requested Technician:
         <select id="techid" style="width:550px" name="techid" class="form-control" required>
@@ -90,9 +91,10 @@ $Techs = selectAllTechs();
       </script>
       <div id="liner"></div>
       <div class="button-form-layout">
-        <button type="button" class="btn btn-grey" onclick="window.location.href='projects';" name="actionBtn">Back</button>
-        <button type="submit" class="btn btn-red" name="actionBtn"
-          title="class to add new Project" >Create Project</button>
+        <button type="button" class="btn btn-grey" onclick="window.location.href='projects';"
+          name="actionBtn">Back</button>
+        <button type="submit" class="btn btn-red" name="actionBtn" title="class to add new Project">Create
+          Project</button>
       </div>
     </form>
   </div>

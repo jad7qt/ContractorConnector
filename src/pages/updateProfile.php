@@ -71,9 +71,9 @@ if ($_SESSION['Type'] == 'Customer') {
 
 <body>
   <div class="container">
-    <div class="header">
+    <div class="form-header">
       <img src="<?= IMG_PATH ?>logos/logo_blank.png" alt="Logo" class="logo">
-      <h1 class="site-title">Update Your Profile</h1>
+      <h1 class="title-content">Update Your Profile</h1>
     </div>
 
     <!-- FORM  -->
@@ -81,6 +81,7 @@ if ($_SESSION['Type'] == 'Customer') {
       <p class="error"><?php echo $_GET['error']; ?></p>
     <?php } ?>
     <form name="mainForm" action="updateprofile" method="post">
+      <div id="liner"></div>
       <div class="row mb-3 mx-3">
         Username:
         <input type="text" class="form-control" name="username" maxlength=19 value=<?php echo $_SESSION['Username']; ?>

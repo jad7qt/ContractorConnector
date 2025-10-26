@@ -35,14 +35,15 @@ $projid = $_GET['id'];
 
 <body>
   <div class="container">
-    <div class="header">
+    <div class="form-header">
       <img src="<?= IMG_PATH ?>logos/logo_blank.png" alt="Logo" class="logo">
-      <h1 class="site-title">Assign Price for Project</h1>
+      <h1 class="title-content">Assign Price for Project</h1>
     </div>
     <?php if (isset($_GET['error'])) { ?>
       <p class="error"><?php echo $_GET['error']; ?></p>
     <?php } ?>
     <form name="mainForm" action="assignPrice" method="post">
+      <div id="liner"></div>
       <div class="row mb-3 mx-3">
         Price to Assign:
         <input type="number" class="form-control" name="price" required />

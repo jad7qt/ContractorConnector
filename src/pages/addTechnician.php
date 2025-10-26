@@ -38,14 +38,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SESSION['Type'] == 'Administrator'
 
 <body>
   <div class="container">
-    <div class="header">
+    <div class="form-header">
       <img src="<?= IMG_PATH ?>logos/logo_blank.png" alt="Logo" class="logo">
-      <h1 class="site-title">Create Technician</h1>
+      <h1 class="title-content">Create Technician</h1>
     </div>
     <?php if (isset($_GET['error'])) { ?>
       <p class="error"><?php echo $_GET['error']; ?></p>
     <?php } ?>
     <form name="mainForm" action="addTechnician" method="post">
+      <div id="liner"></div>
       <div class="row mb-3 mx-3">
         Username:
         <input type="text" class="form-control" name="username" maxlength=19 required />

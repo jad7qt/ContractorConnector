@@ -43,14 +43,15 @@ $Techs = selectAllTechs();
 
 <body>
   <div class="container">
-    <div class="header">
+    <div class="form-header">
       <img src="<?= IMG_PATH ?>logos/logo_blank.png" alt="Logo" class="logo">
-      <h1 class="site-title">Assign a Technician to Project</h1>
+      <h1 class="title-content">Assign a Technician to Project</h1>
     </div>
     <?php if (isset($_GET['error'])) { ?>
       <p class="error"><?php echo $_GET['error']; ?></p>
     <?php } ?>
     <form name="mainForm" action="assignTech" method="post">
+      <div id="liner"></div>
       <div class="row mb-3 mx-3">
         Technician to Assign:
         <select id="techid" style="width:550px" name="techid" class="form-control" required>

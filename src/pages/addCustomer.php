@@ -40,14 +40,15 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($_SESSION['UserID']) && !iss
 
 <body>
   <div class="container">
-    <div class="header">
+    <div class="form-header">
       <img src="<?= IMG_PATH ?>logos/logo_blank.png" alt="Logo" class="logo">
-      <h1 class="site-title">Welcome to ContractorConnector</h1>
+      <h1 class="title-content">Welcome to ContractorConnector</h1>
     </div>
     <?php if (isset($_GET['error'])) { ?>
       <p class="error"><?php echo $_GET['error']; ?></p>
     <?php } ?>
     <form name="mainForm" action="addCustomer" method="post">
+      <div id="liner"></div>
       <div class="row mb-3 mx-3">
         Username:
         <input type="text" class="form-control" name="username" maxlength=19 required />
@@ -79,6 +80,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($_SESSION['UserID']) && !iss
         <input type="text" class="form-control" name="zip" pattern="\b\d{5}\b" required />
       </div>
       <input type="hidden" name="type" value="Customer" />
+      <div id="liner"></div>
       <div class="button-form-layout">
         <button type="button" class="btn btn-grey" onclick="window.location.href='login';" name="actionBtn">Back</button>
         <button type="submit" class="btn btn-red" name="actionBtn" title="class to add Customer/User">Create Customer</button>
