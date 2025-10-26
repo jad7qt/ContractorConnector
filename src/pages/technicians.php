@@ -78,7 +78,7 @@ if (isset($_POST['occupation-type'])) {
               <td><?php echo $item['OccupationType']; ?></td>
               <td>
                 <?php if ($item['Rating']): ?>
-                  <img class="icon" src="<?= IMG_PATH ?>icons/star.png" alt="Star">
+                  <img class="icon-sm" src="<?= IMG_PATH ?>icons/star.png" alt="Star">
                   <?php echo $item['Rating']; ?>
                 <?php endif; ?>
               </td>

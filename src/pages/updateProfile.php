@@ -116,9 +116,9 @@ if ($_SESSION['Type'] == 'Customer') {
           <input type="text" class="form-control" name="zip" value="<?php echo $address['Zip']; ?>" pattern="\b\d{5}\b"
             required />
         </div>
+        <div id="liner"></div>
       <?php } ?>
 
-      <div id="liner"></div>
       <div class="button-form-layout">
         <button type="button" class="btn btn-grey" onclick="window.location.href='profile';" name="actionBtn">Back</button>
         <button type="submit" class="btn btn-red" name="actionBtn" title="Update existing customer data" value="Update Profile">Update
