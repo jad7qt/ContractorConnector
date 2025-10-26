@@ -95,6 +95,10 @@ button:hover {
   background: #555;
 }
 
+.space-above {
+  margin-top: 8px;
+}
+
 .logo {
   height: 50px;
   margin-right: 10px;

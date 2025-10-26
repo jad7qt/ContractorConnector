@@ -248,7 +248,7 @@ $Phones = getUserPhones($pageID);
         <!-- TODO: Make this button only show up if user has not already rated, change to update btn
   if the user has already rated which will allow them to change or delete their old rating. -->
         <?php if (!$hasRated) { ?>
-          <button id="buttonRate" type="button" class="btn btn-primary" data-toggle="modal" data-target="#ratingModal">
+          <button type="button" class="btn btn-red space-above" data-toggle="modal" data-target="#ratingModal">
             Rate this Technician
           </button>
 
@@ -278,7 +278,7 @@ $Phones = getUserPhones($pageID);
                     <input type="hidden" name="CustID" value=<?php echo $_SESSION['UserID']; ?> />
                   </div>
                   <div class="modal-footer">
-                    <button id="buttonCreateCustomer" type="submit" class="btn btn-primary" name="actionBtn"
+                    <button type="submit" class="btn btn-red" name="actionBtn"
                       value="rate">Post</button>
                   </div>
                 </form>
@@ -286,7 +286,7 @@ $Phones = getUserPhones($pageID);
             </div>
           </div>
         <?php } else { ?>
-          <button id="buttonRate" type="button" class="btn btn-primary" data-toggle="modal" data-target="#ratingModal">
+          <button type="button" class="btn btn-red space-above" data-toggle="modal" data-target="#ratingModal">
             Update Rating
           </button>
 
@@ -337,8 +337,8 @@ $Phones = getUserPhones($pageID);
     </div>
   <?php } if ($userID == $pageID) { ?>
     <div class="update-profile-div">
-      <button id="updateProfileBtn" onclick="window.location.href='updateprofile'" class="btn btn-red btn-primary"
-        value="updateProfile">Update Profile</button>
+      <button onclick="window.location.href='updateprofile'" class="btn btn-red"
+        value="updateProfile">Edit Profile</button>
     </div>
   <?php } ?>
 

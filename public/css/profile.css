@@ -5,48 +5,8 @@
   padding-top: 20px;
 }
 
-#buttonAddPhone {
-  background-color: #7a1107;
-  border: none;
-}
-
-#buttonAddPhone:hover {
-  background-color: #b6190b;
-  border: none;
-}
-
-#updateProfileBtn {
-  height: 60px;
-  width: 150px;
-}
-
 .update-profile-div {
   text-align: center;
-}
-
-#buttonRate {
-  background-color: #7a1107;
-  border: none;
-  margin-top: 15px;
-}
-
-#buttonRate:hover {
-  background-color: #b6190b;
-  border: none;
-}
-
-#buttonCreateCustomer {
-  background-color: #7a1107;
-  border: none;
-  margin-top: 15px;
-}
-
-#text {
-  color: black;
-}
-
-#ratingNum {
-  margin-top: 50px;
 }
 
 #rating {
