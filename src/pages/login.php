@@ -74,16 +74,18 @@ if (isset($_POST['uname']) && isset($_POST['password']) && !empty($_POST['action
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LOGIN</title>
+  <title>Contractor Connector</title>
+  <link rel="icon" type="image/png" href="<?= IMG_PATH ?>logos/logo_blank.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
-  <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH; ?>login.css">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>login.css">
 </head>
 
 <body>
   <header style="position: fixed; left: 0; top: 0; width: 100%;">
     <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
       <div style="display: flex; align-items: center;">
-        <img src="<?php echo IMG_PATH; ?>logos/logo_blank.png" alt="ContractorConnections Logo"
+        <img src="<?= IMG_PATH ?>logos/logo_blank.png" alt="ContractorConnections Logo"
           style="max-width: 50px; max-height: 50px; margin-right: 10px;">
         <h1 style="margin: 0;">ContractorConnector</h1>
       </div>
@@ -107,14 +109,12 @@ if (isset($_POST['uname']) && isset($_POST['password']) && !empty($_POST['action
       <input type="text" name="uname" placeholder="User Name"><br>
       <label>Password</label>
       <input type="password" name="password" placeholder="Password"><br>
-      <button class="btnlogin" type="submit" name="actionBtn" value="Login">
-        Login <img src="<?php echo IMG_PATH; ?>icons/login.png" alt="Login"
-          style="max-width: 20px; max-height: 20px; filter: invert(1); display: inline-block; vertical-align: middle;">
+      <button class="btn btn-red" type="submit" name="actionBtn" value="Login">
+        Login <img src="<?= IMG_PATH ?>icons/login.png" class="btn-icon" alt="Login">
       </button>
-      <button id="signUpBtn" type="button" onclick="window.location.href='addCustomer';" name="actionBtn"
+      <button class="btn btn-grey"type="button" onclick="window.location.href='addCustomer';" name="actionBtn"
         value="SignUp">
-        SignUp <img src="<?php echo IMG_PATH; ?>icons/signup.png" alt="SignUp"
-          style="max-width: 20px; max-height: 20px; filter: invert(1); display: inline-block; vertical-align: middle;">
+        SignUp <img src="<?= IMG_PATH ?>icons/signup.png" class="btn-icon" alt="SignUp">
       </button>
       <input type="hidden" name="timezone" id="timezoneInput">
     </form>
@@ -125,7 +125,7 @@ if (isset($_POST['uname']) && isset($_POST['password']) && !empty($_POST['action
       <p>&copy; 2023 ContractorConnector. All Rights Reserved.</p>
     </div>
   </footer>
-  <script src="<?php echo JS_PATH; ?>timezone.js"></script>
+  <script src="<?= JS_PATH ?>timezone.js"></script>
 </body>
 
 </html>

@@ -28,8 +28,11 @@ if ($_SESSION['Type'] == 'Administrator') {
 <html>
 
 <head>
+  <meta charset="UTF-8">
   <title>Payments</title>
-  <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH; ?>searchResults.css">
+  <link rel="icon" type="image/png" href="<?= IMG_PATH ?>logos/logo_blank.png">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>searchResults.css">
 </head>
 
 <body>
@@ -68,8 +71,8 @@ if ($_SESSION['Type'] == 'Administrator') {
               <td><?php echo $item['Remaining_Payment']; ?></td>
               <?php if ($_SESSION['Type'] != "Technician") { ?>
                 <td style="text-align: center;">
-                  <a id="paymentBtnn" href="addPayment?id=<?php echo $item['ProjectID']; ?>">
-                    <img src="<?php echo IMG_PATH; ?>icons/pay.png" alt="Pay" style="width: 30px; height: 30px;">
+                  <a href="addPayment?id=<?php echo $item['ProjectID']; ?>">
+                    <img src="<?= IMG_PATH ?>icons/pay.png" alt="Pay" style="width: 30px; height: 30px;">
                   </a>
                 </td>
               <?php } ?>

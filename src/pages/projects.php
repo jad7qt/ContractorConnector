@@ -27,8 +27,11 @@ if ($type == 'Administrator') {
 <html>
 
 <head>
+  <meta charset="UTF-8">
   <title>Projects</title>
-  <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH; ?>projects.css">
+  <link rel="icon" type="image/png" href="<?= IMG_PATH ?>logos/logo_blank.png">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>projects.css">
 </head>
 
 
@@ -64,9 +67,9 @@ if ($type == 'Administrator') {
       <tbody>
         <?php foreach ($projects as $item): ?>
           <tr>
-            <td>
-              <a id="detailsRed" href="projectDetails?id=<?php echo $item['ProjectID']; ?>">
-                <img src="<?php echo IMG_PATH; ?>icons/info.png" alt="Info" style="max-width: 30px; max-height: 30px;">
+            <td class="icon-td">
+              <a href="projectDetails?id=<?php echo $item['ProjectID']; ?>">
+                <img src="<?= IMG_PATH ?>icons/info.png" alt="Info" style="max-width: 30px; max-height: 30px;">
               </a>
             </td>
             <?php if ($_SESSION['Type'] != 'Customer'): ?>
@@ -86,11 +89,11 @@ if ($type == 'Administrator') {
                 </b>
               </td>
             <?php endif; ?>
-            <td>
+            <td class="icon-td">
               <?php if ($item['Completed'] == "1"): ?>
-                <img src="<?php echo IMG_PATH; ?>icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">
+                <img src="<?= IMG_PATH ?>icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">
               <?php else: ?>
-                <img src="<?php echo IMG_PATH; ?>icons/ongoing.png" alt="Completed"
+                <img src="<?= IMG_PATH ?>icons/ongoing.png" alt="Completed"
                   style="max-width: 30px; max-height: 30px;">
               <?php endif; ?>
             </td>
@@ -103,8 +106,7 @@ if ($type == 'Administrator') {
   <?php endif; ?>
 
   <?php if ($_SESSION['Type'] == 'Customer'): ?>
-    <button id="buttonNewProject" type="button" onclick="window.location.href='createProject'"
-      class="btn btn-primary">
+    <button type="button" onclick="window.location.href='createProject'" class="btn btn-red space-above">
       Add a New Project
     </button>
   <?php endif; ?>

@@ -52,6 +52,7 @@ $Phones = getUserPhones($pageID);
 <html>
 
 <head>
+  <meta charset="UTF-8">
   <title>Profile</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -64,7 +65,9 @@ $Phones = getUserPhones($pageID);
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-  <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH; ?>profile.css">
+  <link rel="icon" type="image/png" href="<?= IMG_PATH ?>logos/logo_blank.png">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>profile.css">
 </head>
 
 <body>
@@ -126,7 +129,7 @@ $Phones = getUserPhones($pageID);
 
     <!-- ADD MODAL HERE FOR ADDING PHONE NUMBERS -->
     <?php if ($pageID == $userID) { ?>
-      <button id="buttonRed" type="button" class="btn btn-primary" data-toggle="modal" data-target="#phoneModal">
+      <button type="button" class="btn btn-red space-above" data-toggle="modal" data-target="#phoneModal">
         Add Phone Number
       </button>
 
@@ -159,7 +162,7 @@ $Phones = getUserPhones($pageID);
                 </div>
               </div>
               <div class="modal-footer">
-                <button id="buttonAddPhone" type="submit" class="btn btn-primary" name="actionBtn"
+                <button type="submit" class="btn btn-red" name="actionBtn"
                   value="addPhone">Add</button>
               </div>
               <?php if (isset($_GET['error'])): ?>
@@ -196,7 +199,7 @@ $Phones = getUserPhones($pageID);
             <?php foreach ($AVGRating as $item): ?>
               <tr>
                 <td>
-                  <img src="<?php echo IMG_PATH; ?>icons/star.png" alt="Star"
+                  <img src="<?= IMG_PATH ?>icons/star.png" alt="Star"
                     style="width: 30px; height: 30px; vertical-align: middle;">
                   <span
                     style="color: #f7941e; font-size: 24px; vertical-align: middle;"><?php echo $item['AVGRating']; ?></span>
@@ -245,7 +248,7 @@ $Phones = getUserPhones($pageID);
         <!-- TODO: Make this button only show up if user has not already rated, change to update btn
   if the user has already rated which will allow them to change or delete their old rating. -->
         <?php if (!$hasRated) { ?>
-          <button id="buttonRate" type="button" class="btn btn-primary" data-toggle="modal" data-target="#ratingModal">
+          <button type="button" class="btn btn-red space-above" data-toggle="modal" data-target="#ratingModal">
             Rate this Technician
           </button>
 
@@ -275,7 +278,7 @@ $Phones = getUserPhones($pageID);
                     <input type="hidden" name="CustID" value=<?php echo $_SESSION['UserID']; ?> />
                   </div>
                   <div class="modal-footer">
-                    <button id="buttonCreateCustomer" type="submit" class="btn btn-primary" name="actionBtn"
+                    <button type="submit" class="btn btn-red" name="actionBtn"
                       value="rate">Post</button>
                   </div>
                 </form>
@@ -283,7 +286,7 @@ $Phones = getUserPhones($pageID);
             </div>
           </div>
         <?php } else { ?>
-          <button id="buttonRate" type="button" class="btn btn-primary" data-toggle="modal" data-target="#ratingModal">
+          <button type="button" class="btn btn-red space-above" data-toggle="modal" data-target="#ratingModal">
             Update Rating
           </button>
 
@@ -317,10 +320,12 @@ $Phones = getUserPhones($pageID);
                     <input type="hidden" name="CustID" value=<?php echo $_SESSION['UserID']; ?> />
                   </div>
                   <div class="modal-footer">
-                    <button id="buttonDeleteRating" type="submit" class="btn btn-primary" name="actionBtn"
-                      value="deleteRate">Delete</button>
-                    <button id="buttonUpdateRating" type="submit" class="btn btn-primary" name="actionBtn"
-                      value="updateRate">Update</button>
+                    <button type="submit" class="btn btn-red" name="actionBtn" value="deleteRate">
+                      Delete
+                    </button>
+                    <button type="submit" class="btn btn-red" name="actionBtn" value="updateRate">
+                      Update
+                    </button>
                   </div>
                 </form>
               </div>
@@ -333,9 +338,9 @@ $Phones = getUserPhones($pageID);
 
     </div>
   <?php } if ($userID == $pageID) { ?>
-    <div id="centerAlign">
-      <button id="updateProfileBtn" onclick="window.location.href='updateprofile'" class="btn btn-primary"
-        value="updateProfile">Update Profile</button>
+    <div class="update-profile-div">
+      <button onclick="window.location.href='updateprofile'" class="btn btn-red"
+        value="updateProfile">Edit Profile</button>
     </div>
   <?php } ?>
 

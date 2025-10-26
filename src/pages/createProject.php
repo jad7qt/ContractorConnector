@@ -29,20 +29,22 @@ $Techs = selectAllTechs();
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <link rel="icon" type="image/png" href="https://www.cs.virginia.edu/~up3f/cs4750/public/images/db-icon.png" />
-  <link rel="stylesheet" href="<?php echo CSS_PATH; ?>addCustomer.css">
+  <link rel="icon" type="image/png" href="<?= IMG_PATH ?>logos/logo_blank.png">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>form.css">
 </head>
 
 <body>
   <div class="container">
-    <div class="header">
-      <img src="<?php echo IMG_PATH; ?>logos/logo_blank.png" alt="Logo" class="logo">
-      <h1 class="site-title">Create a New Project</h1>
+    <div class="form-header">
+      <img src="<?= IMG_PATH ?>logos/logo_blank.png" alt="Logo" class="logo">
+      <h1 class="title-content">Create a New Project</h1>
     </div>
     <?php if (isset($_GET['error'])) { ?>
       <p class="error"><?php echo $_GET['error']; ?></p>
     <?php } ?>
     <form name="mainForm" action="createProject" method="post">
+      <div id="liner"></div>
       <div class="row mb-3 mx-3">
         Requested Technician:
         <select id="techid" style="width:550px" name="techid" class="form-control" required>
@@ -62,7 +64,6 @@ $Techs = selectAllTechs();
         Description:
         <input type="text" class="form-control" name="description" maxlength=64 required />
       </div>
-      <div id="liner"></div>
       <div class="row mb-3 mx-3">
         Proposed Start Date:
         <input id="startDateInput" type="date" class="form-control" name="startdate" min='2023-04-15' required />
@@ -88,11 +89,12 @@ $Techs = selectAllTechs();
         document.getElementById("startDateInput").setAttribute("min", today);
         document.getElementById("endDateInput").setAttribute("min", today);
       </script>
-      <div id="button-layout">
-        <input id="buttonCreateProject" type="submit" class="btn btn-primary" name="actionBtn" value="Create Project"
-          title="class to add new Project" />
-        <button id="backBtn" type="button" onclick="window.location.href='projects';" name="actionBtn"
-          value="Back">Back</button>
+      <div id="liner"></div>
+      <div class="button-form-layout">
+        <button type="button" class="btn btn-grey" onclick="window.location.href='projects';"
+          name="actionBtn">Back</button>
+        <button type="submit" class="btn btn-red" name="actionBtn" title="class to add new Project" value="Create Project">Create
+          Project</button>
       </div>
     </form>
   </div>

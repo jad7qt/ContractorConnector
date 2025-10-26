@@ -37,6 +37,7 @@ $payments = getPayments($pageID);
 <html>
 
 <head>
+  <meta charset="UTF-8">
   <title>Projects</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -49,7 +50,9 @@ $payments = getPayments($pageID);
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-  <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH; ?>projects.css">
+  <link rel="icon" type="image/png" href="<?= IMG_PATH ?>logos/logo_blank.png">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
+  <link rel="stylesheet" href="<?= CSS_PATH ?>projects.css">
 </head>
 
 
@@ -57,7 +60,7 @@ $payments = getPayments($pageID);
 <?php include COMPONENTS_DIR . 'header.php'; ?>
 <!--HEADER-->
 <!--hamburger-->
-<?php include COMPONENTS_DIR . 'hamburgerBoot.php'; ?>
+<?php include COMPONENTS_DIR . 'hamburger.php'; ?>
 <!--hamburger-->
 
 <div class="results-container">
@@ -80,7 +83,7 @@ $payments = getPayments($pageID);
         <td><?php echo $project['EndDate']; ?></td>
         <td>
           <?php if ($project['Completed'] == "1"): ?>
-            <img src="<?php echo IMG_PATH; ?>icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">
+            <img src="<?= IMG_PATH ?>icons/check.png" alt="Completed" style="max-width: 30px; max-height: 30px;">
           <?php else: ?>
             Ongoing
           <?php endif; ?>
@@ -172,10 +175,9 @@ $payments = getPayments($pageID);
       </tbody>
     </table>
   <?php else: ?>
-    <p class="no-results">No comments found for project</p>
+    <p class="no-results">No comments found for this project</p>
   <?php endif; ?>
-  <button id="addCommentBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#commentModal"
-    id="btnAddComment">
+  <button type="button" class="btn btn-red space-above" data-toggle="modal" data-target="#commentModal">
     Add Comment
   </button>
 
@@ -199,7 +201,7 @@ $payments = getPayments($pageID);
           </div>
           <input type="hidden" id="projid" name="projid" value="<?php echo $pageID; ?>" />
           <div class="modal-footer">
-            <button id="buttonAddComment" type="submit" class="btn btn-primary" name="actionBtn"
+            <button type="submit" class="btn btn-red" name="actionBtn"
               value="postComment">Post</button>
           </div>
         </form>
@@ -214,7 +216,7 @@ $payments = getPayments($pageID);
     <thead>
       <tr>
         <th>Total Price</th>
-        <th>Amount Payed </th>
+        <th>Amount Paid </th>
         <th>Remaining Payment</th>
       </tr>
     </thead>
