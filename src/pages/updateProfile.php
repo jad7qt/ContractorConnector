@@ -58,7 +58,6 @@ if ($_SESSION['Type'] == 'Customer') {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="your name">
   <meta name="description" content="include some description about your page">
   <title>Update Profile</title>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">

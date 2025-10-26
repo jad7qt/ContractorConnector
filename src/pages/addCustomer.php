@@ -25,7 +25,6 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($_SESSION['UserID']) && !iss
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="your name">
   <meta name="description" content="include some description about your page">
 
   <title>Create Account</title>
