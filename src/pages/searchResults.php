@@ -21,7 +21,6 @@ if (isset($_POST['occupation-type'])) {
   <title>Search Results</title>
   <link rel="icon" type="image/png" href="<?= IMG_PATH ?>logos/logo_blank.png">
   <link rel="stylesheet" href="<?= CSS_PATH ?>style.css">
-  <link rel="stylesheet" href="<?= CSS_PATH ?>searchResults.css">
 </head>
 
 <body>
@@ -34,7 +33,7 @@ if (isset($_POST['occupation-type'])) {
   <!--hamburger-->
 
 
-  <div class="results-container">
+  <div class="results-container results-small">
     <h3>Technician Results</h3>
     <?php if (count($Technician) > 0 || count($User) > 0): ?>
       <table>

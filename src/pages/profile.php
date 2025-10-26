@@ -81,7 +81,7 @@ $Phones = getUserPhones($pageID);
 
 
   <?php if ($pageType != 'Technician') { ?>
-    <div class="results-container">
+    <div class="results-container results-small">
       <?php if (count($Address) > 0): ?>
         <table>
           <thead>
@@ -104,7 +104,7 @@ $Phones = getUserPhones($pageID);
     </div>
   <?php } ?>
 
-  <div class="results-container">
+  <div class="results-container results-small">
     <?php if (count($Phones) > 0): ?>
       <table>
         <thead>
@@ -191,7 +191,7 @@ $Phones = getUserPhones($pageID);
     $hasRated = FALSE;
     ?>
 
-    <div class="results-container">
+    <div class="results-container results-small">
       <?php if (count($AVGRating) > 0): ?>
         <table>
           <div id="rating">Technician Average Rating</div>
@@ -199,10 +199,8 @@ $Phones = getUserPhones($pageID);
             <?php foreach ($AVGRating as $item): ?>
               <tr>
                 <td>
-                  <img src="<?= IMG_PATH ?>icons/star.png" alt="Star"
-                    style="width: 30px; height: 30px; vertical-align: middle;">
-                  <span
-                    style="color: #f7941e; font-size: 24px; vertical-align: middle;"><?php echo $item['AVGRating']; ?></span>
+                  <img src="<?= IMG_PATH ?>icons/star.png" alt="Star" class="star">
+                  <span class="star"><?php echo $item['AVGRating']; ?></span>
                 </td>
               </tr>
             <?php endforeach; ?>
@@ -215,7 +213,7 @@ $Phones = getUserPhones($pageID);
 
 
 
-    <div class="results-container">
+    <div class="results-container results-small">
       <?php if (count($Ratings) > 0): ?>
         <table>
           <thead>

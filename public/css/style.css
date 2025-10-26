@@ -13,6 +13,10 @@ body {
   margin-top: 0px;
 }
 
+.results-small {
+  max-width: 800px;
+}
+
 .results-container table th {
   background-color: #333;
   color: #fff;
@@ -160,10 +164,10 @@ nav a {
   display: flex;
   gap: 10px;
   align-items: center;
-  padding: 0.5em 1em;         /* consistent vertical and horizontal padding */
-  font-size: 1rem;            /* consistent text size */
+  padding: 0.5em 1em;
+  font-size: 1rem;
   border-radius: 5px;
-  box-sizing: border-box;     /* ensures padding + border are included in total size */
+  box-sizing: border-box;
   line-height: 1.2;
 }
 
@@ -186,4 +190,39 @@ nav a {
   font-size: 16px;
   box-sizing: border-box;
   display: flex;
+}
+
+.plus-sign {
+  display: inline-block;
+  font-size: 20px;
+  line-height: 1;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+}
+
+.star {
+  color: #f7941e;
+  font-size: 24px;
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+}
+
+.invert-icon {
+  max-width: 20px;
+  max-height: 20px;
+  filter: invert(1);
+}
+
+.icon-sm {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-md {
+  width: 30px;
+  height: 30px;
 }
