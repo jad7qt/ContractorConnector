@@ -60,11 +60,11 @@ switch ($user_type) {
 <!--hamburger-->
 
 <div class="search-container">
-  <form action="searchResults" method="POST">
+  <form class="search-bar-form" action="searchResults" method="POST">
     <label for="occupation-type">Search for a <b>Local Technician</b></label>
-    <div>
+    <div class="search-bar">
       <input type="text" id="occupation-type" name="occupation-type" placeholder="Enter Occupation">
-      <button type="submit">
+      <button class="btn btn-red" type="submit">
         <img src="<?= IMG_PATH ?>icons/search.png" alt="Search"
           style="max-width: 20px; max-height: 20px; filter: invert(1);">
       </button>
@@ -107,7 +107,7 @@ switch ($user_type) {
       <tbody>
         <?php foreach ($projects as $item): ?>
           <tr>
-            <td>
+            <td class="info-td">
               <a href="projectDetails?id=<?php echo $item['ProjectID']; ?>">
                 <img id="infoImg" src="<?= IMG_PATH ?>icons/info.png" alt="Project Info"
                   style="max-width: 30px; max-height: 30px;">
@@ -167,8 +167,8 @@ switch ($user_type) {
       <tbody>
         <?php foreach ($table2 as $item): ?>
           <tr>
-            <td>
-              <a id="infoBtn" href="projectDetails?id=<?php echo $item['ProjectID']; ?>">
+            <td class="info-td">
+              <a href="projectDetails?id=<?php echo $item['ProjectID']; ?>">
                 <img src="<?= IMG_PATH ?>icons/info.png" alt="info" style="max-width: 30px; max-height: 30px;">
               </a>
             </td>

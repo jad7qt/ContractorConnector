@@ -19,6 +19,14 @@ body {
   text-align: left;
 }
 
+/* Style for the search bar container */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
 h1,
 h2,
 h3 {
@@ -112,4 +120,48 @@ nav a {
   filter: invert(1);
   display: inline-block;
   vertical-align: middle;
+}
+
+.info-td {
+  text-align: center;
+}
+
+/* Search Bar Classes */
+
+.search-bar-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-bar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 0.5em 1em;         /* consistent vertical and horizontal padding */
+  font-size: 1rem;            /* consistent text size */
+  border-radius: 5px;
+  box-sizing: border-box;     /* ensures padding + border are included in total size */
+  line-height: 1.2;
+}
+
+.search-bar input {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+}
+
+.search-container label {
+  font-size: 24px;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.search-bar button {
+  padding: 10px 15px;
+  font-size: 16px;
+  box-sizing: border-box;
+  display: flex;
 }

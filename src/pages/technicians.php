@@ -34,11 +34,11 @@ if (isset($_POST['occupation-type'])) {
   <!--hamburger-->
 
   <div class="search-container">
-    <form action="technicians" method="POST">
+    <form class="search-bar-form" action="technicians" method="POST">
       <label for="occupation-type">Search for a <b>Technician</b></label>
-      <div>
+      <div class="search-bar">
         <input type="text" id="occupation-type" name="occupation-type" placeholder="Enter Name">
-        <button type="submit">
+        <button class="btn btn-red" type="submit">
           <img src="<?= IMG_PATH ?>icons/search.png" alt="Search"
             style="max-width: 20px; max-height: 20px; filter: invert(1);">
         </button>
