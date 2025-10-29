@@ -60,3 +60,37 @@ SELECT
     'Credit Card',
     450.00,
     '2024-10-04';
+
+
+INSERT INTO PhoneNumber (UserID, Type, Number)
+SELECT
+    (SELECT UserID FROM User WHERE Username = 'admin_test'),
+    'Mobile',
+    '248-434-5508';
+
+INSERT INTO PhoneNumber (UserID, Type, Number)
+SELECT
+    (SELECT UserID FROM User WHERE Username = 'cust_test'),
+    'Mobile',
+    '248-434-5508';
+
+INSERT INTO Comment (UserID, ProjectID, CommentTime, Text)
+SELECT
+    (SELECT UserID FROM User WHERE Username = 'cust_test'),
+    (SELECT ProjectID FROM Project WHERE Description = 'Install new lighting fixtures in the living room.'),
+    '2024-10-04 10:00:00',
+    'Great job on the lighting installation!';
+
+INSERT INTO Ratings (CustomerID, TechnicianID, Rating, Comment)
+SELECT
+    (SELECT UserID FROM User WHERE Username = 'cust_test'),
+    (SELECT UserID FROM User WHERE Username = 'tech1_test'),
+    5.0,
+    'Excellent work, very professional and timely.';
+
+INSERT INTO Ratings (CustomerID, TechnicianID, Rating, Comment)
+SELECT
+    (SELECT UserID FROM User WHERE Username = 'cust_test'),
+    (SELECT UserID FROM User WHERE Username = 'tech2_test'),
+    3.5,
+    'Terrible work, no good.';

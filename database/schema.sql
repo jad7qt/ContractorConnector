@@ -37,7 +37,7 @@ CREATE TABLE Customer (
 CREATE TABLE Ratings (
   CustomerID INT,
   TechnicianID INT,
-  Rating INT CHECK (Rating BETWEEN 0 AND 5),
+  Rating FLOAT CHECK (Rating BETWEEN 0 AND 5),
   Comment TEXT,
   FOREIGN KEY (CustomerID) REFERENCES Customer(UserID) ON DELETE CASCADE,
   FOREIGN KEY (TechnicianID) REFERENCES Technician(UserID) ON DELETE CASCADE,
